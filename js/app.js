@@ -72,5 +72,17 @@ $(function() {
 		$('html, body').animate({
 			scrollTop: 0
 		}, 'fast');
-	})
+	});
+
+	// scroll to content button
+	$('.js-scroll-to-content').click(function(e) {
+		e.preventDefault();
+
+		var $navbar = $('.navbar'),
+			navbarHeight = $navbar.hasClass('navbar-sticky') ? $navbar.height() : 0;
+
+		$('html, body').animate({
+			scrollTop: $('.header').next().offset().top - navbarHeight
+		}, 300, 'linear');
+	});
 });

@@ -1,36 +1,31 @@
 
 //
 // Vars
-// 
+//
 // you can also redefine bootstrap vars here
 // 
 // it is always better to copy bootstrap vars here
 // so that you will know where it is.
 // --------------------------------------------------
 
-// template colors
-
-@brand-dark:       #323232;
-@brand-primary:    #00bff3;
+@brand-dark:       #272829;
+@brand-primary:    #2acfcd;
 @link-color:       @brand-primary;
 @link-hover-color: darken(@link-color, 15%);
 @body-bg:          #fff;
 @headings-color:   inherit;
 @border-color:     #eee;
 
-// rhythm
-@vertical-rhythm:  30px;
-@sections-v-pad:   100px;
+@import url(//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&subset=cyrillic,cyrillic-ext,latin-ext);
 
-// font
-// @import url(//fonts.googleapis.com/css?family=Roboto:300,400,700,400italic,700italic&subset=latin,cyrillic);
-@import url('//fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i,800&subset=cyrillic');
-
-@font-family-base: 'Roboto', @font-family-sans-serif;
+@font-family-base: 'PT Sans', @font-family-sans-serif;
 
 @border-radius-base:        3px;
 @border-radius-large:       4px;
 @border-radius-small:       2px;
+
+@vertical-rhythm:  30px;
+@sections-v-pad:   100px;
 
 
 
@@ -38,12 +33,12 @@
 // Inventory
 // --------------------------------------------------
 
-@inventory-bg:                 @brand-dark;
-@inventory-height:             50px;
-@inventory-link-color:         fade(#fff, 45%);
-@inventory-link-hover-color:   fade(#fff, 50%);
-@inventory-link-active-color:  fade(#fff, 70%);
-@inventory-social-link-color:  fade(#fff, 70%);
+@inventory-bg:                 #000;
+@inventory-height:             40px;
+@inventory-link-color:         fade(#fff, 30%);
+@inventory-link-hover-color:   fade(#fff, 40%);
+@inventory-link-active-color:  fade(#fff, 40%);
+@inventory-social-link-color:  fade(#fff, 30%);
 @inventory-text-color:         fade(#fff, 30%);
 
 
@@ -55,13 +50,13 @@
 @navbar-height:                    80px;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
-@navbar-default-bg:                #fff;
+@navbar-default-bg:                fade(#000, 60%);
 
 // Navbar links
-@navbar-default-link-color:                fade(@brand-dark, 80%);
-@navbar-default-link-hover-color:          fade(@brand-dark, 60%);
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          #fff;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         @brand-primary;
+@navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            transparent;
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
@@ -126,8 +121,8 @@
 
 @footer-bg:                 @brand-dark;
 @footer-height:             60px;
-@footer-link-color:         fade(#fff, 45%);
+@footer-link-color:         fade(#fff, 40%);
 @footer-link-hover-color:   fade(#fff, 50%);
-@footer-link-active-color:  fade(#fff, 70%);
-@footer-social-link-color:  fade(#fff, 70%);
-@footer-text-color:         fade(#fff, 30%);
+@footer-link-active-color:  fade(#fff, 50%);
+@footer-social-link-color:  fade(#fff, 40%);
+@footer-text-color:         fade(#fff, 40%);

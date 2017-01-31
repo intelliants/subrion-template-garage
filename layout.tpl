@@ -71,14 +71,6 @@
 					{/if}
 				}
 
-				.section-features {
-					{if $core.config.bg_features_use_color}
-						background: {$core.config.bg_features_color};
-					{elseif $core.config.bg_features}
-						background-image: url('{$core.page.nonProtocolUrl}uploads/{$core.config.bg_features}');
-					{/if}
-				}
-
 				.footer-blocks { background: {$core.config.footer_blocks_bg}; }
 				.footer { background: {$core.config.footer_bg}; }
 				.nav-footer > li > a,
@@ -108,8 +100,12 @@
 						<button type="submit"><span class="fa fa-search"></span></button>
 					</form>
 				{/if}
+				{ia_blocks block='account'}
+				<ul class="nav-inventory pull-right hidden-xs">
+					<li><a href="{$smarty.const.IA_URL}comparison/"><i class="nav-inventory__icon material-icons">compare_arrows</i> {lang key='compare'}</a></li>
+					<li><a href="{$smarty.const.IA_URL}favorites/"><i class="nav-inventory__icon material-icons">star</i> {lang key='wishlist'}</a></li>
+				</ul>
 				{include 'language-selector.tpl'}
-				{ia_blocks block='inventory'}
 			</div>
 		</div>
 
@@ -147,7 +143,6 @@
 							</div>
 						</form>
 					{/if}
-					{ia_blocks block='account'}
 					{ia_blocks block='mainmenu'}
 				</div>
 			</div>
@@ -157,7 +152,12 @@
 			{include 'page.elements.tpl'}
 		{else}
 		<header class="header">
-			{ia_blocks block='teaser'}
+			<div class="container">
+				{ia_blocks block='teaser'}
+				{if 'index' == $core.page.name}
+					<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>
+				{/if}
+			</div>
 		</header>
 
 		{ia_hooker name='smartyFrontBeforeBreadcrumb'}

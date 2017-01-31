@@ -1,0 +1,34 @@
+@import "variables";
+
+@font-face {
+  font-family: 'intelli';
+  src:  url('@{icomoon-font-path}/intelli.eot?tp2ywx');
+  src:  url('@{icomoon-font-path}/intelli.eot?tp2ywx#iefix') format('embedded-opentype'),
+    url('@{icomoon-font-path}/intelli.ttf?tp2ywx') format('truetype'),
+    url('@{icomoon-font-path}/intelli.woff?tp2ywx') format('woff'),
+    url('@{icomoon-font-path}/intelli.svg?tp2ywx#intelli') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'intelli' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-scroll-to-content {
+  &:before {
+    content: @icon-scroll-to-content;
+  }
+}
+

@@ -4,26 +4,29 @@
 // --------------------------------------------------
 
 .header {
-  background: #2d2d30 url('../img/bg-header-3.jpg') 50% 50% no-repeat;
+  position: relative;
+  margin-top: -@navbar-height;
+  background: #2d2d30 url('../img/bg-header.jpg') 50% 50% no-repeat;
   background-size: cover;
+  z-index: 0;
+
+  .icon-scroll-to-content {
+    position: absolute;
+    left: 50%;
+    bottom: 45px;
+    .translate(-50%, 0);
+
+    &,
+    &:hover,
+    &:focus {
+      color: fade(#fff, 60%);
+    }
+  }
 }
 
 .teaser {
   padding: 100px 0;
   position: relative;
-
-  &::after {
-    display: block;
-    content: '';
-    position: absolute;
-    z-index: 10;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    // background: fade(#000, 35%);
-    background: fade(#000, 35%) url(../img/dot3.png) 0 0;
-  }
 
   > .container {
     position: relative;
