@@ -15,7 +15,7 @@
 		<position menu="1" movable="0">mainmenu</position>
 
 		<position>inventory</position>
-		<position>teaser</position>
+		<position>quicksearch</position>
 		<position>verytop</position>
 		<position>top</position>
 		<position>bottom</position>
@@ -62,51 +62,45 @@
 			name="custom_color_text"
 			type="colorpicker"
 			order="3004"
-			description="Text color">#333333</config>
+			description="Text color">#272829</config>
 	<config group="template_garage"
 			name="custom_color_headings"
 			type="colorpicker"
 			order="3005"
-			description="Headings color">#333333</config>
+			description="Headings color">#272829</config>
 	<config group="template_garage"
 			name="custom_color_link"
 			type="colorpicker"
 			order="3006"
-			description="Link color">#38b7ea</config>
+			description="Link color">#2acfcd</config>
 	<config group="template_garage"
 			name="custom_color_link_hover"
 			type="colorpicker"
 			order="3007"
-			description="Link hover color">#1490c1</config>
+			description="Link hover color">#1d8f8e</config>
 
 	<config group="template_garage" 
 			type="divider"
 			order="3100">Inventory bar</config>
 	<config group="template_garage"
-			name="search_inventory"
-			type="radio"
-			order="3101"
-			values="1,0"
-			description="Show search in inventory">0</config>
-	<config group="template_garage"
 			name="custom_color_inventory_bg"
 			type="colorpicker"
-			order="3102"
+			order="3101"
 			description="Background">#000</config>
 	<config group="template_garage"
 			name="custom_color_inventory_link"
 			type="colorpicker"
-			order="3103"
+			order="3102"
 			description="Link color">rgba(255,255,255,0.3)</config>
 	<config group="template_garage"
 			name="custom_color_inventory_link_hover"
 			type="colorpicker"
-			order="3104"
+			order="3103"
 			description="Link hover color">rgba(255,255,255,0.4)</config>
 	<config group="template_garage"
 			name="custom_color_inventory_link_active"
 			type="colorpicker"
-			order="3105"
+			order="3104"
 			description="Link active color">rgba(255,255,255,0.4)</config>
 
 	<config group="template_garage" 
@@ -116,7 +110,7 @@
 			name="max_top_menu_items"
 			type="text"
 			description="Max number of items in Main Menu"
-			order="3201">6</config>
+			order="3201">5</config>
 	<config group="template_garage"
 			name="enable_text_logo"
 			type="radio"
@@ -136,16 +130,15 @@
 			values="1,0"
 			description="Sticky navbar">1</config>
 	<config group="template_garage"
-			name="search_navbar"
-			type="radio"
+			name="custom_color_navbar_bg_home_page"
+			type="colorpicker"
 			order="3205"
-			values="1,0"
-			description="Show search in navbar">1</config>
+			description="Background on home page">rgba(0,0,0,0.6)</config>
 	<config group="template_garage"
-			name="custom_color_navbar_bg"
+			name="custom_color_navbar_bg_inner_page"
 			type="colorpicker"
 			order="3206"
-			description="Background">#fff</config>
+			description="Background on inner page">#000</config>
 	<config group="template_garage"
 			name="custom_color_navbar_link"
 			type="colorpicker"
@@ -155,12 +148,12 @@
 			name="custom_color_navbar_link_hover"
 			type="colorpicker"
 			order="3208"
-			description="Link hover color">#fff</config>
+			description="Link hover color">#ffd200</config>
 	<config group="template_garage"
 			name="custom_color_navbar_link_active"
 			type="colorpicker"
 			order="3209"
-			description="Link active color">#fff</config>
+			description="Link active color">#ffd200</config>
 
 	<config group="template_garage" 
 			type="divider"
@@ -181,28 +174,7 @@
 			type="colorpicker"
 			order="3303"
 			show="bg_header_use_color|1"
-			description="Background color">#6b3561</config>
-
-	<config group="template_garage" 
-			type="divider"
-			order="3350">Features section</config>
-	<config group="template_garage" 
-			name="bg_features"
-			type="image"
-			description="Background image"
-			order="3351"><![CDATA[]]></config>
-	<config group="template_garage" 
-			name="bg_features_use_color"
-			type="radio"
-			values="1,0"
-			description="Use color instead image"
-			order="3352">0</config>
-	<config group="template_garage"
-			name="bg_features_color"
-			type="colorpicker"
-			order="3353"
-			show="bg_features_use_color|1"
-			description="Background color">#6b3561</config>
+			description="Background color">#302f2e</config>
 
 	<config group="template_garage" 
 			type="divider"
@@ -281,26 +253,10 @@
 		<block status="active" classname="section section-blog" position="landing" order="205">blogroll</block>
 		<block status="active" classname="box--border" position="right">common_statistics</block>
 		<block status="active" classname="box--border" position="left">filters</block>
+		<block status="active" header="0" position="quicksearch">autos_search</block>
 	</changeset>
 
 	<blocks>
-		<block name="header"
-			   title="Teaser block"
-			   position="teaser"
-			   header="0"
-			   collapsible="0"
-			   sticky="0"
-			   pages="index"
-			   status="active"
-			   type="html">
-			<![CDATA[
-<div class="teaser">
-	<h1>The greatest place<br>to <span class="text-warning">garage anything</span></h1>
-	<h2>You will love how easy<br>it is to manage your content</h2>
-</div>
-			]]>
-		</block>
-
 		<block name="top"
 			   title="Top block position"
 			   position="top"
@@ -407,6 +363,11 @@ that allows you to build websites for any purpose. Yes, from blog to corporate m
 	</blocks>
 
 	<phrases>
+		<phrase category="frontend" key="teaser_title"><![CDATA[One stop solution for <strong>buying</strong> & <strong>selling</strong>]]></phrase>
+		<phrase category="frontend" key="add_listing">Add listing</phrase>
+		<phrase category="frontend" key="sell_a_car">Sell a car</phrase>
+		<phrase category="frontend" key="counter"><![CDATA[We’ve got more than <span>:counter</span> cars for sale]]></phrase>
+		<phrase category="frontend" key="advanced_search">Advanced search</phrase>
 		<phrase category="frontend" key="wishlist">Wishlist</phrase>
 		<phrase category="frontend" key="login">Log in</phrase>
 		<phrase category="frontend" key="register">Sign up</phrase>

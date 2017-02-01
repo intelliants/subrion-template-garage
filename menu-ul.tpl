@@ -22,7 +22,7 @@
 							{if (isset($data[$menu.el_id]) || isset($menu_children)) && $menu.level == 0  && $position != 'left'}data-toggle="dropdown"{/if}
 						>
 							{$menu.text}
-							{if (isset($data[$menu.el_id]) || isset($menu_children)) && $menu.level == 0  && $position != 'left'}<span class="caret"></span>{/if}
+							{if (isset($data[$menu.el_id]) || isset($menu_children)) && $menu.level == 0  && $position != 'left'}<i class="fa fa-angle-down"></i>{/if}
 						</a>
 						{if isset($data[$menu.el_id])}
 							{if in_array($position, array('inventory', 'right', 'copyright'))}
@@ -41,7 +41,7 @@
 			<!-- MORE menu dropdown -->
 			{if isset($dropdown) && $menu.level < 1}
 				<li class="dropdown dropdown-more">
-					<a class="dropdown-toggle" data-toggle="dropdown" href="#">{lang key='more'} <span class="caret"></span></a>
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">{lang key='more'} <i class="fa fa-angle-down"></i></a>
 
 					<ul class="dropdown-menu">
 						{foreach $dropdown as $menu}

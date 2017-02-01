@@ -55,13 +55,17 @@
 				.nav-inventory > li.active > a:focus,
 				.nav-inventory > li.active > a:hover { color: {$core.config.custom_color_inventory_link_active}; }
 
-				.navbar-default { background-color: {$core.config.custom_color_navbar_bg}; }
+				.navbar-default { background-color: {$core.config.custom_color_navbar_bg_inner_page}; }
 				.navbar-default .navbar-nav > li > a,
 				.navbar-default .navbar-nav > li > a:focus { color: {$core.config.custom_color_navbar_link}; }
 				.navbar-default .navbar-nav > li > a:hover { color: {$core.config.custom_color_navbar_link_hover}; }
 				.navbar-default .navbar-nav > li.active > a,
 				.navbar-default .navbar-nav > li.active > a:focus,
 				.navbar-default .navbar-nav > li.active > a:hover { color: {$core.config.custom_color_navbar_link_active}; }
+
+				@media (min-width: 768px) {
+					.page-index .navbar-default { background-color: {$core.config.custom_color_navbar_bg_home_page}; }
+				}
 
 				.header {
 					{if $core.config.bg_header_use_color}
@@ -93,12 +97,6 @@
 						{if $core.config.website_social_g}<li><a href="{$core.config.website_social_g}" class="google-plus"><span class="fa fa-google-plus"></span></a></li>{/if}
 						{if $core.config.website_social_i}<li><a href="{$core.config.website_social_i}" class="linkedin"><span class="fa fa-linkedin"></span></a></li>{/if}
 					</ul>
-				{/if}
-				{if $core.config.search_inventory}
-					<form method="get" action="{$smarty.const.IA_URL}search/" class="search-inventory pull-right">
-						<input type="text" name="q" placeholder="{lang key='search'}">
-						<button type="submit"><span class="fa fa-search"></span></button>
-					</form>
 				{/if}
 				{ia_blocks block='account'}
 				<ul class="nav-inventory pull-right hidden-xs">
@@ -132,17 +130,9 @@
 				</div>
 
 				<div class="collapse navbar-collapse" id="navbar-collapse">
-					{if $core.config.search_navbar}
-						<form method="get" action="{$smarty.const.IA_URL}search/" class="search-navbar pull-right">
-							<button class="search-navbar__toggle js-search-navbar-toggle" type="button"><span class="fa fa-search"></span></button>
-							<div class="input-group">
-								<input type="text" name="q" class="form-control" placeholder="{lang key='search'}">
-								<div class="input-group-btn">
-									<button class="btn btn-primary" type="submit">{lang key='search'}</button>
-								</div>
-							</div>
-						</form>
-					{/if}
+					<ul class="nav navbar-nav navbar-right nav-action">
+						<li><a href="{$core.packages.autos.url}add/">{lang key='add_listing'}</a></li>
+					</ul>
 					{ia_blocks block='mainmenu'}
 				</div>
 			</div>
@@ -151,130 +141,135 @@
 		{if isset($smarty.get.elements)}
 			{include 'page.elements.tpl'}
 		{else}
-		<header class="header">
-			<div class="container">
-				{ia_blocks block='teaser'}
-				{if 'index' == $core.page.name}
-					<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>
-				{/if}
-			</div>
-		</header>
-
-		{ia_hooker name='smartyFrontBeforeBreadcrumb'}
-
-		{include 'breadcrumb.tpl'}
-
-		{if $core.config.enable_landing && 'index' == $core.page.name}
-			<div class="landing">
-				{ia_blocks block='landing'}
-			</div>
-		{else}
-			{if isset($iaBlocks.verytop)}
-				<div class="verytop">
-					<div class="container">{ia_blocks block='verytop'}</div>
-				</div>
+			{if 'index' == $core.page.name}
+				<header class="header">
+					<div class="container">
+						<div class="container-middle">
+							<h1 class="header__title">{lang key='teaser_title'}</h1>
+							{ia_blocks block='quicksearch'}
+							{if 'index' == $core.page.name}
+								<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>
+							{/if}
+						</div>
+					</div>
+				</header>
 			{/if}
 
-			<div class="content">
-				<div class="container">
-					{if in_array($core.page.name, array('login', 'member_registration'))}
-						<div class="page-system">
-							<div class="content__header">
-								<h1>{$core.page.title}</h1>
-								<ul class="content__actions">
-									{foreach $core.actions as $name => $action}
-										<li>
-											{if 'action-favorites' == $name}
-												{printFavorites item=$item itemtype=$item.item guests=true}
-											{else}
-												<a data-toggle="tooltip" title="{$action.title}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
-													<span class="fa fa-{$name}"></span>
-												</a>
-											{/if}
-										</li>
-									{/foreach}
-								</ul>
+			{ia_hooker name='smartyFrontBeforeBreadcrumb'}
+
+			{include 'breadcrumb.tpl'}
+
+			{if $core.config.enable_landing && 'index' == $core.page.name}
+				<div class="landing">
+					{ia_blocks block='landing'}
+				</div>
+			{else}
+				{if isset($iaBlocks.verytop)}
+					<div class="verytop">
+						<div class="container">{ia_blocks block='verytop'}</div>
+					</div>
+				{/if}
+
+				<div class="content">
+					<div class="container">
+						{if in_array($core.page.name, array('login', 'member_registration'))}
+							<div class="page-system">
+								<div class="content__header">
+									<h1>{$core.page.title}</h1>
+									<ul class="content__actions">
+										{foreach $core.actions as $name => $action}
+											<li>
+												{if 'action-favorites' == $name}
+													{printFavorites item=$item itemtype=$item.item guests=true}
+												{else}
+													<a data-toggle="tooltip" title="{$action.title}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
+														<span class="fa fa-{$name}"></span>
+													</a>
+												{/if}
+											</li>
+										{/foreach}
+									</ul>
+								</div>
+
+								{ia_hooker name='smartyFrontBeforeNotifications'}
+								{include 'notification.tpl'}
+
+								{ia_hooker name='smartyFrontBeforeMainContent'}
+
+								<div class="content__body">
+									{$_content_}
+								</div>
+
+								{ia_hooker name='smartyFrontAfterMainContent'}
 							</div>
+						{else}
+							<div class="row">
+								<div class="{width section='content' position='left' tag='col-md-'} aside">
+									{ia_blocks block='left'}
+								</div>
+								<div class="{width section='content' position='center' tag='col-md-'}">
+									<div class="content__wrap">
 
-							{ia_hooker name='smartyFrontBeforeNotifications'}
-							{include 'notification.tpl'}
+										{ia_blocks block='top'}
 
-							{ia_hooker name='smartyFrontBeforeMainContent'}
+										<div class="content__header">
+											<h1>{$core.page.title}</h1>
+											<ul class="content__actions">
+												{foreach $core.actions as $name => $action}
+													<li>
+														{if 'action-favorites' == $name}
+															{printFavorites item=$item itemtype=$item.item guests=true}
+														{else}
+															<a data-toggle="tooltip" title="{$action.title}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
+																<span class="fa fa-{$name}"></span>
+															</a>
+														{/if}
+													</li>
+												{/foreach}
+											</ul>
+										</div>
 
-							<div class="content__body">
-								{$_content_}
-							</div>
+										{ia_hooker name='smartyFrontBeforeNotifications'}
+										{include 'notification.tpl'}
 
-							{ia_hooker name='smartyFrontAfterMainContent'}
-						</div>
-					{else}
-						<div class="row">
-							<div class="{width section='content' position='left' tag='col-md-'} aside">
-								{ia_blocks block='left'}
-							</div>
-							<div class="{width section='content' position='center' tag='col-md-'}">
-								<div class="content__wrap">
+										{ia_hooker name='smartyFrontBeforeMainContent'}
 
-									{ia_blocks block='top'}
+										<div class="content__body">
+											{$_content_}
+										</div>
 
-									<div class="content__header">
-										<h1>{$core.page.title}</h1>
-										<ul class="content__actions">
-											{foreach $core.actions as $name => $action}
-												<li>
-													{if 'action-favorites' == $name}
-														{printFavorites item=$item itemtype=$item.item guests=true}
-													{else}
-														<a data-toggle="tooltip" title="{$action.title}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
-															<span class="fa fa-{$name}"></span>
-														</a>
-													{/if}
-												</li>
-											{/foreach}
-										</ul>
+										{ia_hooker name='smartyFrontAfterMainContent'}
+
+										{ia_blocks block='bottom'}
 									</div>
-
-									{ia_hooker name='smartyFrontBeforeNotifications'}
-									{include 'notification.tpl'}
-
-									{ia_hooker name='smartyFrontBeforeMainContent'}
-
-									<div class="content__body">
-										{$_content_}
-									</div>
-
-									{ia_hooker name='smartyFrontAfterMainContent'}
-
-									{ia_blocks block='bottom'}
+								</div>
+								<div class="{width section='content' position='right' tag='col-md-'} aside">
+									{ia_blocks block='right'}
 								</div>
 							</div>
-							<div class="{width section='content' position='right' tag='col-md-'} aside">
-								{ia_blocks block='right'}
-							</div>
-						</div>
-					{/if}
-				</div>
-			</div>
-
-			{if isset($iaBlocks.verybottom)}
-				<div class="verybottom">
-					<div class="container">{ia_blocks block='verybottom'}</div>
-				</div>
-			{/if}
-		{/if}
-
-		{if isset($iaBlocks.footer1) || isset($iaBlocks.footer2) || isset($iaBlocks.footer3) || isset($iaBlocks.footer4)}
-			<div class="footer-blocks">
-				<div class="container">
-					<div class="row">
-						<div class="{width section='footer-blocks' position='footer1' tag='col-md-'}">{ia_blocks block='footer1'}</div>
-						<div class="{width section='footer-blocks' position='footer2' tag='col-md-'}">{ia_blocks block='footer2'}</div>
-						<div class="{width section='footer-blocks' position='footer3' tag='col-md-'}">{ia_blocks block='footer3'}</div>
-						<div class="{width section='footer-blocks' position='footer4' tag='col-md-'}">{ia_blocks block='footer4'}</div>
+						{/if}
 					</div>
 				</div>
-			</div>
-		{/if}
+
+				{if isset($iaBlocks.verybottom)}
+					<div class="verybottom">
+						<div class="container">{ia_blocks block='verybottom'}</div>
+					</div>
+				{/if}
+			{/if}
+
+			{if isset($iaBlocks.footer1) || isset($iaBlocks.footer2) || isset($iaBlocks.footer3) || isset($iaBlocks.footer4)}
+				<div class="footer-blocks">
+					<div class="container">
+						<div class="row">
+							<div class="{width section='footer-blocks' position='footer1' tag='col-md-'}">{ia_blocks block='footer1'}</div>
+							<div class="{width section='footer-blocks' position='footer2' tag='col-md-'}">{ia_blocks block='footer2'}</div>
+							<div class="{width section='footer-blocks' position='footer3' tag='col-md-'}">{ia_blocks block='footer3'}</div>
+							<div class="{width section='footer-blocks' position='footer4' tag='col-md-'}">{ia_blocks block='footer4'}</div>
+						</div>
+					</div>
+				</div>
+			{/if}
 		{/if}
 
 		<footer class="footer">

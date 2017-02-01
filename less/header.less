@@ -5,10 +5,23 @@
 
 .header {
   position: relative;
+  height: 660px;
   margin-top: -@navbar-height;
-  background: #2d2d30 url('../img/bg-header.jpg') 50% 50% no-repeat;
+  background: @header-bg url('../img/bg-header.jpg') 50% 25% no-repeat;
   background-size: cover;
   z-index: 0;
+
+  > .container {
+    position: absolute;
+    height: 100%;
+    margin: 0 auto;
+    left: 50%;
+    .translate(-50%, 0);
+  }
+
+  @media (max-width: @grid-float-breakpoint) {
+    margin-top: 0;
+  }
 
   .icon-scroll-to-content {
     position: absolute;
@@ -22,39 +35,25 @@
       color: fade(#fff, 60%);
     }
   }
-}
 
-.teaser {
-  padding: 100px 0;
-  position: relative;
-
-  > .container {
-    position: relative;
-    z-index: 15;
-  }
-
-  h1,
-  h2 {
+  &__title {
+    margin-top: 230px;
+    .font-normalize(36px, 0 0 50px);
+    text-align: center;
+    text-transform: uppercase;
     color: #fff;
-    font-weight: 700;
-    .font-normalize(28px);
-  }
+    letter-spacing: 3px;
 
-  h2 {
-    .font-normalize(16px, 5px 0 0);
-    font-weight: 300;
-  }
+    > a,
+    > span,
+    > strong {
 
-  @media (min-width: @grid-float-breakpoint) {
-    padding: 160px 0;
-
-    h1 {
-      .font-normalize(48px);
-      // text-transform: uppercase;
-    }
-
-    h2 {
-      .font-normalize(24px, 10px 0 0);
+      &,
+      &:hover,
+      &:focus {
+        color: @brand-primary;
+        text-decoration: none;
+      }
     }
   }
 }

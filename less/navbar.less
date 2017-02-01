@@ -2,6 +2,13 @@
 // Default navbar
 // --------------------------------------------------
 
+.page-index .navbar-default {
+
+  @media (min-width: @grid-float-breakpoint) {
+    background-color: fade(@navbar-default-bg, 60%);
+  }
+}
+
 .navbar-default {
   position: relative;
   margin: 0;
@@ -9,6 +16,29 @@
   border: 0 none;
   background-color: @navbar-default-bg;
   z-index: 1;
+
+  .navbar-toggle {
+    border: none;
+    border-radius: @border-radius-small;
+
+    &,
+    &:hover,
+    &:focus {
+      background-color: @brand-primary;
+
+      .icon-bar {
+        background-color: #fff;
+      }
+    }
+
+    &.collapsed {
+      background-color: #fff;
+
+      .icon-bar {
+        background-color: #000;
+      }
+    }
+  }
 }
 
 .navbar-sticky {
@@ -25,8 +55,7 @@
   }
 
   .navbar-collapse {
-    max-height: 320px;
-
+    max-height: 293px;
   }
 }
 
@@ -69,7 +98,6 @@
     > li {
 
       > a {
-        text-transform: uppercase;
         padding: 0 10px;
         margin-top: @navbar-padding-vertical;
         margin-bottom: @navbar-padding-vertical;
@@ -83,126 +111,94 @@
     li {
 
       > a {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid fade(#fff, 10%) !important;
+      }
+
+      .dropdown-menu {
+
+        li {
+
+          &:last-child > a {
+            border-bottom: none !important;
+          }
+
+          > a {
+            padding-top: 10px!important;
+            padding-bottom: 10px!important;
+          }
+        }
       }
     }
   }
-}
 
-.nav-account {
+  li {
 
-  .dropdown-toggle {
-
-    > img {
-      width: 20px;
-      height: 20px;
-      overflow: hidden;
-      display: inline-block;
-      vertical-align: middle;
-    }
-  }
-}
-
-
-
-//
-// Search
-// --------------------------------------------------
-
-.search-navbar {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  height: @navbar-height;
-
-  &.pull-right {
-    margin-left: 30px;
-    margin-right: -15px;
-  }
-
-  &__toggle {
-    line-height: @line-height-computed;
-    height: @line-height-computed;
-    width: @line-height-computed;
-    border: 0 none;
-    background: none;
-    padding: 0;
-    margin-top: @navbar-padding-vertical;
-    margin-bottom: @navbar-padding-vertical;
-    color: @navbar-default-link-color;
-    font-size: 20px;
-
-    &:focus {
-      outline: 0 none;
-    }
-
-    &:hover {
-      color: @navbar-default-link-hover-color;
+    > a {
+      font-size: 12px;
+      text-transform: uppercase;
     }
   }
 
-  .input-group {
-    position: absolute;
-    z-index: 1002;
-    width: 320px;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    padding: 16px;
-    margin-top: 1px;
-    opacity: 0;
-    visibility: hidden;
-    .transition(all .15s ease-in-out);
+  > li {
 
-    &.is-visible {
-      opacity: 1;
-      visibility: visible;
-      .box-shadow(0 1px 6px rgba(0,0,0,.18));
+    &.active > a {
+      color: @brand-accent !important;
     }
 
-    input {
-      background: #f2f2f2;
-      border-color: #f2f2f2;
+    > a {
+
+      &:hover,
+      &:focus {
+        color: @brand-accent !important;
+      }
     }
   }
 
-  @media (max-width: @grid-float-breakpoint) {
-    height: auto;
-    
-    &.pull-right {
-      float: none !important;
-      margin-left: -15px;
-      margin-right: -15px;
-    }
+  &.nav-account {
 
-    &__toggle {
+    .dropdown-toggle {
+
+      > img {
+        width: 20px;
+        height: 20px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &.nav-action {
+
+    @media (max-width: @grid-float-breakpoint) {
       display: none;
+
+      > li {
+        margin: 0 15px;
+      }
     }
 
-    .input-group {
-      position: static;
-      opacity: 1;
-      visibility: visible;
-      width: auto;
-      padding: 10px;
-      margin-top: 0;
-      background: #f6f6f6;
+    > li {
+
+      a {
+        padding: 6px 20px;
+        margin-top: @navbar-padding-vertical - 6;
+        margin-bottom: @navbar-padding-vertical - 6;
+        border-radius: 16px;
+        background-color: @brand-accent;
+
+        &:hover,
+        &:focus {
+          color: #000 !important;
+          background-color: #fff;
+        }
+
+        &,
+        &:hover,
+        &:focus {
+          color: #000;
+        }
+      }
     }
-
-  }
-}
-
-.search-navbar-backdrop {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-
-  .navbar & {
-    z-index: 999;
   }
 }
