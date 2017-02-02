@@ -75,14 +75,13 @@
 					{/if}
 				}
 
-				.footer-blocks { background: {$core.config.footer_blocks_bg}; }
 				.footer { background: {$core.config.footer_bg}; }
-				.nav-footer > li > a,
-				.nav-footer > li > a:focus { color: {$core.config.footer_link}; }
-				.nav-footer > li > a:hover { color: {$core.config.footer_link_hover}; }
-				.nav-footer > li.active > a,
-				.nav-footer > li.active > a:focus,
-				.nav-footer > li.active > a:hover { color: {$core.config.footer_link_active}; }
+				.footer ul > li > a,
+				.footer ul > li > a:focus { color: {$core.config.footer_link}; }
+				.footer ul > li > a:hover { color: {$core.config.footer_link_hover}; }
+				.footer ul > li.active > a,
+				.footer ul > li.active > a:focus,
+				.footer ul > li.active > a:hover { color: {$core.config.footer_link_active}; }
 			</style>
 		{/if}
 	</head>
@@ -143,15 +142,15 @@
 		{else}
 			{if 'index' == $core.page.name}
 				<header class="header">
-					<div class="container">
-						<div class="container-middle">
+					<div class="header__container-full-height">
+						<div class="header__container-full-height__middle">
 							<h1 class="header__title">{lang key='teaser_title'}</h1>
 							{ia_blocks block='quicksearch'}
-							{if 'index' == $core.page.name}
-								<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>
-							{/if}
 						</div>
 					</div>
+					{if 'index' == $core.page.name}
+						<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>
+					{/if}
 				</header>
 			{/if}
 
@@ -257,43 +256,73 @@
 					</div>
 				{/if}
 			{/if}
-
-			{if isset($iaBlocks.footer1) || isset($iaBlocks.footer2) || isset($iaBlocks.footer3) || isset($iaBlocks.footer4)}
-				<div class="footer-blocks">
-					<div class="container">
-						<div class="row">
-							<div class="{width section='footer-blocks' position='footer1' tag='col-md-'}">{ia_blocks block='footer1'}</div>
-							<div class="{width section='footer-blocks' position='footer2' tag='col-md-'}">{ia_blocks block='footer2'}</div>
-							<div class="{width section='footer-blocks' position='footer3' tag='col-md-'}">{ia_blocks block='footer3'}</div>
-							<div class="{width section='footer-blocks' position='footer4' tag='col-md-'}">{ia_blocks block='footer4'}</div>
-						</div>
-					</div>
-				</div>
-			{/if}
 		{/if}
 
 		<footer class="footer">
 			<div class="container">
-				{ia_hooker name='smartyFrontBeforeFooterLinks'}
-
-				{if $core.config.website_social}
-					<ul class="nav-footer nav-footer-social">
-						{if $core.config.website_social_t}<li><a href="{$core.config.website_social_t}" class="twitter"><span class="fa fa-twitter"></span></a></li>{/if}
-						{if $core.config.website_social_f}<li><a href="{$core.config.website_social_f}" class="facebook"><span class="fa fa-facebook"></span></a></li>{/if}
-						{if $core.config.website_social_g}<li><a href="{$core.config.website_social_g}" class="google-plus"><span class="fa fa-google-plus"></span></a></li>{/if}
-						{if $core.config.website_social_i}<li><a href="{$core.config.website_social_i}" class="linkedin"><span class="fa fa-linkedin"></span></a></li>{/if}
-					</ul>
+				{if isset($iaBlocks.footer1) || isset($iaBlocks.footer2) ||
+					isset($iaBlocks.footer3) || isset($iaBlocks.footer4) || $core.config.website_social}
+					<div class="row">
+						{if isset($iaBlocks.footer1)}
+							<div class="col-md-2 col-sm-6">
+								{ia_blocks block='footer1'}
+							</div>
+						{/if}
+						{if isset($iaBlocks.footer2)}
+							<div class="col-md-2 col-sm-6">
+								{ia_blocks block='footer2'}
+							</div>
+						{/if}
+						{if isset($iaBlocks.footer3)}
+							<div class="col-md-2 col-sm-6">
+								{ia_blocks block='footer3'}
+							</div>
+						{/if}
+						{if isset($iaBlocks.footer4)}
+							<div class="col-md-4 col-sm-6">
+								{ia_blocks block='footer4'}
+								&nbsp;
+							</div>
+						{/if}
+						{if $core.config.website_social}
+							<div class="col-md-2 col-sm-12">
+								<div class="nav-footer-caption">
+									{lang key='follow_us'}
+								</div>
+								<ul class="nav-footer nav-footer-social">
+									{if $core.config.website_social_t}<li><a href="{$core.config.website_social_t}" class="twitter"><span class="fa fa-twitter"></span></a></li>{/if}
+									{if $core.config.website_social_f}<li><a href="{$core.config.website_social_f}" class="facebook"><span class="fa fa-facebook"></span></a></li>{/if}
+									{if $core.config.website_social_g}<li><a href="{$core.config.website_social_g}" class="google-plus"><span class="fa fa-google-plus"></span></a></li>{/if}
+									{if $core.config.website_social_i}<li><a href="{$core.config.website_social_i}" class="linkedin"><span class="fa fa-linkedin"></span></a></li>{/if}
+								</ul>
+							</div>
+						{/if}
+					</div>
 				{/if}
 
+				{ia_hooker name='smartyFrontBeforeFooterLinks'}
+
 				{ia_blocks block='copyright'}
+
+				<div class="footer__logo">
+					<a href="{$smarty.const.IA_URL}">
+						{if $core.config.enable_text_logo}
+							{$core.config.logo_text}
+						{else}
+							{if !empty($core.config.site_logo)}
+								<img src="{$core.page.nonProtocolUrl}uploads/{$core.config.site_logo}" alt="{$core.config.site}">
+							{else}
+								<img src="{$img}logo.png" alt="{$core.config.site}">
+							{/if}
+						{/if}
+					</a>
+				</div>
 
 				<p class="copyright">&copy; {$smarty.server.REQUEST_TIME|date_format:'%Y'} {lang key='powered_by_subrion'}</p>
 
 				{ia_hooker name='smartyFrontAfterFooterLinks'}
 			</div>
 		</footer>
-
-		<button class="back-to-top js-back-to-top"><span class="fa fa-angle-double-up"></span></button>
 
 		<!-- SYSTEM STUFF -->
 

@@ -161,13 +161,50 @@ body {
 
 
 //
-// Middle container
+// Range Slider
 // --------------------------------------------------
 
-.container-middle {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 0;
-  .translate(0, -50%);
+.irs {
+  height: 34px;
+
+  .irs-line,
+  .irs-bar,
+  .irs-slider {
+    position: absolute;
+    top: 50%;
+    margin-top: 4px;
+    .translate(0, -50%);
+  }
+
+  .irs-line,
+  .irs-bar {
+    height: 4px;
+    left: 0;
+    border-radius: @border-radius-small;
+  }
+
+  .irs-line {
+    width: 100%;
+    background-color: @border-color;
+  }
+
+  .irs-bar {
+    background-color: @brand-primary;
+  }
+
+  .irs-min,
+  .irs-max,
+  .irs-from,
+  .irs-to {
+    margin-top: -2px;
+    font-size: 11px;
+  }
+
+  .irs-slider {
+    width: 20px;
+    height: 14px;
+    border: 2px solid @brand-primary;
+    border-radius: 7px;
+    background-color: #fff;
+  }
 }

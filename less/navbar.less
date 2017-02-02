@@ -24,18 +24,18 @@
     &,
     &:hover,
     &:focus {
-      background-color: @brand-primary;
+      background-color: transparent;
 
       .icon-bar {
-        background-color: #fff;
+        background-color: @brand-primary;
       }
     }
 
     &.collapsed {
-      background-color: #fff;
+      background-color: transparent;
 
       .icon-bar {
-        background-color: #000;
+        background-color: #fff;
       }
     }
   }
@@ -72,7 +72,8 @@
   height: @navbar-height;
   line-height: @navbar-height;
   font-weight: bold;
-  color: @brand-dark !important;
+  font-size: 20px;
+  color: @brand-primary !important;
   text-transform: uppercase;
 
   > img {
@@ -142,14 +143,15 @@
   > li {
 
     &.active > a {
-      color: @brand-accent !important;
+      color: @brand-accent;
     }
 
     > a {
+      color: #fff;
 
       &:hover,
       &:focus {
-        color: @brand-accent !important;
+        color: @brand-accent;
       }
     }
   }
@@ -187,16 +189,15 @@
         border-radius: 16px;
         background-color: @brand-accent;
 
-        &:hover,
-        &:focus {
-          color: #000 !important;
-          background-color: #fff;
-        }
-
         &,
         &:hover,
         &:focus {
           color: #000;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: #fff;
         }
       }
     }

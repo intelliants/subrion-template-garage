@@ -11,16 +11,12 @@
   background-size: cover;
   z-index: 0;
 
-  > .container {
-    position: absolute;
-    height: 100%;
-    margin: 0 auto;
-    left: 50%;
-    .translate(-50%, 0);
-  }
-
   @media (max-width: @grid-float-breakpoint) {
     margin-top: 0;
+  }
+
+  @media (max-width: @screen-xs) {
+    height: 550px;
   }
 
   .icon-scroll-to-content {
@@ -54,6 +50,28 @@
         color: @brand-primary;
         text-decoration: none;
       }
+    }
+
+    @media (max-width: @screen-xs) {
+      .font-normalize(24px, 0 0 20px);
+    }
+  }
+
+  &__container-full-height {
+    position: absolute;
+    width: 100%;
+    max-width: @screen-lg;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    .translate(-50%, -50%);
+
+    &__middle {
+      position: absolute;
+      width: calc(~"100% - (30px * 2)");
+      top: 50%;
+      left: 50%;
+      .translate(-50%, -50%);
     }
   }
 }

@@ -183,27 +183,22 @@
 			name="footer_bg"
 			type="colorpicker"
 			order="3401"
-			description="Background">#323232</config>
-	<config group="template_garage"
-			name="footer_blocks_bg"
-			type="colorpicker"
-			order="3401"
-			description="Background of footer blocks">#444444</config>
+			description="Background">#272829</config>
 	<config group="template_garage"
 			name="footer_link"
 			type="colorpicker"
 			order="3402"
-			description="Link color">rgba(255,255,255,0.45)</config>
+			description="Link color">rgba(255,255,255,0.5)</config>
 	<config group="template_garage"
 			name="footer_link_hover"
 			type="colorpicker"
 			order="3403"
-			description="Link hover color">rgba(255,255,255,0.5)</config>
+			description="Link hover color">#ffffff</config>
 	<config group="template_garage"
 			name="footer_link_active"
 			type="colorpicker"
 			order="3404"
-			description="Link active color">rgba(255,255,255,0.7)</config>
+			description="Link active color">#ffffff</config>
 
 	<config group="template_garage" 
 			type="divider"
@@ -247,12 +242,15 @@
 
 	<changeset>
 		<menu position="account" status="active">account</menu>
+		<menu position="footer1" status="active">bottom</menu>
+		<menu position="footer2" status="active">autos</menu>
 
 		<block status="active" classname="section section-portfolio" position="landing" order="203">new_portfolio_entries</block>
 		<block status="active" classname="section section-testimonials" position="landing" order="204">testimonials</block>
 		<block status="active" classname="section section-blog" position="landing" order="205">blogroll</block>
 		<block status="active" classname="box--border" position="right">common_statistics</block>
 		<block status="active" classname="box--border" position="left">filters</block>
+		<block status="active" title="Latest news" position="footer4">latest_news</block>
 		<block status="active" header="0" position="quicksearch">autos_search</block>
 	</changeset>
 
@@ -303,40 +301,8 @@
 			]]>
 		</block>
 
-		<block name="footer1"
-			   title="About CMS"
-			   position="footer1"
-			   header="1"
-			   collapsible="0"
-			   sticky="1"
-			   status="active"
-			   type="html">
-			<![CDATA[
-<p>Subrion is a free open source content management system
-that allows you to build websites for any purpose. Yes, from blog to corporate mega portal.</p>
-<ul class="list-unstyled hidden">
-	<li><span class="fa fa-phone"></span> 1-677-124-44227</li>
-	<li><span class="fa fa-map-pin"></span> 437 S Olive St, Los Angeles</li>
-	<li><span class="fa fa-clock-o"></span> Mon - Sat 8.00 - 18.00h</li>
-</ul>
-			]]>
-		</block>
-
-		<block name="footer2"
-			   title="For users"
-			   position="footer2"
-			   header="1"
-			   collapsible="0"
-			   sticky="1"
-			   status="active"
-			   type="html">
-			<![CDATA[
-<p>It's done to focus on the content management process. Start it hassle-free within just a few minutes and take care of the content. It's easy!</p>
-			]]>
-		</block>
-
 		<block name="footer3"
-			   title="For developers"
+			   title="About us"
 			   position="footer3"
 			   header="1"
 			   collapsible="0"
@@ -344,20 +310,54 @@ that allows you to build websites for any purpose. Yes, from blog to corporate m
 			   status="active"
 			   type="html">
 			<![CDATA[
-<p>Forget the hours of programming simple things. Use Subrion framework API to add extra stuff using hooks, plugins, & packages.</p>
+<ul>
+	<li><a href="#">Who we are</a></li>
+	<li><a href="#">Contact us</a></li>
+	<li><a href="#">Help</a></li>
+	<li><a href="#">Our apps</a></li>
+	<li><a href="#">Advertise us</a></li>
+</ul>
 			]]>
 		</block>
 
 		<block name="footer4"
-			   title="For designers"
+			   title="Latest news"
 			   position="footer4"
 			   header="1"
 			   collapsible="0"
 			   sticky="1"
 			   status="active"
-			   type="html">
+			   type="smarty">
 			<![CDATA[
-<p>Simple templating engine and styles allows you to create any template you wish with just a few lines of code.</p>
+<div class="ia-items latest-news">
+	<div class="media ia-item">
+		<a class="pull-left" href="#">
+			<img src="{$img}/news/thumbnail/01.jpg" width="50" alt="">
+		</a>
+		<div class="media-body">
+			<div class="latest-news__date-added">23 Aug, 2016</div>
+			<h5 class="media-heading"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</a></h5>
+		</div>
+	</div>
+	<div class="media ia-item">
+		<a class="pull-left" href="#">
+			<img src="{$img}/news/thumbnail/02.jpg" width="50" alt="">
+		</a>
+		<div class="media-body">
+			<div class="latest-news__date-added">23 Aug, 2016</div>
+			<h5 class="media-heading"><a href="#">Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </a></h5>
+		</div>
+	</div>
+	<div class="media ia-item">
+		<a class="pull-left" href="#">
+			<img src="{$img}/news/thumbnail/03.jpg" width="50" alt="">
+		</a>
+		<div class="media-body">
+			<div class="latest-news__date-added">23 Aug, 2016</div>
+			<h5 class="media-heading"><a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </a></h5>
+		</div>
+	</div>
+</div>
 			]]>
 		</block>
 	</blocks>
@@ -371,7 +371,6 @@ that allows you to build websites for any purpose. Yes, from blog to corporate m
 		<phrase category="frontend" key="wishlist">Wishlist</phrase>
 		<phrase category="frontend" key="login">Log in</phrase>
 		<phrase category="frontend" key="register">Sign up</phrase>
-		<phrase category="frontend" key="back_to_top">Back to top</phrase>
-		<phrase category="frontend" key="admin_dashboard">Admin Dashboard</phrase>
+		<phrase category="frontend" key="follow_us">Follow us</phrase>
 	</phrases>
 </template>

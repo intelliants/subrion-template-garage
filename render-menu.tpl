@@ -37,8 +37,25 @@
 			{ia_menu menus=$menu.contents class="list-group {$menu.classname}"}
 		{/ia_block}
 	{/if}
-{elseif 'copyright' == $position}
-	{ia_menu menus=$menu.contents class="nav-footer {$menu.classname}"}
+{elseif 'copyright' == $position ||
+		'footer1' == $position || 'footer2' == $position  ||
+		'footer3' == $position || 'footer4' == $position}
+	<!--__ms_{$menu.id}-->
+	{if $menu.header || isset($manageMode)}
+		<div class="nav-footer-caption {$menu.classname}">{$menu.title}</div>
+	{else}
+		<div class="menu {$menu.classname}">
+	{/if}
+
+	<!--__ms_c_{$menu.id}-->
+	{ia_menu menus=$menu.contents class='nav-footer'}
+	<!--__me_c_{$menu.id}-->
+
+	{if $menu.header || isset($manageMode)}
+	{else}
+		</div>
+	{/if}
+	<!--__me_{$menu.id}-->
 {else}
 	<!--__ms_{$menu.id}-->
 	{if $menu.header || isset($manageMode)}

@@ -1,6 +1,6 @@
-<form class="q-search{if 'index' != $core.page.name} q-search--inner{/if}" action="{$smarty.const.IA_URL}search/cars/">
-	<div class="well clearfix">
-		<div class="col-md-3">
+<form class="q-search" action="{$smarty.const.IA_URL}search/cars/">
+	<div class="q-search__wrap">
+		<div class="q-search__col q-search__col--make">
 			<select class="form-control js-car-make" name="mk">
 				<option value="">{lang key='make'}</option>
 				{foreach $car_blocks_data.search.categories as $item}
@@ -8,12 +8,12 @@
 				{/foreach}
 			</select>
 		</div>
-		<div class="col-md-3">
+		<div class="q-search__col q-search__col--model">
 			<select name="md" class="form-control js-car-model" data-spinner=".q-search__loader">
 				<option value="">{lang key='model'}</option>
 			</select>
 		</div>
-		<div class="col-md-3">
+		<div class="q-search__col q-search__col--body-type">
 			<select class="form-control" name="body">
 				<option value="">{lang key='field_body_type'}</option>
 				{foreach $car_blocks_data.search.body_types as $key => $value}
@@ -21,23 +21,19 @@
 				{/foreach}
 			</select>
 		</div>
-		<div class="col-md-3">
-			<div class="row">
-				<div class="col-md-7">
-					{if $max_auto_price}
-						<input class="hidden js-range-slider" type="hidden">
+		<div class="q-search__col q-search__col--price">
+			{if $max_auto_price}
+				<input class="hidden js-range-slider" type="hidden">
 
-						<input type="hidden" name="price[f]" value="0">
-						<input type="hidden" name="price[t]" value="{$max_auto_price}">
-					{/if}
-				</div>
-				<div class="col-md-5">
-					<button class="btn btn-dark btn-block" type="submit">{lang key='search'}</button>
-				</div>
-			</div>
+				<input type="hidden" name="price[f]" value="0">
+				<input type="hidden" name="price[t]" value="{$max_auto_price}">
+			{/if}
+		</div>
+		<div class="q-search__col q-search__col--action">
+			<button class="btn btn-dark btn-block btn-rounded" type="submit">{lang key='search'}</button>
 		</div>
 	</div>
-	<div class="clearfix">
+	<div class="q-search__info">
 		<div class="pull-left">
 			<a href="{$core.packages.autos.url}add/">{lang key='sell_a_car'}</a>
 			<span>{lang key='counter' counter={$num_autos}}</span>
@@ -66,7 +62,7 @@
 			}
 		});
 
-		var $form = $('.q-search', 'form'),
+		var $form = $('.q-search'),
 		buttonText = $form.find('button').html();
 
 		$form.change(function()

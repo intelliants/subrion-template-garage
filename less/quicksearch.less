@@ -1,0 +1,148 @@
+
+//
+// Quick Search
+// --------------------------------------------------
+
+.q-search {
+  
+  &__wrap {
+    .clearfix;
+    padding: 20px;
+    border-radius: @border-radius-large;
+    background-color: #fff;
+  }
+
+  &__info {
+    padding: 15px 25px;
+    font-weight: bold;
+
+    @media (max-width: @screen-xs) {
+      text-align: center;
+    }
+
+    span {
+      color: #737373;
+
+      @media (max-width: @screen-xs) {
+        display: block;
+        padding: 5px 0;
+
+        > span {
+          display: inline;
+          padding: 0;
+        }
+      }
+
+      > span {
+        color: #fff;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+
+      &,
+      &:hover,
+      &:focus {
+        color: @brand-primary;
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
+    .pull-left {
+
+      @media (max-width: @screen-xs) {
+        float: none !important;
+
+        > a {
+          margin-right: 0 !important;
+        }
+      }
+
+      > a {
+        margin-right: 20px;
+      }
+    }
+
+    .pull-right {
+
+      @media (max-width: @screen-xs) {
+        float: none !important;
+      }
+    }
+  }
+
+  &__col {
+    float: left;
+    margin: 5px;
+
+    &--make,
+    &--model,
+    &--body-type {
+      position: relative;
+      width: 20%;
+
+      @media (max-width: @screen-lg) {
+        width: calc(~"50% - 10px");
+      }
+
+      @media (max-width: @screen-xs) {
+        width: calc(~"100% - 10px");
+      }
+
+      &:after {
+        position: absolute;
+        content: '\f107';
+        font-family: 'FontAwesome';
+        top: 50%;
+        right: 12px;
+        color: @border-color;
+        .translate(0, -50%);
+        pointer-events: none;
+      }
+
+      select {
+        padding-right: 34px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &,
+        &:hover,
+        &:focus {
+          border-color: @border-color;
+        }
+      }
+    }
+
+    &--price {
+      width: 23%;
+      padding: 0 15px;
+
+      @media (max-width: @screen-lg) {
+        width: calc(~"50% - 10px");
+        padding: 0;
+      }
+
+      @media (max-width: @screen-xs) {
+        width: calc(~"100% - 10px");
+      }
+    }
+
+    &--action {
+      width: 12%;
+
+      @media (max-width: @screen-lg) {
+        width: 100%;
+
+        .btn {
+          border-radius: @border-radius-large;
+        }
+      }
+    }
+  }
+}
