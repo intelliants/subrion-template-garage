@@ -1,0 +1,45 @@
+
+//
+// Newsletters
+// --------------------------------------------------
+
+.newsletters {
+  color: #272829;
+
+  @media (min-width: @grid-float-breakpoint) and (max-width: @screen-md) {
+    [class*="col-md"] {
+      margin-bottom: 20px;
+    }
+  }
+
+  h4 {
+    margin: 0;
+    color: @headings-color;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    color: fade(@text-color, 60%);
+  }
+
+  &__form {
+    margin-top: 15px;
+
+    input[type="text"],
+    button[type="button"] {
+
+    }
+
+    input[type="text"] {
+      padding-left: 0;
+      padding-right: 0;
+      font-style: italic;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid @brand-dark;
+      background-color: transparent;
+    }
+  }
+}

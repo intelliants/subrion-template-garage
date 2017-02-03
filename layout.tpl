@@ -158,17 +158,17 @@
 
 			{include 'breadcrumb.tpl'}
 
+			{if isset($iaBlocks.verytop)}
+				<div class="verytop">
+					{ia_blocks block='verytop'}
+				</div>
+			{/if}
+
 			{if $core.config.enable_landing && 'index' == $core.page.name}
 				<div class="landing">
 					{ia_blocks block='landing'}
 				</div>
 			{else}
-				{if isset($iaBlocks.verytop)}
-					<div class="verytop">
-						<div class="container">{ia_blocks block='verytop'}</div>
-					</div>
-				{/if}
-
 				<div class="content">
 					<div class="container">
 						{if in_array($core.page.name, array('login', 'member_registration'))}
@@ -249,12 +249,12 @@
 						{/if}
 					</div>
 				</div>
+			{/if}
 
-				{if isset($iaBlocks.verybottom)}
-					<div class="verybottom">
-						<div class="container">{ia_blocks block='verybottom'}</div>
-					</div>
-				{/if}
+			{if isset($iaBlocks.verybottom)}
+				<div class="verybottom">
+					{ia_blocks block='verybottom'}
+				</div>
 			{/if}
 		{/if}
 
@@ -281,7 +281,6 @@
 						{if isset($iaBlocks.footer4)}
 							<div class="col-md-4 col-sm-6">
 								{ia_blocks block='footer4'}
-								&nbsp;
 							</div>
 						{/if}
 						{if $core.config.website_social}

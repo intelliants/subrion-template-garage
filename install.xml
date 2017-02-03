@@ -251,7 +251,12 @@
 		<block status="active" classname="box--border" position="right">common_statistics</block>
 		<block status="active" classname="box--border" position="left">filters</block>
 		<block status="active" title="Latest news" position="footer4">latest_news</block>
+		<block status="active" title="Sponsored cars for sale" position="verytop" sticky="0" pages="index">auto_sponsored</block>
 		<block status="active" header="0" position="quicksearch">autos_search</block>
+		<block status="active" header="0" position="verybottom">newsletters_subscription</block>
+
+		<block status="inactive">auto_random</block>
+		<block status="inactive">autos_tools</block>
 	</changeset>
 
 	<blocks>
@@ -369,6 +374,10 @@
 		<phrase category="frontend" key="counter"><![CDATA[We’ve got more than <span>:counter</span> cars for sale]]></phrase>
 		<phrase category="frontend" key="advanced_search">Advanced search</phrase>
 		<phrase category="frontend" key="wishlist">Wishlist</phrase>
+		<phrase category="frontend" key="unit">miles</phrase>
+		<phrase category="frontend" key="newsletters_caption">Newsletter</phrase>
+		<phrase category="frontend" key="newsletters_content">Add your car for sale and be ready to receive many calls from potential buyers!</phrase>
+		<phrase category="frontend" key="type_your_email">Type your e-mail here and click subscribe</phrase>
 		<phrase category="frontend" key="login">Log in</phrase>
 		<phrase category="frontend" key="register">Sign up</phrase>
 		<phrase category="frontend" key="follow_us">Follow us</phrase>
