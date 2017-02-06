@@ -1,0 +1,201 @@
+
+//
+// Cards
+// --------------------------------------------------
+
+.ia-card {
+  .clearfix;
+  position: relative;
+  margin-bottom: 35px;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-large;
+  background-color: #fff;
+  overflow: hidden;
+
+  @media (max-width: @screen-xs) {
+    margin: 0 auto 35px;
+    max-width: 262px;
+  }
+
+  &--sponsored {
+    border-color: @brand-accent;
+    background-color: fade(@brand-accent, 10%);
+  }
+
+  &--featured {
+    border-color: @brand-primary;
+    background-color: fade(@brand-primary, 10%);
+
+    .ia-card__badge--sponsored {
+      right: auto;
+      left: 15px;
+    }
+  }
+  
+  &__badge {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    padding: 0 8px;
+    line-height: 20px;
+    height: 20px;
+    color: #fff;
+    font-size: 12px;
+    border-radius: @border-radius-base;
+
+    &--featured {
+      background-color: @brand-primary;
+    }
+
+    &--sponsored {
+      background-color: @brand-accent;
+    }
+  }
+
+  &__image {
+    position: relative;
+    display: block;
+    max-width: 300px;
+
+    @media (min-width: @screen-xs) AND (max-width: @screen-md) {
+      float: left;
+      margin-right: 10px;
+      max-width: 180px;
+    }
+  }
+
+  &__action {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 15px;
+    right: 15px;
+    text-align: center;
+    margin-right: calc(~"25px + 5px");
+    background-color: fade(@headings-color, 50%);
+    z-index: 1;
+
+    @media (max-width: @screen-md) {
+      right: auto;
+      left: 15px;
+      margin-right: 0;
+      margin-left: calc(~"25px + 5px");
+    }
+
+    &:first-child {
+      margin-right: 0;
+
+      @media (max-width: @screen-md) {
+        margin-left: 0;
+      }
+    }
+
+    &,
+    &:hover,
+    &:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &--favorite {
+
+      &.btn-favorite--added {
+        background-color: @brand-accent;
+      }
+    }
+
+    &--compare {
+
+      &.btn-compare--added {
+        background-color: @brand-primary;
+      }
+    }
+
+    i {
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+
+  &__content {
+    .clearfix;
+    padding: 15px;
+    overflow: hidden;
+
+    &__left {
+      float: left;
+      width: 64%;
+    }
+
+    &__right {
+      position: relative;
+      float: right;
+      width: 36%;
+      text-align: right;
+      height: 50px;
+    }
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 16px;
+    color: fade(@headings-color, 50%);
+    height: 38px;
+    overflow: hidden;
+
+    @media (min-width: @screen-xs) AND (max-width: @screen-md) {
+      .font-normalize(18px);
+    }
+
+    strong {
+      color: @headings-color;
+    }
+  }
+
+  &__info {
+    color: fade(@headings-color, 50%);
+    .font-normalize(12px, 0);
+
+    @media (min-width: @screen-xs) AND (max-width: @screen-md) {
+      .font-normalize(16px);
+    }
+  }
+
+  &__field {
+
+    &--mileage {
+
+      @media (max-width: @screen-lg) {
+        display: block;
+      }
+    }
+  }
+
+  &__price {
+    color: @brand-primary;
+    .font-normalize(14px, 0);
+    font-weight: bold;
+
+    @media (min-width: @screen-xs) AND (max-width: @screen-md) {
+      .font-normalize(18px, 0);
+    }
+  }
+
+  &__average-price {
+    font-size: 11px;
+    line-height: 16px;
+    height: 16px;
+    color: fade(#000, 50%);
+  }
+  
+  &__color {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #b5b5b5;
+    border-radius: @border-radius-small;
+    right: 0;
+    bottom: 0;
+  }
+}

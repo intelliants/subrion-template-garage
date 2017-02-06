@@ -48,4 +48,18 @@ $(function() {
 			scrollTop: $('.header').next().offset().top - navbarHeight
 		}, 300, 'linear');
 	});
+
+	// favorites
+	$('.js-favorites').click(function(e) {
+		e.preventDefault();
+
+		if ($(this).hasClass('btn-favorite--added'))
+		{
+			$(this).removeClass('btn-favorite--added');
+		}
+		else
+		{
+			$(this).addClass('btn-favorite--added');
+		}
+	});
 });
