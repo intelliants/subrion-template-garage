@@ -4,4 +4,4 @@
    data-action="{$replace.action}"
    data-guests="{$replace.guests}"
    rel="nofollow" title="{lang key=$replace.text}">
-	<i class="material-icons">star</i></a>
+    <i class="material-icons">star</i></a>

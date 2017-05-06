@@ -1,385 +1,385 @@
 <?xml version="1.0" encoding="utf-8"?>
-<template name="garage">
-	<title>Garage</title>
-	<summary>Template for Subrion Autos Script</summary>
-	<author>Gleb Surinov</author>
-	<contributor>Intelliants LLC</contributor>
-	<version>1.0.0</version>
-	<date>2017-03-01</date>
-	<compatibility>4.1</compatibility>
+<module type="template" name="garage">
+    <title>Garage</title>
+    <summary>Template for Subrion Autos Script</summary>
+    <author>Gleb Surinov</author>
+    <contributor>Intelliants LLC</contributor>
+    <version>1.0.0</version>
+    <date>2017-03-01</date>
+    <compatibility>4.1</compatibility>
 
-	<dependency type="package" exist="1">autos</dependency>
+    <dependency type="package" exist="1">autos</dependency>
 
-	<layout>
-		<position menu="1" movable="0">account</position>
-		<position menu="1" movable="0">mainmenu</position>
+    <layout>
+        <position menu="1" movable="0">account</position>
+        <position menu="1" movable="0">mainmenu</position>
 
-		<position>inventory</position>
-		<position>quicksearch</position>
-		<position>verytop</position>
-		<position>top</position>
-		<position>bottom</position>
-		<position>verybottom</position>
-		<position>copyright</position>
-		<position>landing</position>
+        <position>inventory</position>
+        <position>quicksearch</position>
+        <position>verytop</position>
+        <position>top</position>
+        <position>bottom</position>
+        <position>verybottom</position>
+        <position>copyright</position>
+        <position>landing</position>
 
-		<section name="content">
-			<position fixed="1">left</position>
-			<position width="6">center</position>
-			<position fixed="1">right</position>
-		</section>
-		<section name="footer-blocks">
-			<position width="3">footer1</position>
-			<position width="3">footer2</position>
-			<position width="3">footer3</position>
-			<position width="3">footer4</position>
-		</section>
-	</layout>
+        <section name="content">
+            <position fixed="1">left</position>
+            <position width="6">center</position>
+            <position fixed="1">right</position>
+        </section>
+        <section name="footer-blocks">
+            <position width="3">footer1</position>
+            <position width="3">footer2</position>
+            <position width="3">footer3</position>
+            <position width="3">footer4</position>
+        </section>
+    </layout>
 
-	<configgroup name="template_garage">Template</configgroup>
+    <configgroup name="template_garage">Template</configgroup>
 
-	<config group="template_garage"
-			type="divider"
-			order="3000">General</config>
-	<config group="template_garage"
-			name="enable_landing"
-			type="radio"
-			order="3001"
-			values="1,0"
-			description="Enable landing page">1</config>
-	<config group="template_garage"
-			name="custom_colors"
-			type="radio"
-			order="3002"
-			values="1,0"
-			description="Enable custom colors and backgrounds">0</config>
-	<config group="template_garage"
-			name="custom_color_body_bg"
-			type="colorpicker"
-			order="3003"
-			description="Body background">#fff</config>
-	<config group="template_garage"
-			name="custom_color_text"
-			type="colorpicker"
-			order="3004"
-			description="Text color">#272829</config>
-	<config group="template_garage"
-			name="custom_color_headings"
-			type="colorpicker"
-			order="3005"
-			description="Headings color">#272829</config>
-	<config group="template_garage"
-			name="custom_color_link"
-			type="colorpicker"
-			order="3006"
-			description="Link color">#2acfcd</config>
-	<config group="template_garage"
-			name="custom_color_link_hover"
-			type="colorpicker"
-			order="3007"
-			description="Link hover color">#1d8f8e</config>
+    <config group="template_garage"
+            type="divider"
+            order="3000">General</config>
+    <config group="template_garage"
+            name="enable_landing"
+            type="radio"
+            order="3001"
+            values="1,0"
+            description="Enable landing page">1</config>
+    <config group="template_garage"
+            name="custom_colors"
+            type="radio"
+            order="3002"
+            values="1,0"
+            description="Enable custom colors and backgrounds">0</config>
+    <config group="template_garage"
+            name="custom_color_body_bg"
+            type="colorpicker"
+            order="3003"
+            description="Body background">#fff</config>
+    <config group="template_garage"
+            name="custom_color_text"
+            type="colorpicker"
+            order="3004"
+            description="Text color">#272829</config>
+    <config group="template_garage"
+            name="custom_color_headings"
+            type="colorpicker"
+            order="3005"
+            description="Headings color">#272829</config>
+    <config group="template_garage"
+            name="custom_color_link"
+            type="colorpicker"
+            order="3006"
+            description="Link color">#2acfcd</config>
+    <config group="template_garage"
+            name="custom_color_link_hover"
+            type="colorpicker"
+            order="3007"
+            description="Link hover color">#1d8f8e</config>
 
-	<config group="template_garage" 
-			type="divider"
-			order="3100">Inventory bar</config>
-	<config group="template_garage"
-			name="custom_color_inventory_bg"
-			type="colorpicker"
-			order="3101"
-			description="Background">#000</config>
-	<config group="template_garage"
-			name="custom_color_inventory_link"
-			type="colorpicker"
-			order="3102"
-			description="Link color">rgba(255,255,255,0.3)</config>
-	<config group="template_garage"
-			name="custom_color_inventory_link_hover"
-			type="colorpicker"
-			order="3103"
-			description="Link hover color">rgba(255,255,255,0.4)</config>
-	<config group="template_garage"
-			name="custom_color_inventory_link_active"
-			type="colorpicker"
-			order="3104"
-			description="Link active color">rgba(255,255,255,0.4)</config>
+    <config group="template_garage"
+            type="divider"
+            order="3100">Inventory bar</config>
+    <config group="template_garage"
+            name="custom_color_inventory_bg"
+            type="colorpicker"
+            order="3101"
+            description="Background">#000</config>
+    <config group="template_garage"
+            name="custom_color_inventory_link"
+            type="colorpicker"
+            order="3102"
+            description="Link color">rgba(255,255,255,0.3)</config>
+    <config group="template_garage"
+            name="custom_color_inventory_link_hover"
+            type="colorpicker"
+            order="3103"
+            description="Link hover color">rgba(255,255,255,0.4)</config>
+    <config group="template_garage"
+            name="custom_color_inventory_link_active"
+            type="colorpicker"
+            order="3104"
+            description="Link active color">rgba(255,255,255,0.4)</config>
 
-	<config group="template_garage" 
-			type="divider"
-			order="3200">Navbar / Mainmenu</config>
-	<config group="template_garage" 
-			name="max_top_menu_items"
-			type="text"
-			description="Max number of items in Main Menu"
-			order="3201">5</config>
-	<config group="template_garage"
-			name="enable_text_logo"
-			type="radio"
-			order="3202"
-			values="1,0"
-			description="Enable Logo text">0</config>
-	<config group="template_garage"
-			name="logo_text"
-			type="text"
-			order="3203"
-			show="enable_text_logo|1"
-			description="Logo text">garage</config>
-	<config group="template_garage"
-			name="navbar_sticky"
-			type="radio"
-			order="3204"
-			values="1,0"
-			description="Sticky navbar">1</config>
-	<config group="template_garage"
-			name="custom_color_navbar_bg_home_page"
-			type="colorpicker"
-			order="3205"
-			description="Background on home page">rgba(0,0,0,0.6)</config>
-	<config group="template_garage"
-			name="custom_color_navbar_bg_inner_page"
-			type="colorpicker"
-			order="3206"
-			description="Background on inner page">#000</config>
-	<config group="template_garage"
-			name="custom_color_navbar_link"
-			type="colorpicker"
-			order="3207"
-			description="Link color">#fff</config>
-	<config group="template_garage"
-			name="custom_color_navbar_link_hover"
-			type="colorpicker"
-			order="3208"
-			description="Link hover color">#ffd200</config>
-	<config group="template_garage"
-			name="custom_color_navbar_link_active"
-			type="colorpicker"
-			order="3209"
-			description="Link active color">#ffd200</config>
+    <config group="template_garage"
+            type="divider"
+            order="3200">Navbar / Mainmenu</config>
+    <config group="template_garage"
+            name="max_top_menu_items"
+            type="text"
+            description="Max number of items in Main Menu"
+            order="3201">5</config>
+    <config group="template_garage"
+            name="enable_text_logo"
+            type="radio"
+            order="3202"
+            values="1,0"
+            description="Enable Logo text">0</config>
+    <config group="template_garage"
+            name="logo_text"
+            type="text"
+            order="3203"
+            show="enable_text_logo|1"
+            description="Logo text">garage</config>
+    <config group="template_garage"
+            name="navbar_sticky"
+            type="radio"
+            order="3204"
+            values="1,0"
+            description="Sticky navbar">1</config>
+    <config group="template_garage"
+            name="custom_color_navbar_bg_home_page"
+            type="colorpicker"
+            order="3205"
+            description="Background on home page">rgba(0,0,0,0.6)</config>
+    <config group="template_garage"
+            name="custom_color_navbar_bg_inner_page"
+            type="colorpicker"
+            order="3206"
+            description="Background on inner page">#000</config>
+    <config group="template_garage"
+            name="custom_color_navbar_link"
+            type="colorpicker"
+            order="3207"
+            description="Link color">#fff</config>
+    <config group="template_garage"
+            name="custom_color_navbar_link_hover"
+            type="colorpicker"
+            order="3208"
+            description="Link hover color">#ffd200</config>
+    <config group="template_garage"
+            name="custom_color_navbar_link_active"
+            type="colorpicker"
+            order="3209"
+            description="Link active color">#ffd200</config>
 
-	<config group="template_garage" 
-			type="divider"
-			order="3300">Header / Teaser</config>
-	<config group="template_garage" 
-			name="bg_header"
-			type="image"
-			description="Background image"
-			order="3301"><![CDATA[]]></config>
-	<config group="template_garage" 
-			name="bg_header_use_color"
-			type="radio"
-			values="1,0"
-			description="Use color instead image"
-			order="3302">0</config>
-	<config group="template_garage"
-			name="bg_header_color"
-			type="colorpicker"
-			order="3303"
-			show="bg_header_use_color|1"
-			description="Background color">#302f2e</config>
+    <config group="template_garage"
+            type="divider"
+            order="3300">Header / Teaser</config>
+    <config group="template_garage"
+            name="bg_header"
+            type="image"
+            description="Background image"
+            order="3301"><![CDATA[]]></config>
+    <config group="template_garage"
+            name="bg_header_use_color"
+            type="radio"
+            values="1,0"
+            description="Use color instead image"
+            order="3302">0</config>
+    <config group="template_garage"
+            name="bg_header_color"
+            type="colorpicker"
+            order="3303"
+            show="bg_header_use_color|1"
+            description="Background color">#302f2e</config>
 
-	<config group="template_garage" 
-			type="divider"
-			order="3400">Footer</config>
-	<config group="template_garage"
-			name="footer_bg"
-			type="colorpicker"
-			order="3401"
-			description="Background">#272829</config>
-	<config group="template_garage"
-			name="footer_link"
-			type="colorpicker"
-			order="3402"
-			description="Link color">rgba(255,255,255,0.5)</config>
-	<config group="template_garage"
-			name="footer_link_hover"
-			type="colorpicker"
-			order="3403"
-			description="Link hover color">#ffffff</config>
-	<config group="template_garage"
-			name="footer_link_active"
-			type="colorpicker"
-			order="3404"
-			description="Link active color">#ffffff</config>
+    <config group="template_garage"
+            type="divider"
+            order="3400">Footer</config>
+    <config group="template_garage"
+            name="footer_bg"
+            type="colorpicker"
+            order="3401"
+            description="Background">#272829</config>
+    <config group="template_garage"
+            name="footer_link"
+            type="colorpicker"
+            order="3402"
+            description="Link color">rgba(255,255,255,0.5)</config>
+    <config group="template_garage"
+            name="footer_link_hover"
+            type="colorpicker"
+            order="3403"
+            description="Link hover color">#ffffff</config>
+    <config group="template_garage"
+            name="footer_link_active"
+            type="colorpicker"
+            order="3404"
+            description="Link active color">#ffffff</config>
 
-	<config group="template_garage" 
-			type="divider"
-			order="4000">Social links</config>
-	<config group="template_garage"
-			name="website_social"
-			type="radio"
-			order="4001"
-			values="1,0"
-			description="Show links">1</config>
-	<config group="template_garage"
-			name="website_social_t"
-			type="text"
-			order="4002"
-			show="website_social|1"
-			description="Twitter Link">https://twitter.com/IntelliantsLLC</config>
-	<config group="template_garage"
-			name="website_social_f"
-			type="text"
-			order="4003"
-			show="website_social|1"
-			description="Facebook Link">https://www.facebook.com/Intelliants</config>
-	<config group="template_garage"
-			name="website_social_g"
-			type="text"
-			order="4004"
-			show="website_social|1"
-			description="Google+ Link">https://plus.google.com/102500660503219569194/posts</config>
-	<config group="template_garage"
-			name="website_social_i"
-			type="text"
-			order="4005"
-			show="website_social|1"
-			description="LinkedIn Link">#</config>
+    <config group="template_garage"
+            type="divider"
+            order="4000">Social links</config>
+    <config group="template_garage"
+            name="website_social"
+            type="radio"
+            order="4001"
+            values="1,0"
+            description="Show links">1</config>
+    <config group="template_garage"
+            name="website_social_t"
+            type="text"
+            order="4002"
+            show="website_social|1"
+            description="Twitter Link">https://twitter.com/IntelliantsLLC</config>
+    <config group="template_garage"
+            name="website_social_f"
+            type="text"
+            order="4003"
+            show="website_social|1"
+            description="Facebook Link">https://www.facebook.com/Intelliants</config>
+    <config group="template_garage"
+            name="website_social_g"
+            type="text"
+            order="4004"
+            show="website_social|1"
+            description="Google+ Link">https://plus.google.com/102500660503219569194/posts</config>
+    <config group="template_garage"
+            name="website_social_i"
+            type="text"
+            order="4005"
+            show="website_social|1"
+            description="LinkedIn Link">#</config>
 
-	<config group="template_garage" 
-			name="ckeditor_css"
-			type="hidden"
-			description="CKEditor CSS"
-			order="5000">ckeditor.css</config>
+    <config group="template_garage"
+            name="ckeditor_css"
+            type="hidden"
+            description="CKEditor CSS"
+            order="5000">ckeditor.css</config>
 
-	<changeset>
-		<menu position="account" status="active">account</menu>
-		<menu position="footer1" status="active">bottom</menu>
-		<menu position="footer2" status="active">autos</menu>
+    <changeset>
+        <menu position="account" status="active">account</menu>
+        <menu position="footer1" status="active">bottom</menu>
+        <menu position="footer2" status="active">autos</menu>
 
-		<block status="active" classname="section section-portfolio" position="landing" order="203">new_portfolio_entries</block>
-		<block status="active" classname="section section-testimonials" position="landing" order="204">testimonials</block>
-		<block status="active" classname="section section-blog" position="landing" order="205">blogroll</block>
-		<block status="active" classname="box--border" position="right">common_statistics</block>
-		<block status="active" classname="box--border" position="left">filters</block>
-		<block status="active" title="Latest news" position="footer4">latest_news</block>
-		<block status="active" title="Sponsored cars for sale" position="verytop" sticky="0" pages="index">auto_sponsored</block>
-		<block status="active" header="0" position="quicksearch">autos_search</block>
-		<block status="active" header="0" position="verybottom">newsletters_subscription</block>
+        <block status="active" classname="section section-portfolio" position="landing" order="203">new_portfolio_entries</block>
+        <block status="active" classname="section section-testimonials" position="landing" order="204">testimonials</block>
+        <block status="active" classname="section section-blog" position="landing" order="205">blogroll</block>
+        <block status="active" classname="box--border" position="right">common_statistics</block>
+        <block status="active" classname="box--border" position="left">filters</block>
+        <block status="active" title="Latest news" position="footer4">latest_news</block>
+        <block status="active" title="Sponsored cars for sale" position="verytop" sticky="0" pages="index">auto_sponsored</block>
+        <block status="active" header="0" position="quicksearch">autos_search</block>
+        <block status="active" header="0" position="verybottom">newsletters_subscription</block>
 
-		<block status="inactive">auto_random</block>
-		<block status="inactive">autos_tools</block>
-	</changeset>
+        <block status="inactive">auto_random</block>
+        <block status="inactive">autos_tools</block>
+    </changeset>
 
-	<blocks>
-		<block name="top"
-			   title="Top block position"
-			   position="top"
-			   header="1"
-			   collapsible="1"
-			   sticky="0"
-			   pages="index"
-			   status="active"
-			   type="html">
-			<![CDATA[
+    <blocks>
+        <block name="top"
+               title="Top block position"
+               position="top"
+               header="1"
+               collapsible="1"
+               sticky="0"
+               pages="index"
+               status="active"
+               type="html">
+            <![CDATA[
 <p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
 <p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod incorrupte, brute laoreet at pri, eam antiopam honestatis efficiantur ea. Velit atomorum voluptaria ad nam, hinc aperiam accumsan ne est, ut dictas dissentias his.</p>
-			]]>
-		</block>
+            ]]>
+        </block>
 
-		<block name="bottom_block"
-			   title="Bottom block position"
-			   position="bottom"
-			   header="1"
-			   collapsible="1"
-			   sticky="0"
-			   pages="index"
-			   status="active"
-			   type="html">
-			<![CDATA[
+        <block name="bottom_block"
+               title="Bottom block position"
+               position="bottom"
+               header="1"
+               collapsible="1"
+               sticky="0"
+               pages="index"
+               status="active"
+               type="html">
+            <![CDATA[
 <p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
 <p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod incorrupte, brute laoreet at pri, eam antiopam honestatis efficiantur ea. Velit atomorum voluptaria ad nam, hinc aperiam accumsan ne est, ut dictas dissentias his.</p>
-			]]>
-		</block>
+            ]]>
+        </block>
 
-		<block name="html_block1"
-			   title="HTML block #1"
-			   position="left"
-			   header="1"
-			   collapsible="1"
-			   sticky="1"
-			   order="99"
-			   status="active"
-			   type="html"
-			   classname="box--border">
-			<![CDATA[
+        <block name="html_block1"
+               title="HTML block #1"
+               position="left"
+               header="1"
+               collapsible="1"
+               sticky="1"
+               order="99"
+               status="active"
+               type="html"
+               classname="box--border">
+            <![CDATA[
 <p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
 <p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod.</p>
-			]]>
-		</block>
+            ]]>
+        </block>
 
-		<block name="footer3"
-			   title="About us"
-			   position="footer3"
-			   header="1"
-			   collapsible="0"
-			   sticky="1"
-			   status="active"
-			   type="html">
-			<![CDATA[
+        <block name="footer3"
+               title="About us"
+               position="footer3"
+               header="1"
+               collapsible="0"
+               sticky="1"
+               status="active"
+               type="html">
+            <![CDATA[
 <ul>
-	<li><a href="#">Who we are</a></li>
-	<li><a href="#">Contact us</a></li>
-	<li><a href="#">Help</a></li>
-	<li><a href="#">Our apps</a></li>
-	<li><a href="#">Advertise us</a></li>
+    <li><a href="#">Who we are</a></li>
+    <li><a href="#">Contact us</a></li>
+    <li><a href="#">Help</a></li>
+    <li><a href="#">Our apps</a></li>
+    <li><a href="#">Advertise us</a></li>
 </ul>
-			]]>
-		</block>
+            ]]>
+        </block>
 
-		<block name="footer4"
-			   title="Latest news"
-			   position="footer4"
-			   header="1"
-			   collapsible="0"
-			   sticky="1"
-			   status="active"
-			   type="smarty">
-			<![CDATA[
+        <block name="footer4"
+               title="Latest news"
+               position="footer4"
+               header="1"
+               collapsible="0"
+               sticky="1"
+               status="active"
+               type="smarty">
+            <![CDATA[
 <div class="ia-items latest-news">
-	<div class="media ia-item">
-		<a class="pull-left" href="#">
-			<img src="{$img}/news/thumbnail/01.jpg" width="50" alt="">
-		</a>
-		<div class="media-body">
-			<div class="latest-news__date-added">23 Aug, 2016</div>
-			<h5 class="media-heading"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</a></h5>
-		</div>
-	</div>
-	<div class="media ia-item">
-		<a class="pull-left" href="#">
-			<img src="{$img}/news/thumbnail/02.jpg" width="50" alt="">
-		</a>
-		<div class="media-body">
-			<div class="latest-news__date-added">23 Aug, 2016</div>
-			<h5 class="media-heading"><a href="#">Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </a></h5>
-		</div>
-	</div>
-	<div class="media ia-item">
-		<a class="pull-left" href="#">
-			<img src="{$img}/news/thumbnail/03.jpg" width="50" alt="">
-		</a>
-		<div class="media-body">
-			<div class="latest-news__date-added">23 Aug, 2016</div>
-			<h5 class="media-heading"><a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </a></h5>
-		</div>
-	</div>
+    <div class="media ia-item">
+        <a class="pull-left" href="#">
+            <img src="{$img}/news/thumbnail/01.jpg" width="50" alt="">
+        </a>
+        <div class="media-body">
+            <div class="latest-news__date-added">23 Aug, 2016</div>
+            <h5 class="media-heading"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</a></h5>
+        </div>
+    </div>
+    <div class="media ia-item">
+        <a class="pull-left" href="#">
+            <img src="{$img}/news/thumbnail/02.jpg" width="50" alt="">
+        </a>
+        <div class="media-body">
+            <div class="latest-news__date-added">23 Aug, 2016</div>
+            <h5 class="media-heading"><a href="#">Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </a></h5>
+        </div>
+    </div>
+    <div class="media ia-item">
+        <a class="pull-left" href="#">
+            <img src="{$img}/news/thumbnail/03.jpg" width="50" alt="">
+        </a>
+        <div class="media-body">
+            <div class="latest-news__date-added">23 Aug, 2016</div>
+            <h5 class="media-heading"><a href="#">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </a></h5>
+        </div>
+    </div>
 </div>
-			]]>
-		</block>
-	</blocks>
+            ]]>
+        </block>
+    </blocks>
 
-	<phrases>
-		<phrase category="frontend" key="teaser_title"><![CDATA[One stop solution for <strong>buying</strong> & <strong>selling</strong>]]></phrase>
-		<phrase category="frontend" key="add_listing">Add listing</phrase>
-		<phrase category="frontend" key="sell_a_car">Sell a car</phrase>
-		<phrase category="frontend" key="counter"><![CDATA[We’ve got more than <span>:counter</span> cars for sale]]></phrase>
-		<phrase category="frontend" key="advanced_search">Advanced search</phrase>
-		<phrase category="frontend" key="wishlist">Wishlist</phrase>
-		<phrase category="frontend" key="unit">miles</phrase>
-		<phrase category="frontend" key="newsletters_caption">Newsletter</phrase>
-		<phrase category="frontend" key="newsletters_content">Add your car for sale and be ready to receive many calls from potential buyers!</phrase>
-		<phrase category="frontend" key="type_your_email">Type your e-mail here and click subscribe</phrase>
-		<phrase category="frontend" key="login">Log in</phrase>
-		<phrase category="frontend" key="register">Sign up</phrase>
-		<phrase category="frontend" key="follow_us">Follow us</phrase>
-	</phrases>
-</template>
+    <phrases>
+        <phrase category="frontend" key="teaser_title"><![CDATA[One stop solution for <strong>buying</strong> & <strong>selling</strong>]]></phrase>
+        <phrase category="frontend" key="add_listing">Add listing</phrase>
+        <phrase category="frontend" key="sell_a_car">Sell a car</phrase>
+        <phrase category="frontend" key="counter"><![CDATA[We’ve got more than <span>:counter</span> cars for sale]]></phrase>
+        <phrase category="frontend" key="advanced_search">Advanced search</phrase>
+        <phrase category="frontend" key="wishlist">Wishlist</phrase>
+        <phrase category="frontend" key="unit">miles</phrase>
+        <phrase category="frontend" key="newsletters_caption">Newsletter</phrase>
+        <phrase category="frontend" key="newsletters_content">Add your car for sale and be ready to receive many calls from potential buyers!</phrase>
+        <phrase category="frontend" key="type_your_email">Type your e-mail here and click subscribe</phrase>
+        <phrase category="frontend" key="login">Log in</phrase>
+        <phrase category="frontend" key="register">Sign up</phrase>
+        <phrase category="frontend" key="follow_us">Follow us</phrase>
+    </phrases>
+</module>
