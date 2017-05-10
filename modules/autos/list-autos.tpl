@@ -8,7 +8,7 @@
         {ia_print_js files='_IA_URL_modules/autos/js/front/comparison'}
     {/if}
 
-    {if !empty($listing.pictures)}
+    {if $listing.pictures}
         {$picture = $listing.pictures[0]}
     {else}
         {$picture = ''}

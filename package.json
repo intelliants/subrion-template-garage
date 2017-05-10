@@ -1,5 +1,5 @@
 {
-  "name": "subrion-template-garage",
+  "name": "subrion-template-kickstart",
   "version": "1.0.0",
   "description": "Subrion Kickstart Front-end template",
   "scripts": {
@@ -15,7 +15,6 @@
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-less": "^3.1.0",
-    "gulp-notify": "^3.0.0",
     "gulp-sourcemaps": "^2.3.1",
     "gulp-util": "^3.0.7"
   }

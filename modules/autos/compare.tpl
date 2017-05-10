@@ -1,4 +1,4 @@
-{if !empty($items)}
+{if isset($items) && $items}
     <div class="ia-compare">
         <div class="ia-compare__table table-responsive">
             <table class="table table-bordered">
@@ -9,7 +9,7 @@
                             <th width="{$thumbnail.width}">
                                 <div class="ia-compare__table__image">
                                     <a href="{$item.link}">
-                                        {if $item.pictures}
+                                        {if $item.auto_pictures}
                                             {$picture = $item.auto_pictures[0]}
                                         {else}
                                             {$picture = ''}
@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     {foreach $fields as $field}
-                        {if 'pictures' !== $field.name}
+                        {if 'auto_pictures' !== $field.name}
                             <tr>
                                 <td>{$field.title|escape:'html'}</td>
                                 {foreach $items as $item}
@@ -44,7 +44,7 @@
             <a href="#" class="btn btn-info" onclick="window.print(); return false;"><span class="fa fa-print"></span> {lang key='print'}</a>
         </div>
     </div>
-    {ia_print_js files='_IA_URL_modules/autos/js/front/comparison'}
+    {ia_print_js files='_IA_URL_packages/autos/js/front/comparison'}
 {else}
     <div class="alert alert-info">
         {lang key='no_listings_selected_to_compare'}

@@ -11,7 +11,7 @@
 
                         <div class="b-testimonial__author">
                             {if $one_testimonials.avatar}
-                                {ia_image file=$one_testimonials.avatar width=60 height=60 class='img-circle'}
+                                {printImage imgfile=$one_testimonials.avatar width=60 height=60 class='img-circle'}
                             {else}
                                 <img class="img-circle" src="{$img}no-avatar.png" alt="{$one_testimonials.name}" width="60" height="60">
                             {/if}
@@ -35,4 +35,4 @@
     <div class="alert alert-info">{lang key='no_testimonials_yet'}</div>
 {/if}
 
-{ia_add_media files='css: _IA_URL_modules/testimonials/templates/front/css/style'}
+{ia_add_media files='css: _IA_URL_plugins/testimonials/templates/front/css/style'}

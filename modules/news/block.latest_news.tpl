@@ -1,4 +1,4 @@
-{if !empty($news_latest)}
+{if isset($news_latest) && $news_latest}
     <div class="ia-items latest-news">
         {foreach $news_latest as $entry}
             <div class="media ia-item">

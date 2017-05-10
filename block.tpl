@@ -6,7 +6,7 @@
             <div class="container">
         {/if}
         <h4 id="caption_{$name}" class="box__caption">{$title|escape:'html'}
-            {if !empty($icons)}
+            {if isset($icons) && $icons}
                 <span class="box__actions">
                     {foreach $icons as $icon}
                         <a href="{$icon.url}" {$icon.attributes} id="{$icon.name}_{$name}">{$icon.text}</a>

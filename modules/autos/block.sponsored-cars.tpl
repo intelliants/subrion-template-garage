@@ -1,31 +1,57 @@
-{if !empty($car_blocks_data.sponsored)}
-    <div class="ia-items sponsored-cars">
-        {foreach $car_blocks_data.sponsored as $item}
-            <div class="ia-item">
-                {if $item.pictures}
-                    <a href="{$item.link}" class="ia-item__image">
-                        {ia_image file=$item.pictures[0] width=80 title=$item.model}
-                    </a>
-                {/if}
+{if isset($car_blocks_data.sponsored)}
+    {if count($car_blocks_data.sponsored) > 5}
+        <div class="ia-cards__items sponsored-cars js-carousel-sponsored-cars">
+            {foreach $car_blocks_data.sponsored as $listing}
+                {include 'extra:autos/list-autos'}
+            {/foreach}
+        </div>
+        {ia_add_js}
+            $(function() {
+                var owlOptions = {
+                    center: true,
+                    dots: false,
+                    nav: true,
+                    loop: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true,
+                    navText: ['<span class="fa fa-angle-left"></span>','<span class="fa fa-angle-right"></span>'],
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        880: {
+                            items: 2
+                        },
+                        993: {
+                            items: 4
+                        },
+                        1200: {
+                            items: 5
+                        },
+                        1400: {
+                            items: 6
+                        }
+                    }
+                }
 
-                <div class="ia-item__content">
-                    <h4 class="ia-item__title">
-                        <a href="{$item.link}">{$item.model}, {$item.release_year}</a>
-                    </h4>
-                    <p><span class="label label-warning">{$item.price_formatted}</span></p>
-                    <p class="text-fade-50">
-                        <a href="{$core.packages.autos.url}body-style/{$item.body_type}/">{lang key="field_autos_body_type+{$item.body_type}"}</a>,
-                        {lang key="field_autos_exterior_color+{$item.exterior_color}"},
-                        {lang key="field_autos_transmission+{$item.transmission}"},
-                        {if $item.engine}
-                            {lang key='field_autos_engine'}:
-                            {lang key="field_autos_engine+{$item.engine}"},
-                            {if $item.engine_type}{lang key="field_autos_engine_type+{$item.engine_type}"}, {/if}
-                            {if $item.engine_size}{$item.engine_size}{/if}
-                        {/if}
-                    </p>
-                </div>
+                $('.js-carousel-sponsored-cars').owlCarousel(owlOptions);
+            });
+        {/ia_add_js}
+    {else}
+        <div class="container">
+            <div class="row">
+                {foreach $car_blocks_data.sponsored as $listing}
+                    <div class="col-md-3">
+                        {include 'extra:autos/list-autos'}
+                    </div>
+
+                    {if $listing@iteration % 4 == 0 && !$listing@last}
+                        </div>
+                        <div class="row">
+                    {/if}
+                {/foreach}
             </div>
-        {/foreach}
-    </div>
+        </div>
+    {/if}
 {/if}

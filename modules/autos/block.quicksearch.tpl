@@ -15,9 +15,9 @@
         </div>
         <div class="q-search__col q-search__col--body-type">
             <select class="form-control" name="body">
-                <option value="" {if empty($smarty.get.body) == $key} selected disabled{/if}>{lang key='field_autos_body_type'}</option>
+                <option value="">{lang key='field_autos_body_type'}</option>
                 {foreach $car_blocks_data.search.body_types as $key => $value}
-                    <option value="{$key}"{if !empty($smarty.get.body) && $smarty.get.body == $key}} selected{/if}>{$value}</option>
+                    <option value="{$key}"{if isset($smarty.get.body) && $smarty.get.body == $key} selected{/if}>{$value}</option>
                 {/foreach}
             </select>
         </div>
@@ -39,7 +39,7 @@
             <span>{lang key='counter' counter={$num_autos}}</span>
         </div>
         <div class="pull-right">
-            <a href="{$smarty.const.IA_URL}search/cars/">{lang key='advanced_search'}</a>
+            <a href="{$core.packages.autos.url}autos/">{lang key='advanced_search'}</a>
         </div>
     </div>
 </form>

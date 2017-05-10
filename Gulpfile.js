@@ -1,9 +1,7 @@
 var fs           = require("fs"),
-    path         = require('path'),
     serverConf   = (fs.existsSync('./config.json')) ? require('./config.json').server : null,
     gulp         = require("gulp"),
     gutil        = require('gulp-util'),
-    notify       = require("gulp-notify"),
     concat       = require("gulp-concat"),
     imagemin     = require("gulp-imagemin"),
     less         = require("gulp-less"),
@@ -20,15 +18,10 @@ var config = {
     },
     less: {
       path: "less/**/*.less",
-      src: {
-        dev: [
-          "less/iabootstrap.less",
-        ],
-        prod: [
-          "less/iabootstrap.less",
-          "less/ckeditor.less"
-        ]
-      },
+      src:  [
+        "less/iabootstrap.less",
+        "less/ckeditor.less"
+      ],
       dest: "css"
     }
   }
@@ -44,7 +37,7 @@ gulp.task("images", function() {
 });
 
 gulp.task("less-dev", function(){
-  return gulp.src(config.paths.less.src.dev)
+  return gulp.src(config.paths.less.src)
     .pipe(sourcemaps.init())
     .pipe(less().on('error', function(err) {
         gutil.log(err);
@@ -52,17 +45,11 @@ gulp.task("less-dev", function(){
     }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.paths.less.dest))
-    .pipe(notify({
-      sound: true,
-      title: "Yay! LESS compiled! =)",
-      message: "File: <%= file.relative %>",
-      icon: path.join(__dirname, "docs/img/icon.png")
-    }))
     .pipe(browserSync.stream());
 });
 
 gulp.task("less", function() {
-  return gulp.src(config.paths.less.src.prod)
+  return gulp.src(config.paths.less.src)
     .pipe(less().on('error', function(err) {
       gutil.log(err);
       this.emit('end');
@@ -72,8 +59,7 @@ gulp.task("less", function() {
         cascade: false
     }))
     .pipe(cleanCSS({
-      advanced: false,
-      processImport: false
+      advanced: false
     }))
     .pipe(gulp.dest(config.paths.less.dest));
 });
@@ -82,7 +68,7 @@ gulp.task('browser-sync', function() {
   if (serverConf !== null) {
     browserSync.init(serverConf);
   } else {
-    console.log('\x1b[31m', '***\nBrowserSync config not specified.\nRunning without livereload...\n***' ,'\x1b[0m');
+    console.log('BrowserSync config not specified');
   }
 });
 
