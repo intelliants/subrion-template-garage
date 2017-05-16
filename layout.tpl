@@ -148,9 +148,7 @@
                             {ia_blocks block='quicksearch'}
                         </div>
                     </div>
-                    {if 'index' == $core.page.name}
-                        <a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>
-                    {/if}
+                    {*<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>*}
                 </header>
             {/if}
 
@@ -165,9 +163,114 @@
             {/if}
 
             {if $core.config.enable_landing && 'index' == $core.page.name}
+                {if isset($iaBlocks.bodytypes) || isset($iaBlocks.popular_makes)}
+                    <div class="container">
+                        <div class="row">
+                            {if isset($iaBlocks.bodytypes)}
+                                <div class="{width section='filters' position='bodytypes' tag='col-md-'} bodytypes">
+                                    {ia_blocks block='bodytypes'}
+                                </div>
+                            {/if}
+                            {if isset($iaBlocks.popular_makes)}
+                                <div class="{width section='filters' position='popular_makes' tag='col-md-'} popular-makes">
+                                    {ia_blocks block='popular_makes'}
+                                </div>
+                            {/if}
+                        </div>
+                    </div>
+                {/if}
+
+                {if isset($iaBlocks.landing_tab1) || isset($iaBlocks.landing_tab2) || isset($iaBlocks.landing_tab3)}
+                    <div class="homepage-tabs">
+                        <div class="container">
+                            <ul class="nav nav-pills">
+                                {if isset($iaBlocks.landing_tab1)}
+                                    {$blockFrontTab = array_shift($iaBlocks.landing_tab1)}
+                                    <li class="active">
+                                        <a data-toggle="tab" href="#landing_tab1">{lang key="block_title_{$blockFrontTab.id}"}</a>
+                                    </li>
+                                {/if}
+                                {if isset($iaBlocks.landing_tab2)}
+                                    {$blockFrontTab = array_shift($iaBlocks.landing_tab2)}
+                                    <li{if !isset($iaBlocks.landing_tab1)} class="active"{/if}>
+                                        <a data-toggle="tab" href="#landing_tab2">{lang key="block_title_{$blockFrontTab.id}"}</a>
+                                    </li>
+                                {/if}
+                                {if isset($iaBlocks.landing_tab3)}
+                                    {$blockFrontTab = array_shift($iaBlocks.landing_tab3)}
+                                    <li{if !isset($iaBlocks.landing_tab1) && !isset($iaBlocks.landing_tab2)} class="active"{/if}>
+                                        <a data-toggle="tab" href="#landing_tab3">{lang key="block_title_{$blockFrontTab.id}"}</a>
+                                    </li>
+                                {/if}
+                            </ul>
+                        </div>
+                        <div class="container">
+                            <div class="tab-content">
+                                {if isset($iaBlocks.landing_tab1)}
+                                    <div id="landing_tab1" class="tab-pane fade in active">
+                                        {ia_blocks block='landing_tab1'}
+                                    </div>
+                                {/if}
+                                {if isset($iaBlocks.landing_tab2)}
+                                    <div id="landing_tab2" class="tab-pane fade{if !isset($iaBlocks.landing_tab1)} in active{/if}">
+                                        {ia_blocks block='landing_tab2'}
+                                    </div>
+                                {/if}
+                                {if isset($iaBlocks.landing_tab3)}
+                                    <div id="landing_tab3" class="tab-pane fade{if !isset($iaBlocks.landing_tab1) && !isset($iaBlocks.landing_tab2)} in active{/if}">
+                                        {ia_blocks block='landing_tab3'}
+                                    </div>
+                                {/if}
+                            </div>
+
+                            <div class="homepage-tabs__actions">
+                                <a href="{$core.packages.autos.url}autos/" class="btn btn-dark btn-rounded">{lang key='see_all'}</a>
+                                <a href="{$core.packages.autos.url}add/" class="btn btn-accent btn-rounded">{lang key='sell_yours'}</a>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+
                 <div class="landing">
                     {ia_blocks block='landing'}
                 </div>
+
+                {if $core.config.enable_call_to_action}
+                    <div class="call-to-action">
+                        <div class="container">
+                            <div class="call-to-action__content">
+                                {if !empty($core.config.call_to_action_title)}
+                                    <div class="call-to-action__content__title">
+                                        {$core.config.call_to_action_title}
+                                    </div>
+                                {/if}
+                                {if !empty($core.config.call_to_action_description)}
+                                    <div class="call-to-action__content__description">
+                                        {$core.config.call_to_action_description}
+                                    </div>
+                                {/if}
+                            </div>
+                            <div class="call-to-action__action">
+                                <a href="{$core.packages.autos.url}add/">{lang key='sell_your_car'}</a>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+
+                {if isset($iaBlocks.services) || isset($iaBlocks.parts)}
+                    <div class="services-and-parts">
+                        <div class="container">
+                            <div class="row">
+                                <div class="{width section='services-and-parts' position='parts' tag='col-md-'}">
+                                    {ia_blocks block='parts'}
+                                </div>
+                                <div class="{width section='services-and-parts' position='services' tag='col-md-'}">
+                                    {ia_blocks block='services'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
             {else}
                 <div class="content">
                     <div class="container">
@@ -260,42 +363,14 @@
 
         <footer class="footer">
             <div class="container">
-                {if isset($iaBlocks.footer1) || isset($iaBlocks.footer2) ||
-                    isset($iaBlocks.footer3) || isset($iaBlocks.footer4) || $core.config.website_social}
+                {if isset($iaBlocks.footer1) || isset($iaBlocks.footer2) || isset($iaBlocks.footer3) ||
+                    isset($iaBlocks.footer4) || isset($iaBlocks.footer5)}
                     <div class="row">
-                        {if isset($iaBlocks.footer1)}
-                            <div class="col-md-2 col-sm-6">
-                                {ia_blocks block='footer1'}
-                            </div>
-                        {/if}
-                        {if isset($iaBlocks.footer2)}
-                            <div class="col-md-2 col-sm-6">
-                                {ia_blocks block='footer2'}
-                            </div>
-                        {/if}
-                        {if isset($iaBlocks.footer3)}
-                            <div class="col-md-2 col-sm-6">
-                                {ia_blocks block='footer3'}
-                            </div>
-                        {/if}
-                        {if isset($iaBlocks.footer4)}
-                            <div class="col-md-4 col-sm-6">
-                                {ia_blocks block='footer4'}
-                            </div>
-                        {/if}
-                        {if $core.config.website_social}
-                            <div class="col-md-2 col-sm-12">
-                                <div class="nav-footer-caption">
-                                    {lang key='follow_us'}
-                                </div>
-                                <ul class="nav-footer nav-footer-social">
-                                    {if $core.config.website_social_t}<li><a href="{$core.config.website_social_t}" class="twitter"><span class="fa fa-twitter"></span></a></li>{/if}
-                                    {if $core.config.website_social_f}<li><a href="{$core.config.website_social_f}" class="facebook"><span class="fa fa-facebook"></span></a></li>{/if}
-                                    {if $core.config.website_social_g}<li><a href="{$core.config.website_social_g}" class="google-plus"><span class="fa fa-google-plus"></span></a></li>{/if}
-                                    {if $core.config.website_social_i}<li><a href="{$core.config.website_social_i}" class="linkedin"><span class="fa fa-linkedin"></span></a></li>{/if}
-                                </ul>
-                            </div>
-                        {/if}
+                        <div class="{width section='footer-blocks' position='footer1' tag='col-md-'}">{ia_blocks block='footer1'}</div>
+                        <div class="{width section='footer-blocks' position='footer2' tag='col-md-'}">{ia_blocks block='footer2'}</div>
+                        <div class="{width section='footer-blocks' position='footer3' tag='col-md-'}">{ia_blocks block='footer3'}</div>
+                        <div class="{width section='footer-blocks' position='footer4' tag='col-md-'}">{ia_blocks block='footer4'}</div>
+                        <div class="{width section='footer-blocks' position='footer5' tag='col-md-'}">{ia_blocks block='footer5'}</div>
                     </div>
                 {/if}
 

@@ -1,4 +1,4 @@
-{if isset($items) && $items}
+{if !empty($items)}
     <div class="ia-compare">
         <div class="ia-compare__table table-responsive">
             <table class="table table-bordered">

@@ -3,10 +3,19 @@
 // Cards
 // --------------------------------------------------
 
+.ia-cards__items {
+  .row {
+    margin-bottom: @gap;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .ia-card {
   .clearfix;
   position: relative;
-  margin-bottom: 35px;
   border: 1px solid @border-color;
   border-radius: @border-radius-large;
   background-color: #fff;

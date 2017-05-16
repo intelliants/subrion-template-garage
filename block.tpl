@@ -6,11 +6,21 @@
             <div class="container">
         {/if}
         <h4 id="caption_{$name}" class="box__caption">{$title|escape:'html'}
-            {if isset($icons) && $icons}
+            {if !empty($icons) && ('autos_services_categories' !== $name || 'autos_parts_categories' !== $name)}
                 <span class="box__actions">
                     {foreach $icons as $icon}
                         <a href="{$icon.url}" {$icon.attributes} id="{$icon.name}_{$name}">{$icon.text}</a>
                     {/foreach}
+                </span>
+            {elseif ('autos_services_categories' == $name)}
+                <span class="box__actions box__actions--services">
+                    <a href="#">{lang key='all_services'}</a>
+                    <a href="#">{lang key='add_service'}</a>
+                </span>
+            {elseif ('autos_parts_categories' == $name)}
+                <span class="box__actions box__actions--parts">
+                    <a href="#">{lang key='all_parts'}</a>
+                    <a href="#">{lang key='add_part'}</a>
                 </span>
             {/if}
         </h4>

@@ -39,7 +39,7 @@
             <span>{lang key='counter' counter={$num_autos}}</span>
         </div>
         <div class="pull-right">
-            <a href="{$core.packages.autos.url}autos/">{lang key='advanced_search'}</a>
+            <a href="{$smarty.const.IA_URL}search/cars/">{lang key='advanced_search'}</a>
         </div>
     </div>
 </form>

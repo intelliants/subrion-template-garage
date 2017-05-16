@@ -2,10 +2,9 @@
     {printFavorites item=$listing itemtype='autos' guests=true}
 
     {if 'favorites' != $core.page.name}
-        <a href="#" data-id="{$listing.id}" class="ia-card__action ia-card__action--compare btn-compare{if ($listing.compare)} active btn-compare--added{/if}">
+        <a href="#" title="{lang key='add_to_compare'}" data-id="{$listing.id}" class="ia-card__action ia-card__action--compare btn-compare{if ($listing.compare)} active btn-compare--added{/if}">
             <i class="material-icons">compare_arrows</i>
         </a>
-        {ia_print_js files='_IA_URL_modules/autos/js/front/comparison'}
     {/if}
 
     {if $listing.pictures}

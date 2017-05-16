@@ -6,7 +6,7 @@
     {include 'extra:autos/listing-filters'}
 {/if}
 
-{if isset($models) && $models}
+{if !empty($models)}
     {ia_block title={lang key='autos_models'} style='fixed' id='auto_categories'}
         <div class="ia-categories">
             {include 'ia-categories.tpl' categories=$models item='autos_models' show_amount=true num_columns=$core.config.autos_model_columns}
@@ -14,7 +14,7 @@
     {/ia_block}
 {/if}
 
-{if isset($listings) && $listings}
+{if !empty($listings)}
     <div class="ia-cards">
         {if !isset($no_sorting)}
             <div class="ia-sorting">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    {ia_print_js files='_IA_URL_modules/autos/js/front/index'}
+    {ia_print_js files='_IA_URL_modules/autos/js/front/index, _IA_URL_modules/autos/js/front/comparison'}
 
     {navigation aTotal=$pagination.total aTemplate=$pagination.url aItemsPerPage=$pagination.limit aIgnore=true}
 {elseif isset($category.id) && $category.level}

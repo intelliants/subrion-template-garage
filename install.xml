@@ -22,19 +22,62 @@
         <position>verybottom</position>
         <position>copyright</position>
         <position>landing</position>
+        <position>landing_tab1</position>
+        <position>landing_tab2</position>
+        <position>landing_tab3</position>
+        <position>bodytypes</position>
+        <position>popular_makes</position>
+        <position>call_to_action</position>
+        <position>services</position>
+        <position>parts</position>
+
+        <section name="filters">
+            <position width="5">bodytypes</position>
+            <position width="7">popular_makes</position>
+        </section>
+
+        <section name="services-and-parts">
+            <position width="6">parts</position>
+            <position width="6">services</position>
+        </section>
 
         <section name="content">
             <position fixed="1">left</position>
             <position width="6">center</position>
             <position fixed="1">right</position>
         </section>
+
         <section name="footer-blocks">
-            <position width="3">footer1</position>
-            <position width="3">footer2</position>
-            <position width="3">footer3</position>
-            <position width="3">footer4</position>
+            <position width="2">footer1</position>
+            <position width="2">footer2</position>
+            <position width="2">footer3</position>
+            <position width="4">footer4</position>
+            <position width="2">footer5</position>
         </section>
     </layout>
+
+    <changeset>
+        <menu position="account" status="active">account</menu>
+        <menu position="footer1" status="active">bottom</menu>
+        <menu position="footer2" status="active">autos</menu>
+
+        <block status="active" classname="box--border" position="right">common_statistics</block>
+        <block status="active" classname="box--border" position="left">filters</block>
+        <block status="active" title="Latest news" position="footer4">latest_news</block>
+        <block status="active" title="Sponsored cars for sale" position="verytop" header="1" sticky="0" pages="index">auto_sponsored</block>
+        <block status="active" header="1" title="Search cars by bodytype" sticky="0" pages="index" position="bodytypes">auto_body_list</block>
+        <block status="active" header="1" title="Popular makes" sticky="0" pages="index" position="popular_makes">auto_make_list</block>
+        <block status="active" header="1" title="Services" sticky="0" pages="index" position="services">autos_services_categories</block>
+        <block status="active" header="1" title="Parts" sticky="0" pages="index" position="parts">autos_parts_categories</block>
+        <block status="active" header="0" position="quicksearch">autos_search</block>
+        <block status="active" header="0" position="verybottom">newsletters_subscription</block>
+        <block status="active" header="0" position="landing_tab1" sticky="0" pages="index">auto_featured</block>
+        <block status="active" header="0" position="landing_tab3" sticky="0" pages="index">auto_recent</block>
+        <block status="inactive">auto_random</block>
+        <block status="inactive">autos_tools</block>
+        <block status="inactive">new_blog_posts</block>
+        <block status="inactive">blogroll</block>
+    </changeset>
 
     <configgroup name="template_garage">Template</configgroup>
 
@@ -178,26 +221,51 @@
 
     <config group="template_garage"
             type="divider"
-            order="3400">Footer</config>
+            order="3400">Call to action</config>
+    <config group="template_garage"
+            name="enable_call_to_action"
+            type="radio"
+            order="3401"
+            values="1,0"
+            description="Enable block">1</config>
+    <config group="template_garage"
+            name="bg_call_to_action"
+            type="image"
+            description="Background image"
+            order="3402"><![CDATA[]]></config>
+    <config group="template_garage"
+            name="call_to_action_title"
+            type="text"
+            description="Title"
+            order="3403">Sell or buy a car easily on our portal!</config>
+    <config group="template_garage"
+            name="call_to_action_description"
+            type="textarea"
+            description="Description"
+            order="3404">Add your car for sale and be ready to receive many calls from potential buyers!</config>
+
+    <config group="template_garage"
+            type="divider"
+            order="3500">Footer</config>
     <config group="template_garage"
             name="footer_bg"
             type="colorpicker"
-            order="3401"
+            order="3501"
             description="Background">#272829</config>
     <config group="template_garage"
             name="footer_link"
             type="colorpicker"
-            order="3402"
+            order="3502"
             description="Link color">rgba(255,255,255,0.5)</config>
     <config group="template_garage"
             name="footer_link_hover"
             type="colorpicker"
-            order="3403"
+            order="3503"
             description="Link hover color">#ffffff</config>
     <config group="template_garage"
             name="footer_link_active"
             type="colorpicker"
-            order="3404"
+            order="3504"
             description="Link active color">#ffffff</config>
 
     <config group="template_garage"
@@ -239,25 +307,6 @@
             type="hidden"
             description="CKEditor CSS"
             order="5000">ckeditor.css</config>
-
-    <changeset>
-        <menu position="account" status="active">account</menu>
-        <menu position="footer1" status="active">bottom</menu>
-        <menu position="footer2" status="active">autos</menu>
-
-        <block status="active" classname="section section-portfolio" position="landing" order="203">new_portfolio_entries</block>
-        <block status="active" classname="section section-testimonials" position="landing" order="204">testimonials</block>
-        <block status="active" classname="section section-blog" position="landing" order="205">blogroll</block>
-        <block status="active" classname="box--border" position="right">common_statistics</block>
-        <block status="active" classname="box--border" position="left">filters</block>
-        <block status="active" title="Latest news" position="footer4">latest_news</block>
-        <block status="active" title="Sponsored cars for sale" position="verytop" sticky="0" pages="index">auto_sponsored</block>
-        <block status="active" header="0" position="quicksearch">autos_search</block>
-        <block status="active" header="0" position="verybottom">newsletters_subscription</block>
-
-        <block status="inactive">auto_random</block>
-        <block status="inactive">autos_tools</block>
-    </changeset>
 
     <blocks>
         <block name="top"
@@ -365,6 +414,25 @@
 </div>
             ]]>
         </block>
+        <block name="footer5"
+               title="Follow us"
+               position="footer5"
+               header="1"
+               collapsible="0"
+               sticky="1"
+               status="active"
+               type="smarty">
+            <![CDATA[
+{if $core.config.website_social}
+    <ul class="nav-footer nav-footer-social">
+        {if $core.config.website_social_t}<li><a href="{$core.config.website_social_t}" class="twitter"><span class="fa fa-twitter"></span></a></li>{/if}
+        {if $core.config.website_social_f}<li><a href="{$core.config.website_social_f}" class="facebook"><span class="fa fa-facebook"></span></a></li>{/if}
+        {if $core.config.website_social_g}<li><a href="{$core.config.website_social_g}" class="google-plus"><span class="fa fa-google-plus"></span></a></li>{/if}
+        {if $core.config.website_social_i}<li><a href="{$core.config.website_social_i}" class="linkedin"><span class="fa fa-linkedin"></span></a></li>{/if}
+    </ul>
+{/if}
+            ]]>
+        </block>
     </blocks>
 
     <phrases>
@@ -380,6 +448,12 @@
         <phrase category="frontend" key="type_your_email">Type your e-mail here and click subscribe</phrase>
         <phrase category="frontend" key="login">Log in</phrase>
         <phrase category="frontend" key="register">Sign up</phrase>
-        <phrase category="frontend" key="follow_us">Follow us</phrase>
+        <phrase category="frontend" key="see_all">See all</phrase>
+        <phrase category="frontend" key="sell_yours">Sell yours</phrase>
+        <phrase category="frontend" key="sell_your_car">Sell your car</phrase>
+        <phrase category="frontend" key="all_services">All services</phrase>
+        <phrase category="frontend" key="add_service">Add service</phrase>
+        <phrase category="frontend" key="all_parts">All parts</phrase>
+        <phrase category="frontend" key="add_part">Add part</phrase>
     </phrases>
 </module>

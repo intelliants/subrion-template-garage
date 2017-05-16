@@ -1,4 +1,4 @@
-{if isset($car_blocks_data.make)}
+{if !empty($car_blocks_data.make)}
     <div class="row">
         {foreach $car_blocks_data.make as $make}
             {if $make.priority}

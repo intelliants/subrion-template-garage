@@ -1,4 +1,4 @@
-{if isset($car_blocks_data.sponsored)}
+{if !empty($car_blocks_data.sponsored)}
     {if count($car_blocks_data.sponsored) > 5}
         <div class="ia-cards__items sponsored-cars js-carousel-sponsored-cars">
             {foreach $car_blocks_data.sponsored as $listing}
@@ -54,4 +54,6 @@
             </div>
         </div>
     {/if}
+
+    {ia_print_js files='_IA_URL_modules/autos/js/front/index, _IA_URL_modules/autos/js/front/comparison'}
 {/if}
