@@ -58,24 +58,25 @@
 
     <changeset>
         <menu position="account" status="active">account</menu>
+        <menu position="left" status="active" order="2">autos</menu>
         <menu position="footer1" status="active">bottom</menu>
-        <menu position="footer2" status="active">autos</menu>
 
-        <block status="active" classname="box--border" position="right">common_statistics</block>
-        <block status="active" classname="box--border" position="left">filters</block>
+        <block status="active" classname="" position="left" title="Filters" order="0">filters</block>
         <block status="active" title="Latest news" position="footer4">latest_news</block>
         <block status="active" title="Sponsored cars for sale" position="verytop" header="1" sticky="0" pages="index">auto_sponsored</block>
         <block status="active" header="1" title="Search cars by bodytype" sticky="0" pages="index" position="bodytypes">auto_body_list</block>
         <block status="active" header="1" title="Popular makes" sticky="0" pages="index" position="popular_makes">auto_make_list</block>
         <block status="active" header="1" title="Services" sticky="0" pages="index" position="services">autos_services_categories</block>
         <block status="active" header="1" title="Parts" sticky="0" pages="index" position="parts">autos_parts_categories</block>
-        <block status="active" header="0" position="quicksearch">autos_search</block>
+        <block status="active" header="0" position="quicksearch" sticky="0" pages="index,autos_index">autos_search</block>
         <block status="active" header="0" position="verybottom">newsletters_subscription</block>
         <block status="active" header="0" position="landing_tab1" sticky="0" pages="index">auto_featured</block>
         <block status="active" header="0" position="landing_tab3" sticky="0" pages="index">auto_recent</block>
+        <block status="inactive">common_statistics</block>
         <block status="inactive">auto_random</block>
         <block status="inactive">autos_tools</block>
         <block status="inactive">new_blog_posts</block>
+        <block status="inactive">blogs_archive</block>
         <block status="inactive">blogroll</block>
     </changeset>
 
@@ -153,7 +154,7 @@
             name="max_top_menu_items"
             type="text"
             description="Max number of items in Main Menu"
-            order="3201">5</config>
+            order="3201">6</config>
     <config group="template_garage"
             name="enable_text_logo"
             type="radio"
@@ -309,52 +310,36 @@
             order="5000">ckeditor.css</config>
 
     <blocks>
-        <block name="top"
-               title="Top block position"
-               position="top"
-               header="1"
-               collapsible="1"
-               sticky="0"
-               pages="index"
+        <block name="banner"
+               title="Banner"
+               position="left"
+               header="0"
+               collapsible="0"
+               sticky="1"
+               order="1"
                status="active"
-               type="html">
+               class="banner"
+               type="smarty">
             <![CDATA[
-<p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
-<p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod incorrupte, brute laoreet at pri, eam antiopam honestatis efficiantur ea. Velit atomorum voluptaria ad nam, hinc aperiam accumsan ne est, ut dictas dissentias his.</p>
+<div class="banner__title">{lang key='banner_title'}</div>
+<div class="banner__content">{lang key='banner_content'}</div>
+<a href="{$core.packages.autos.url}add/" class="btn btn-accent btn-rounded">{lang key='sell_your_car'}</a>
             ]]>
         </block>
-
-        <block name="bottom_block"
-               title="Bottom block position"
-               position="bottom"
-               header="1"
-               collapsible="1"
-               sticky="0"
-               pages="index"
-               status="active"
-               type="html">
-            <![CDATA[
-<p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
-<p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod incorrupte, brute laoreet at pri, eam antiopam honestatis efficiantur ea. Velit atomorum voluptaria ad nam, hinc aperiam accumsan ne est, ut dictas dissentias his.</p>
-            ]]>
-        </block>
-
-        <block name="html_block1"
-               title="HTML block #1"
+        <block name="static_block"
+               title="Static block"
                position="left"
                header="1"
-               collapsible="1"
                sticky="1"
-               order="99"
+               pages="autos_index,search_autos"
+               order="3"
                status="active"
-               type="html"
-               classname="box--border">
+               type="html">
             <![CDATA[
 <p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
 <p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod.</p>
             ]]>
         </block>
-
         <block name="footer3"
                title="About us"
                position="footer3"
@@ -373,7 +358,6 @@
 </ul>
             ]]>
         </block>
-
         <block name="footer4"
                title="Latest news"
                position="footer4"

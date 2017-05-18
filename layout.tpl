@@ -175,14 +175,14 @@
                 </div>
             </header>
         {else}
-            <header class="header-inner-page{if in_array($core.page.name, ['autos_index']) && isset($iaBlocks.quicksearch)} header-inner-page--offset{/if}">
+            <header class="header-inner-page{if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)} header-inner-page--offset{/if}">
                 <div class="container">
                     <h1 class="page-title">{$core.page.title}</h1>
                     {ia_hooker name='smartyFrontBeforeBreadcrumb'}
                     {include 'breadcrumb.tpl'}
                 </div>
             </header>
-            {if 'autos_index' == $core.page.name && isset($iaBlocks.quicksearch)}
+            {if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)}
                 <div class="header-inner-page__q-search">
                     <div class="container">
                         {ia_blocks block='quicksearch'}
@@ -269,9 +269,11 @@
                     </div>
                 {/if}
 
-                <div class="landing">
-                    {ia_blocks block='landing'}
-                </div>
+                {if isset($iaBlocks.services)}
+                    <div class="landing">
+                        {ia_blocks block='landing'}
+                    </div>
+                {/if}
 
                 {if $core.config.enable_call_to_action}
                     <div class="call-to-action">
@@ -310,7 +312,7 @@
                     </div>
                 {/if}
             {else}
-                <div class="content{if in_array($core.page.name, ['autos_index']) && isset($iaBlocks.quicksearch)} content--offset{/if}">
+                <div class="content{if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)} content--offset{/if}">
                     <div class="container">
                         {if in_array($core.page.name, array('login', 'member_registration'))}
                             <div class="page-system">

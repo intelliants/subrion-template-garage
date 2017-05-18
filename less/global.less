@@ -76,27 +76,20 @@ body {
 }
 
 .verytop,
+.landing,
 .verybottom {
+
   .box {
     padding: @vertical-rhythm*3 0;
+
+    &__caption {
+      .font-normalize(20px, 0);
+    }
+
+    &__content {
+      padding-top: 30px;
+    }
   }
-}
-
-.verytop,
-.landing
-.verybottom {
-
-  .box__caption {
-    .font-normalize(20px, 0);
-  }
-
-  .box__content {
-    padding-top: 30px;
-  }
-}
-
-.verybottom {
-  background-color: #e9e9e9;
 }
 
 .content {
