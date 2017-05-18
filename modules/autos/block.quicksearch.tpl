@@ -33,15 +33,17 @@
             <button class="btn btn-dark btn-block btn-rounded" type="submit">{lang key='search'}</button>
         </div>
     </div>
-    <div class="q-search__info">
-        <div class="pull-left">
-            <a href="{$core.packages.autos.url}add/">{lang key='sell_a_car'}</a>
-            <span>{lang key='counter' counter={$num_autos}}</span>
+    {if 'index' == $core.page.name}
+        <div class="q-search__info">
+            <div class="pull-left">
+                <a href="{$core.packages.autos.url}add/">{lang key='sell_a_car'}</a>
+                <span>{lang key='counter' counter={$num_autos}}</span>
+            </div>
+            <div class="pull-right">
+                <a href="{$smarty.const.IA_URL}search/cars/">{lang key='advanced_search'}</a>
+            </div>
         </div>
-        <div class="pull-right">
-            <a href="{$smarty.const.IA_URL}search/cars/">{lang key='advanced_search'}</a>
-        </div>
-    </div>
+    {/if}
 </form>
 {ia_add_media files='js:_IA_URL_modules/autos/js/front/search, js:_IA_TPL_ion.rangeSlider.min, css:ion.rangeSlider'}
 

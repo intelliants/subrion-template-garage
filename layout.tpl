@@ -137,25 +137,63 @@
             </div>
         </nav>
 
+        {if 'index' == $core.page.name}
+            <header class="header-front-page">
+                <div class="header-front-page__container-full-height">
+                    <div class="header-front-page__container-full-height__middle">
+                        <h1 class="header-front-page__title">{lang key='teaser_title'}</h1>
+                        {if isset($iaBlocks.quicksearch)}
+                            {ia_blocks block='quicksearch'}
+                        {/if}
+                    </div>
+                </div>
+                {*<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>*}
+            </header>
+        {elseif 'autos_view' == $core.page.name}
+            <header class="header-view-page">
+                <div class="container">
+                    <div class="pull-left">
+                        <h1 class="page-title">{$core.page.title}</h1>
+                        {ia_hooker name='smartyFrontBeforeBreadcrumb'}
+                        {include 'breadcrumb.tpl'}
+                    </div>
+                    <div class="pull-right">
+                        <ul class="header-view-page__actions">
+                            {foreach $core.actions as $name => $action}
+                                <li>
+                                    {if 'action-favorites' == $name}
+                                        {printFavorites item=$item itemtype=$item.item guests=true}
+                                    {else}
+                                        <a data-toggle="tooltip" title="{$action.title|escape}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
+                                            <span class="fa fa-{$name}"></span>
+                                        </a>
+                                    {/if}
+                                </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        {else}
+            <header class="header-inner-page{if in_array($core.page.name, ['autos_index']) && isset($iaBlocks.quicksearch)} header-inner-page--offset{/if}">
+                <div class="container">
+                    <h1 class="page-title">{$core.page.title}</h1>
+                    {ia_hooker name='smartyFrontBeforeBreadcrumb'}
+                    {include 'breadcrumb.tpl'}
+                </div>
+            </header>
+            {if 'autos_index' == $core.page.name && isset($iaBlocks.quicksearch)}
+                <div class="header-inner-page__q-search">
+                    <div class="container">
+                        {ia_blocks block='quicksearch'}
+                    </div>
+                </div>
+            {/if}
+        {/if}
+
         {if isset($smarty.get.elements)}
             {include 'page.elements.tpl'}
         {else}
-            {if 'index' == $core.page.name}
-                <header class="header">
-                    <div class="header__container-full-height">
-                        <div class="header__container-full-height__middle">
-                            <h1 class="header__title">{lang key='teaser_title'}</h1>
-                            {ia_blocks block='quicksearch'}
-                        </div>
-                    </div>
-                    {*<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>*}
-                </header>
-            {/if}
-
-            {ia_hooker name='smartyFrontBeforeBreadcrumb'}
-
-            {include 'breadcrumb.tpl'}
-
             {if isset($iaBlocks.verytop)}
                 <div class="verytop">
                     {ia_blocks block='verytop'}
@@ -272,27 +310,10 @@
                     </div>
                 {/if}
             {else}
-                <div class="content">
+                <div class="content{if in_array($core.page.name, ['autos_index']) && isset($iaBlocks.quicksearch)} content--offset{/if}">
                     <div class="container">
                         {if in_array($core.page.name, array('login', 'member_registration'))}
                             <div class="page-system">
-                                <div class="content__header">
-                                    <h1>{$core.page.title}</h1>
-                                    <ul class="content__actions">
-                                        {foreach $core.actions as $name => $action}
-                                            <li>
-                                                {if 'action-favorites' == $name}
-                                                    {printFavorites item=$item itemtype=$item.item guests=true}
-                                                {else}
-                                                    <a data-toggle="tooltip" title="{$action.title}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
-                                                        <span class="fa fa-{$name}"></span>
-                                                    </a>
-                                                {/if}
-                                            </li>
-                                        {/foreach}
-                                    </ul>
-                                </div>
-
                                 {ia_hooker name='smartyFrontBeforeNotifications'}
                                 {include 'notification.tpl'}
 
@@ -313,23 +334,6 @@
                                     <div class="content__wrap">
 
                                         {ia_blocks block='top'}
-
-                                        <div class="content__header">
-                                            <h1>{$core.page.title}</h1>
-                                            <ul class="content__actions">
-                                                {foreach $core.actions as $name => $action}
-                                                    <li>
-                                                        {if 'action-favorites' == $name}
-                                                            {printFavorites item=$item itemtype=$item.item guests=true}
-                                                        {else}
-                                                            <a data-toggle="tooltip" title="{$action.title}" {foreach $action.attributes as $key => $value}{$key}="{$value}" {/foreach}>
-                                                                <span class="fa fa-{$name}"></span>
-                                                            </a>
-                                                        {/if}
-                                                    </li>
-                                                {/foreach}
-                                            </ul>
-                                        </div>
 
                                         {ia_hooker name='smartyFrontBeforeNotifications'}
                                         {include 'notification.tpl'}

@@ -14,13 +14,13 @@
                 </span>
             {elseif ('autos_services_categories' == $name)}
                 <span class="box__actions box__actions--services">
-                    <a href="#">{lang key='all_services'}</a>
-                    <a href="#">{lang key='add_service'}</a>
+                    <a href="{$core.packages.autos.url}services/">{lang key='all_services'}</a>
+                    <a href="{$core.packages.autos.url}service/add/">{lang key='add_service'}</a>
                 </span>
             {elseif ('autos_parts_categories' == $name)}
                 <span class="box__actions box__actions--parts">
-                    <a href="#">{lang key='all_parts'}</a>
-                    <a href="#">{lang key='add_part'}</a>
+                    <a href="{$core.packages.autos.url}parts/">{lang key='all_parts'}</a>
+                    <a href="{$core.packages.autos.url}part/add/">{lang key='add_part'}</a>
                 </span>
             {/if}
         </h4>
