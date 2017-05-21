@@ -5,7 +5,13 @@
         {if (isset($position) && in_array($position, ['verytop', 'landing', 'verybottom'])) || 'auto_sponsored' == $name}
             <div class="container">
         {/if}
-        <h4 id="caption_{$name}" class="box__caption">{$title|escape:'html'}
+        <h4 id="caption_{$name}" class="box__caption">
+            {if 'auto_sponsored' == $name}
+                {$words = explode(' ', $title|escape:'html')}
+                {"<span class='text-primary'>{$words[0]} {$words[1]}</span> {implode(' ', array_splice($words, 2))}"}
+            {else}
+                {$title|escape:'html'}
+            {/if}
             {if !empty($icons) && ('autos_services_categories' !== $name || 'autos_parts_categories' !== $name)}
                 <span class="box__actions">
                     {foreach $icons as $icon}

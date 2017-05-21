@@ -1,0 +1,161 @@
+
+//
+// Bodytypes and makes
+// --------------------------------------------------
+
+.bodytypes-and-makes {
+  padding: 0 @gap;
+  background-color: #f5f5f5;
+
+  > .row > [class*='col-'] {
+
+    &:nth-child(2) {
+      background: #323233 url('../img/bg-popular-makes.jpg') center center no-repeat;
+      background-size: cover;
+
+      .minmax-toggle {
+        color: @brand-primary;
+      }
+
+      .box__caption {
+        color: @brand-primary;
+      }
+
+      .box__content {
+        color: #fff;
+      }
+    }
+  }
+
+  .box {
+    padding: 45px 30px;
+
+    + .box {
+      margin-top: 0;
+    }
+
+    &__caption {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+.box--makes {
+
+  .make-list {
+    .clearfix;
+
+    &__item {
+      float: left;
+      width: 20%;
+      height: 120px;
+      border-radius: @border-radius-base;
+
+      @media (max-width: @screen-tablet) {
+        width: 50%;
+      }
+
+      &,
+      &:hover,
+      &:focus {
+        padding: 10px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: @text-color;
+        background-color: #fff;
+      }
+
+      &__image {
+        position: relative;
+        display: block;
+        height: 63px;
+        margin-bottom: 5px;
+
+        img {
+          position: absolute;
+          max-height: 63px;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+
+        }
+      }
+
+      &__title {
+        display: block;
+        font-size: 13px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+
+
+.box--bodytypes {
+
+  .body-list {
+    [class*="col"] {
+      margin-top: 0 !important;
+    }
+
+    &__style {
+      text-align: center;
+      display: block;
+      font-size: 12px;
+      margin: 25px 0;
+
+      span {
+        display: block;
+        width: 80px;
+        height: 42px;
+        margin: 0 auto 8px;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+      }
+
+      &--convertible span {
+        background-image: url('../img/bodytypes/convertible.png');
+      }
+
+      &--sedan span {
+        background-image: url('../img/bodytypes/sedan.png');
+      }
+
+      &--off-road span {
+        background-image: url('../img/bodytypes/off-road.png');
+      }
+
+      &--pickup span {
+        background-image: url('../img/bodytypes/pickup.png');
+      }
+
+      &--truck span {
+        background-image: url('../img/bodytypes/truck.png');
+      }
+
+      &--hatchback span {
+        background-image: url('../img/bodytypes/hatchback.png');
+      }
+
+      &--sports-car-coupe span {
+        background-image: url('../img/bodytypes/sports-car-coupe.png');
+      }
+
+      &--van-minibus span {
+        background-image: url('../img/bodytypes/van-minibus.png');
+      }
+
+      &--other span {
+        background-image: url('../img/bodytypes/other.png');
+      }
+    }
+  }
+}

@@ -59,22 +59,22 @@
     <changeset>
         <menu position="account" status="active">account</menu>
         <menu position="left" status="active" order="2">autos</menu>
-        <menu position="footer1" status="active">bottom</menu>
 
         <block status="active" classname="" position="left" title="Filters" order="0">filters</block>
+        <block status="active" classname="box--bodytypes" header="1" title="Search cars by bodytype" sticky="0" pages="index" position="bodytypes">auto_body_list</block>
+        <block status="active" classname="box--makes" header="1" title="Popular makes" sticky="0" pages="index" position="popular_makes">auto_make_list</block>
+        <block status="active" classname="box--services" header="1" title="Services" sticky="0" pages="index" position="services">autos_services_categories</block>
+        <block status="active" classname="box--parts" header="1" title="Parts" sticky="0" pages="index" position="parts">autos_parts_categories</block>
+        <block status="active" classname="box--sponsored" title="Sponsored cars for sale" position="verytop" header="1" sticky="0" pages="index">auto_sponsored</block>
         <block status="active" title="Latest news" position="footer4">latest_news</block>
-        <block status="active" title="Sponsored cars for sale" position="verytop" header="1" sticky="0" pages="index">auto_sponsored</block>
-        <block status="active" header="1" title="Search cars by bodytype" sticky="0" pages="index" position="bodytypes">auto_body_list</block>
-        <block status="active" header="1" title="Popular makes" sticky="0" pages="index" position="popular_makes">auto_make_list</block>
-        <block status="active" header="1" title="Services" sticky="0" pages="index" position="services">autos_services_categories</block>
-        <block status="active" header="1" title="Parts" sticky="0" pages="index" position="parts">autos_parts_categories</block>
         <block status="active" header="0" position="quicksearch" sticky="0" pages="index,autos_index">autos_search</block>
         <block status="active" header="0" position="verybottom">newsletters_subscription</block>
-        <block status="active" header="0" position="landing_tab1" sticky="0" pages="index">auto_featured</block>
-        <block status="active" header="0" position="landing_tab3" sticky="0" pages="index">auto_recent</block>
+        <block status="active" header="0" position="landing_tab1" sticky="0" pages="index" title="Featured cars">auto_featured</block>
+        <block status="active" header="0" position="landing_tab3" sticky="0" pages="index" title="Recently added">auto_recent</block>
         <block status="inactive">common_statistics</block>
         <block status="inactive">auto_random</block>
         <block status="inactive">autos_tools</block>
+        <block status="inactive">auto_year_list</block>
         <block status="inactive">new_blog_posts</block>
         <block status="inactive">blogs_archive</block>
         <block status="inactive">blogroll</block>
@@ -318,12 +318,14 @@
                sticky="1"
                order="1"
                status="active"
-               class="banner"
+               classname="banner"
                type="smarty">
             <![CDATA[
-<div class="banner__title">{lang key='banner_title'}</div>
-<div class="banner__content">{lang key='banner_content'}</div>
-<a href="{$core.packages.autos.url}add/" class="btn btn-accent btn-rounded">{lang key='sell_your_car'}</a>
+<div class="banner__content">
+    <div class="banner__title">{lang key='banner_title'}</div>
+    <div class="banner__body">{lang key='banner_content'}</div>
+    <a href="{$core.packages.autos.url}add/" class="btn btn-accent btn-rounded">{lang key='sell_your_car'}</a>
+</div>
             ]]>
         </block>
         <block name="static_block"
@@ -338,6 +340,46 @@
             <![CDATA[
 <p>You can change this block in admin panel. Remember, if you change template, this block will be lost. We advise you to clone this block.</p>
 <p>Ne lorem percipit efficiantur mei, ius ut simul vidisse. An vel probatus explicari appellantur. Has et comprehensam interpretaris, quo no inimicus maluisset temporibus. Ea mea quod.</p>
+            ]]>
+        </block>
+        <block name="footer1"
+               title="Sell a car"
+               position="footer1"
+               header="1"
+               collapsible="0"
+               sticky="1"
+               status="active"
+               type="html">
+            <![CDATA[
+<ul>
+    <li><a href="#">Add listing</a></li>
+    <li><a href="#">Register</a></li>
+    <li><a href="#">Choose a plan</a></li>
+    <li><a href="#">Pricing</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Help</a></li>
+    <li><a href="#">Terms of use</a></li>
+</ul>
+            ]]>
+        </block>
+        <block name="footer2"
+               title="Buy a car"
+               position="footer2"
+               header="1"
+               collapsible="0"
+               sticky="1"
+               status="active"
+               type="html">
+            <![CDATA[
+<ul>
+    <li><a href="#">Search for car</a></li>
+    <li><a href="#">Newly added</a></li>
+    <li><a href="#">On Auction</a></li>
+    <li><a href="#">Featured</a></li>
+    <li><a href="#">Sponsored</a></li>
+    <li><a href="#">Help</a></li>
+    <li><a href="#">Get in touch</a></li>
+</ul>
             ]]>
         </block>
         <block name="footer3"
@@ -442,4 +484,12 @@
         <phrase category="frontend" key="banner_title">Sell or buy a car  easily on our portal!</phrase>
         <phrase category="frontend" key="banner_content">Add your car for sale and be ready to receive many calls from potential buyers!</phrase>
     </phrases>
+
+    <install>
+        <sql>
+            <![CDATA[
+UPDATE `{prefix}config` SET `value` = 8 WHERE `config_group` = 'autos' AND `name` IN ('autos_num_block_featured','autos_num_block_recent');
+            ]]>
+        </sql>
+    </install>
 </module>

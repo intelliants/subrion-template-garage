@@ -4,9 +4,123 @@
 // --------------------------------------------------
 
 .call-to-action {
-  margin: 10px 0;
+  position: relative;
   height: 295px;
-  overflow: hidden;
+  color: #fff;
   background: url('../img/bg-call-to-action.jpg') center center no-repeat;
   background-size: cover;
+
+  @media (max-width: @screen-lg-desktop) {
+    position: static;
+    height: auto;
+    margin: 0;
+    padding: @vertical-rhythm*2 0;
+  }
+  
+  > .container {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @media (max-width: @screen-lg-desktop) {
+      position: static;
+      height: auto;
+      left: auto;
+      transform: none;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+
+    @media (max-width: @screen-lg-desktop) {
+      position: static;
+      top: auto;
+      left: auto;
+      transform: none;
+      margin-bottom: @vertical-rhythm;
+    }
+
+    &__title {
+      .font-normalize(30px, 0 0 10px);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    &__description {
+      font-size: 18px;
+    }
+  }
+
+  &__action {
+    position: absolute;
+    width: 320px;
+    height: 100%;
+    top: 0;
+    right: 75px;
+    text-align: center;
+
+    @media (max-width: @screen-lg-desktop) {
+      position: static;
+      width: 100%;
+      height: auto;
+      top: auto;
+      left: auto;
+      text-align: left;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: calc(~"100% + 20px");
+      margin-top: -10px;
+      transform: skewX(-20deg);
+      background-color: fade(@brand-primary, 80%);
+
+      @media (max-width: @screen-lg-desktop) {
+        content: none;
+      }
+    }
+
+    > a {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: @text-color;
+      .font-normalize(23px, 0);
+      text-decoration: underline;
+      text-transform: uppercase;
+      transform: translate(-50%, -50%);
+
+      @media (max-width: @screen-lg-desktop) {
+        position: static;
+        display: inline-block;
+        padding: 6px 30px;
+        top: auto;
+        left: auto;
+        transform: none;
+        text-decoration: none;
+        font-size: inherit;
+        font-weight: bold;
+        border-radius: @btn-rounded-border-focus;
+        background-color: fade(@brand-primary, 80%);
+      }
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        @media (max-width: @screen-lg-desktop) {
+          background-color: #272829;
+        }
+      }
+    }
+  }
 }

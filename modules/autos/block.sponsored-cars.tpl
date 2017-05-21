@@ -45,7 +45,6 @@
                     <div class="col-md-3">
                         {include 'extra:autos/list-autos'}
                     </div>
-
                     {if $listing@iteration % 4 == 0 && !$listing@last}
                         </div>
                         <div class="row">
@@ -54,6 +53,4 @@
             </div>
         </div>
     {/if}
-
-    {ia_print_js files='_IA_URL_modules/autos/js/front/index, _IA_URL_modules/autos/js/front/comparison'}
 {/if}

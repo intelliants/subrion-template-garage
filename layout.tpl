@@ -203,65 +203,71 @@
             {if $core.config.enable_landing && 'index' == $core.page.name}
                 {if isset($iaBlocks.bodytypes) || isset($iaBlocks.popular_makes)}
                     <div class="container">
-                        <div class="row">
-                            {if isset($iaBlocks.bodytypes)}
-                                <div class="{width section='filters' position='bodytypes' tag='col-md-'} bodytypes">
-                                    {ia_blocks block='bodytypes'}
-                                </div>
-                            {/if}
-                            {if isset($iaBlocks.popular_makes)}
-                                <div class="{width section='filters' position='popular_makes' tag='col-md-'} popular-makes">
-                                    {ia_blocks block='popular_makes'}
-                                </div>
-                            {/if}
+                        <div class="bodytypes-and-makes">
+                            <div class="row">
+                                {if isset($iaBlocks.bodytypes)}
+                                    <div class="{width section='filters' position='bodytypes' tag='col-md-'} bodytypes">
+                                        {ia_blocks block='bodytypes'}
+                                    </div>
+                                {/if}
+                                {if isset($iaBlocks.popular_makes)}
+                                    <div class="{width section='filters' position='popular_makes' tag='col-md-'} popular-makes">
+                                        {ia_blocks block='popular_makes'}
+                                    </div>
+                                {/if}
+                            </div>
                         </div>
                     </div>
                 {/if}
 
-                {if isset($iaBlocks.landing_tab1) || isset($iaBlocks.landing_tab2) || isset($iaBlocks.landing_tab3)}
-                    <div class="homepage-tabs">
-                        <div class="container">
-                            <ul class="nav nav-pills">
-                                {if isset($iaBlocks.landing_tab1)}
-                                    {$blockFrontTab = array_shift($iaBlocks.landing_tab1)}
-                                    <li class="active">
-                                        <a data-toggle="tab" href="#landing_tab1">{lang key="block_title_{$blockFrontTab.id}"}</a>
-                                    </li>
-                                {/if}
-                                {if isset($iaBlocks.landing_tab2)}
-                                    {$blockFrontTab = array_shift($iaBlocks.landing_tab2)}
-                                    <li{if !isset($iaBlocks.landing_tab1)} class="active"{/if}>
-                                        <a data-toggle="tab" href="#landing_tab2">{lang key="block_title_{$blockFrontTab.id}"}</a>
-                                    </li>
-                                {/if}
-                                {if isset($iaBlocks.landing_tab3)}
-                                    {$blockFrontTab = array_shift($iaBlocks.landing_tab3)}
-                                    <li{if !isset($iaBlocks.landing_tab1) && !isset($iaBlocks.landing_tab2)} class="active"{/if}>
-                                        <a data-toggle="tab" href="#landing_tab3">{lang key="block_title_{$blockFrontTab.id}"}</a>
-                                    </li>
-                                {/if}
-                            </ul>
+                {if (isset($iaBlocks.landing_tab1) && isset($car_blocks_data.featured)) ||
+                    (isset($iaBlocks.landing_tab2)) ||
+                    (isset($iaBlocks.landing_tab3) && isset($car_blocks_data.recent))}
+                    <div class="landing-tabs">
+                        <div class="landing-tabs__tabs">
+                            <div class="container">
+                                <ul>
+                                    {if isset($iaBlocks.landing_tab1) && isset($car_blocks_data.featured)}
+                                        {$blockFrontTab = array_shift($iaBlocks.landing_tab1)}
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#landing-tab-1">{lang key="block_title_{$blockFrontTab.id}"}</a>
+                                        </li>
+                                    {/if}
+                                    {if isset($iaBlocks.landing_tab2)}
+                                        {$blockFrontTab = array_shift($iaBlocks.landing_tab2)}
+                                        <li{if !isset($iaBlocks.landing_tab1) && !isset($car_blocks_data.featured)} class="active"{/if}>
+                                            <a data-toggle="tab" href="#landing-tab-2">{lang key="block_title_{$blockFrontTab.id}"}</a>
+                                        </li>
+                                    {/if}
+                                    {if isset($iaBlocks.landing_tab3) && isset($car_blocks_data.recent)}
+                                        {$blockFrontTab = array_shift($iaBlocks.landing_tab3)}
+                                        <li{if (!isset($iaBlocks.landing_tab1) || !isset($car_blocks_data.featured)) && !isset($iaBlocks.landing_tab2)} class="active"{/if}>
+                                            <a data-toggle="tab" href="#landing-tab-3">{lang key="block_title_{$blockFrontTab.id}"}</a>
+                                        </li>
+                                    {/if}
+                                </ul>
+                            </div>
                         </div>
                         <div class="container">
                             <div class="tab-content">
-                                {if isset($iaBlocks.landing_tab1)}
-                                    <div id="landing_tab1" class="tab-pane fade in active">
+                                {if isset($iaBlocks.landing_tab1) && isset($car_blocks_data.featured)}
+                                    <div id="landing-tab-1" class="tab-pane fade in active">
                                         {ia_blocks block='landing_tab1'}
                                     </div>
                                 {/if}
                                 {if isset($iaBlocks.landing_tab2)}
-                                    <div id="landing_tab2" class="tab-pane fade{if !isset($iaBlocks.landing_tab1)} in active{/if}">
+                                    <div id="landing-tab-2" class="tab-pane fade{if !isset($iaBlocks.landing_tab1)} in active{/if}">
                                         {ia_blocks block='landing_tab2'}
                                     </div>
                                 {/if}
-                                {if isset($iaBlocks.landing_tab3)}
-                                    <div id="landing_tab3" class="tab-pane fade{if !isset($iaBlocks.landing_tab1) && !isset($iaBlocks.landing_tab2)} in active{/if}">
+                                {if isset($iaBlocks.landing_tab3) && isset($car_blocks_data.recent)}
+                                    <div id="landing-tab-3" class="tab-pane fade{if (!isset($iaBlocks.landing_tab1) || !isset($car_blocks_data.featured)) && !isset($iaBlocks.landing_tab2)} in active{/if}">
                                         {ia_blocks block='landing_tab3'}
                                     </div>
                                 {/if}
                             </div>
 
-                            <div class="homepage-tabs__actions">
+                            <div class="landing-tabs__actions">
                                 <a href="{$core.packages.autos.url}autos/" class="btn btn-dark btn-rounded">{lang key='see_all'}</a>
                                 <a href="{$core.packages.autos.url}add/" class="btn btn-accent btn-rounded">{lang key='sell_yours'}</a>
                             </div>
@@ -269,7 +275,7 @@
                     </div>
                 {/if}
 
-                {if isset($iaBlocks.services)}
+                {if isset($iaBlocks.landing)}
                     <div class="landing">
                         {ia_blocks block='landing'}
                     </div>

@@ -1,4 +1,4 @@
-<a href="#" class="js-favorites ia-card__action ia-card__action--favorite js-favorites{if 'delete' == $replace.action} btn-favorite--added{/if} {$replace.class}"
+<a href="#" class="ia-item__action ia-item__action--favorite js-favorites js-favorites{if 'delete' == $replace.action} btn-favorite--added{/if} {$replace.class}"
    data-item="{$replace.item}"
    data-id="{$replace.id}"
    data-action="{$replace.action}"

@@ -51,10 +51,9 @@
                     </ul>
                 </div>
             </div>
-
         {/if}
 
-        <div class="ia-cards__items">
+        <div class="ia-cards__items{if isset($smarty.cookies.cardsLayout) && 'list' == $smarty.cookies.cardsLayout} -list{$smarty.cookies.cardsLayout}{else} -grid{/if}">
             <div class="row">
                 {foreach $listings as $listing}
                 <div class="col-md-4">

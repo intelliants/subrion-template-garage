@@ -18,7 +18,7 @@ body {
 }
 
 // improvements for cols in mobile version
-@media (max-width: @grid-float-breakpoint) {
+@media (max-width: @screen-md) {
   .row {
     [class*="col-md"] + [class*="col-md"] {
       margin-top: 30px;
@@ -92,6 +92,93 @@ body {
   }
 }
 
+.landing-tabs {
+  padding: @vertical-rhythm*3 0;
+
+  &__tabs {
+    margin-bottom: @vertical-rhythm*2;
+    border-bottom: 1px solid @border-color;
+
+    @media(max-width: @grid-float-breakpoint) {
+      margin-bottom: @vertical-rhythm;
+      border-bottom: 0;
+    }
+
+    ul {
+      position: relative;
+      top: 2px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+
+      @media(max-width: @grid-float-breakpoint) {
+        position: static;
+        top: 0;
+        text-align: left;
+      }
+
+      > li {
+        display: inline-block;
+        margin: 0 @gap;
+        border-bottom: 3px solid transparent;
+
+        @media(max-width: @grid-float-breakpoint) {
+          display: block;
+          margin: @gap 0;
+        }
+
+        &.active,
+        &:hover {
+          border-color: @brand-primary;
+
+          > a {
+            color: @text-color;
+          }
+        }
+
+        > a {
+          display: block;
+          padding: 25px 0;
+          color: fade(@text-color, 50%);
+          .font-normalize(20px, 0);
+          font-weight: bold;
+          text-transform: uppercase;
+
+          @media(max-width: @grid-float-breakpoint) {
+            padding: 5px 0;
+          }
+
+          &,
+          &:hover,
+          &:focus {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__actions {
+    margin-top: @vertical-rhythm*2;
+    text-align: center;
+
+    .btn {
+      width: 140px;
+      margin: 0 5px;
+
+      @media(max-width: @screen-phone) {
+        width: 100%;
+        margin-bottom: @gap;
+      }
+    }
+
+    @media(max-width: @grid-float-breakpoint) {
+      margin-top: @vertical-rhythm;
+    }
+  }
+}
+
 .content {
   padding: @vertical-rhythm*2 0;
   background: #fff;
@@ -149,6 +236,75 @@ body {
 
 .highlight {
   background: #fde35b;
+}
+
+
+
+//
+// List actions
+// --------------------------------------------------
+
+.ia-card__actions,
+.ia-item__actions {
+  > a {
+    display: none;
+  }
+}
+
+.ia-card__action,
+.ia-item__action {
+  position: absolute;
+  display: block !important;
+  width: 25px;
+  height: 25px;
+  top: 15px;
+  right: 15px;
+  text-align: center;
+  color: #fff !important;
+  margin-right: calc(~"25px + 5px");
+  background-color: fade(@headings-color, 50%);
+  z-index: 1;
+
+  @media (max-width: @screen-md) {
+    right: auto;
+    left: 15px;
+    margin-right: 0;
+    margin-left: calc(~"25px + 5px");
+  }
+
+  &:first-child {
+    margin-right: 0;
+
+    @media (max-width: @screen-md) {
+      margin-left: 0;
+    }
+  }
+
+  &,
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &--favorite {
+
+    &.btn-favorite--added {
+      background-color: @brand-accent;
+    }
+  }
+
+  &--compare {
+
+    &.btn-compare--added {
+      background-color: @brand-primary;
+    }
+  }
+
+  i {
+    font-size: 14px;
+    line-height: 25px;
+  }
 }
 
 
@@ -221,5 +377,42 @@ body {
     border: 2px solid @brand-primary;
     border-radius: 7px;
     background-color: #fff;
+  }
+}
+
+
+
+//
+// Banner
+// --------------------------------------------------
+
+.banner {
+  position: relative;
+  max-width: 275px;
+  min-height: 295px;
+  padding: @gap;
+  color: fade(#fff, 50%);
+  background: url('../img/banner.jpg') center center no-repeat;
+  background-size: cover;
+  
+  &__content {
+    position: absolute;
+    width: calc(~"100% - 30px");
+    bottom: -17px;
+  }
+
+  &__title {
+    margin-bottom: @gap;
+    color: @brand-accent;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__body {
+    margin-bottom: @gap*2;
+    line-height: 16px;
   }
 }

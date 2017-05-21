@@ -8,12 +8,12 @@
     {/if}
 
     {if $listing.pictures}
-        {$picture = $listing.pictures[0]}
+        {$picture = array_shift($listing.pictures)}
     {else}
         {$picture = ''}
     {/if}
 
-    <a class="ia-card__image{if empty($picture)} ia-card__image--no-image{/if}" href="{ia_url item='autos' type='url' data=$listing}">
+    <a class="ia-card__image{if empty($picture)} ia-card__image--no-image{/if}" href="{$listing.link}">
         {ia_image file=$picture title="{$listing.model|escape:'html'} {$listing.release_year}" type='thumbnail' class='img-responsive'}
 
         {if $listing.featured}
@@ -28,32 +28,42 @@
     </a>
 
     <div class="ia-card__content">
-        <div class="ia-card__content__left">
-            <div class="ia-card__title" href="{$listing.link}"><strong>{$listing.make}</strong> {$listing.make_model}</div>
-            <div class="ia-card__info">
-                {$listing.release_year}{if $listing.transmission}, {$listing.transmission}{/if}{if $listing.mileage}, <span class="ia-card__field--mileage">{intval($listing.mileage)}k+ {lang key='unit'}</span>{/if}
+        <div class="ia-card__inner-block">
+            <div class="ia-card__content__left">
+                <a class="ia-card__title" href="{$listing.link}"><strong>{$listing.make}</strong> {$listing.make_model}</a>
+            </div>
+            <div class="ia-card__content__right">
+                {if $listing.price}
+                    <div class="ia-card__price">
+                        {$core.config.currency} {$listing.price}
+                    </div>
+                    <div class="ia-card__average-price">
+                        {if isset($listing.average_price) && $listing.price !== $listing.average_price && $core.config.autos_display_average_price}
+                            {if $listing.price > $listing.average_price}
+                                <span class="fa fa-caret-up"></span> {lang key='above_average'}
+                            {else}
+                                <span class="fa fa-caret-down"></span> {lang key='below_average'}
+                            {/if}
+                        {/if}
+                    </div>
+                {/if}
             </div>
         </div>
-        <div class="ia-card__content__right">
-            {if $listing.price}
-                <div class="ia-card__price">
-                    {$core.config.currency} {$listing.price}
+        {if $listing.additional_info}
+            <p class="ia-card__summary">{$listing.additional_info|strip_tags|truncate:150:'...':true}</p>
+        {/if}
+        <div class="ia-card__inner-block">
+            <div class="ia-card__content__left">
+                <div class="ia-card__info">
+                    {$listing.release_year}{if $listing.transmission}, {$listing.transmission}{/if}{if $listing.mileage}, <span class="ia-card__field--mileage">{intval($listing.mileage)}k+ {lang key='unit'}</span>{/if}
                 </div>
-
-                <div class="ia-card__average-price">
-                    {if isset($listing.average_price) && $listing.price !== $listing.average_price && $core.config.autos_display_average_price}
-                        {if $listing.price > $listing.average_price}
-                            <span class="fa fa-caret-up"></span> {lang key='above_average'}
-                        {else}
-                            <span class="fa fa-caret-down"></span> {lang key='below_average'}
-                        {/if}
-                    {/if}
-                </div>
-            {/if}
-
-            {if $listing.exterior_color}
-                <div class="ia-card__color" style="background-color:{$listing.exterior_color};"></div>
-            {/if}
+            </div>
+            <div class="ia-card__content__right">
+                {if $listing.exterior_color}
+                    <div class="ia-card__color" style="background-color:{$listing.exterior_color};"></div>
+                {/if}
+            </div>
         </div>
     </div>
 </div>
+

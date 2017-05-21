@@ -49,6 +49,9 @@
 .ia-item {
   .clearfix();
   position: relative;
+  border: 1px solid @border-color;
+  border-radius: @border-radius-large;
+  overflow: hidden;
 
   + .ia-item {
     margin-top: @gap+@gap;
@@ -64,8 +67,8 @@
   }
 
   &--border {
-    border: 1px solid @border-color;
-    padding: @gap;
+    //border: 1px solid @border-color;
+    //padding: @gap;
   }
 
   &--border-bottom {
@@ -103,6 +106,8 @@
     text-align: center;
     display: block;
     text-decoration: none;
+    padding: @gap;
+    overflow: hidden;
 
     &:hover {
       text-decoration: none;
@@ -111,12 +116,12 @@
     img {
       .img-responsive();
       margin: 0 auto;
+      border-radius: @border-radius-large;
     }
 
     @media (min-width: @screen-phone) {
       text-align: left;
       float: left;
-      margin-right: @gap;
       max-width: 100px;  
     }
 
@@ -137,6 +142,7 @@
   }
 
   &__content {
+    padding: @gap;
     overflow: hidden;
 
     > *:last-child {
@@ -148,6 +154,11 @@
       margin-left: @gap;
       color: fade(@text-color, 50%);
     }
+  }
+
+  &__body {
+    font-size: 14px;
+    line-height: 16px;
   }
 
   &__actions {
@@ -168,8 +179,18 @@
   }
 
   &__title {
-    .font-normalize(18px, 0 0 @gap);
-    font-weight: normal;
+    .font-normalize(16px, 0 0 @gap);
+    font-weight: bold;
+
+    > a {
+      color: @headings-color !important;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
   }
 
   &__additional {
@@ -224,6 +245,32 @@
         color: fade(@text-color, 50%);
         width: 18%;
       }
+    }
+  }
+
+  &--member {
+    text-align: center;
+    padding: @gap 0;
+
+    .ia-item__image {
+      display: inline-block;
+      float: none;
+      border-radius: 0;
+      padding: @gap;
+      width: 100% !important;
+      max-width: 100% !important;
+
+      img {
+        width: 100% !important;
+        max-width: 80px !important;
+        height: auto;
+        .img-circle;
+      }
+    }
+
+    .ia-item__title {
+      color: @headings-color;
+      font-weight: bold;
     }
   }
 }
