@@ -68,6 +68,12 @@
     margin-top: @gap+@gap;
   }
 
+  @media (max-width: @screen-md) {
+    .row [class*="col-md"] + [class*="col-md"] {
+      margin-top: 0;
+    }
+  }
+
   a:not(.btn),
   a:not(.btn):focus {
     color: @item-link-color;
@@ -183,7 +189,8 @@
     }
   }
 
-  &__title {
+  &__title,
+  &__price {
     .font-normalize(16px, 0 0 @gap);
     font-weight: bold;
 
@@ -195,6 +202,15 @@
       &:focus {
         text-decoration: underline;
       }
+    }
+  }
+
+  &__price {
+    text-align: right;
+    color: @brand-primary;
+    
+    @media (max-width: @screen-md) {
+      text-align: left;
     }
   }
 

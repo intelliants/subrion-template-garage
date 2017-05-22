@@ -72,14 +72,19 @@
 
         {if $member}
             <div class="ia-form-filters__actions">
-                <a href="{$smarty.const.IA_URL}search/my/" class="btn btn-xs btn-success" data-loading-text="{lang key='loading'}" id="js-cmd-open-searches">{lang key='my_searches'}</a>
+                <a href="{$smarty.const.IA_URL}search/my/" class="" data-loading-text="{lang key='loading'}" id="js-cmd-open-searches">
+                    <span class="fa fa-list"></span>
+                    {lang key='my_searches'}
+                </a>
                 <div class="modal fade" id="js-modal-searches" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document"><div class="modal-content"></div></div>
                 </div>
                 {if isset($regular)}
-                    <button type="button" class="btn btn-xs btn-default" id="js-cmd-save-search">{lang key='save_this_search'}</button>
+                    <a href="#" class="" id="js-cmd-save-search">
+                        <span class="fa fa-floppy-o"></span>
+                        {lang key='save_this_search'}
+                    </a>
                 {/if}
-                <button type="reset" class="btn btn-xs btn-default" id="js-cmd-reset-filters">{lang key='reset_filters'}</button>
             </div>
         {/if}
     </form>

@@ -37,7 +37,7 @@
   }
 
   &__content {
-    padding-top: @vertical-rhythm/2;
+    padding-top: @vertical-rhythm/1.5;
 
     > *:last-child {
       margin-bottom: 0;
@@ -57,6 +57,7 @@
   &.collapsed {
 
     .minmax-toggle i {
+      top: 1px;
       .fa-icon();
       &:before { content: @fa-var-angle-down; }
     }
@@ -72,23 +73,30 @@
   position: absolute;
   right: 0;
   top: 50%;
-  margin-top: -12px;
-  font-size: 20px;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
+  margin-top: -10px;
+  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
   text-decoration: none;
   text-align: center;
-  color: fade(@text-color, 30%);
+  border: 1px solid #ccc;
+  border-radius: 50%;
 
   i {
+    position: absolute;
+    left: 0;
     .fa-icon();
+    width: 100%;
+    height: 100%;
+    display: block;
     &:before { content: @fa-var-angle-up; }
   }
 
+  &,
   &:hover,
   &:focus {
     text-decoration: none;
-    color: fade(@text-color, 50%);
+    color: #ccc;
   }
 }

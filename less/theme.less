@@ -335,3 +335,100 @@
     color: fade(@text-color, 50%);
   }
 }
+
+
+
+//
+// List group
+// --------------------------------------------------
+
+.list-group {
+  border-radius: 0;
+
+  &-item {
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+    border-bottom: 1px solid @border-color;
+
+    &:first-child,
+    &:last-child {
+      border-radius: 0;
+    }
+
+    &:last-child {
+      border-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: @brand-primary;
+    }
+
+    &,
+    &:hover,
+    &:focus,
+    &.active,
+    &.active:hover,
+    &.active:focus {
+      color: @text-color;
+      background-color: transparent !important;
+    }
+  }
+}
+
+
+
+//
+// Pagination
+// --------------------------------------------------
+
+.pagination {
+  display: block;
+  text-align: center;
+  margin: @vertical-rhythm*2 0;
+
+  > li {
+    display: inline-block;
+    margin: 0 2px;
+
+    &.active span {
+
+      &,
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: @brand-dark;
+      }
+    }
+
+    span,
+    [rel="first"],
+    [rel="prev"],
+    [rel="next"],
+    [rel="last"] {
+      border-radius: @border-radius-large;
+      border: 0;
+      
+      &,
+      &:hover,
+      &:focus {
+        color: @brand-primary;
+        background-color: transparent;
+      }
+    }
+
+    a {
+      color: inherit;
+      border: 0;
+      border-radius: @border-radius-large;
+      background-color: #f4f4f4;
+
+      &:hover,
+      &:focus {
+        color: #fff;
+        background-color: @brand-dark;
+      }
+    }
+  }
+}

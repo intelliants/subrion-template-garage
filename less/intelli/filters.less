@@ -22,15 +22,15 @@
     display: none;
     text-transform: uppercase;
     border: 0 none;
-    border-radius: @border-radius-small;
-    background: @brand-warning;
+    background: @brand-dark;
     padding: 2px 6px;
     color: #fff;
     font-size: 10px;
 
+    &:hover,
     &:focus {
       outline: 0 none;
-      background: darken(@brand-warning, 3%);
+      background: @brand-dark;
     }
 
     &::before {
@@ -40,16 +40,30 @@
       height: 0;
       position: absolute;
       top: 50%;
-      margin-top: -4px;
+      margin-top: -9px;
       left: -8px;
       border-style: solid;
-      border-width: 4px 8px 4px 0;
-      border-color: transparent @brand-warning transparent transparent;
+      border-width: 9px 8px 9px 0;
+      border-color: transparent @brand-dark transparent transparent;
     }
   }
 
   &__actions {
     margin-top: 20px;
+
+    a {
+      margin-right: @gap;
+      
+      &,
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+
+      > span {
+        color: @brand-dark;
+      }
+    }
   }
 }
 

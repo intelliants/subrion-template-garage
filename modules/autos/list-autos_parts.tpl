@@ -21,12 +21,15 @@
     </div>
 
     <div class="ia-item__content">
-        <div class="ia-item__title">
-            {ia_url item='autos_parts' type='link' data=$listing text=$listing.title}
-        </div>
-
-        <div class="ia-item__additional">
-            <p class="text-success">{$core.config.currency} {$listing.price}</p>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="ia-item__title">
+                    {ia_url item='autos_parts' type='link' data=$listing text=$listing.title}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ia-item__price">{$core.config.currency} {$listing.price}</div>
+            </div>
         </div>
 
         <div class="ia-item__body">{$listing.description|escape|truncate:150:'...':true}</div>
