@@ -46,12 +46,16 @@
           .ia-card__badge--sponsored {
             right: auto;
             left: 30px;
+
+            @media (min-width: @screen-xs) and (max-width: @screen-md) {
+              left: 25px;
+            }
           }
         }
 
         &__badge {
-          right: 30px;
-          bottom: 30px;
+          right: 25px;
+          bottom: 25px;
         }
 
         &__image {
@@ -86,8 +90,8 @@
       }
 
       @media (min-width: @screen-xs) {
-        top: 30px;
-        left: 30px;
+        top: 25px;
+        left: 25px;
       }
     }
   }
@@ -129,14 +133,18 @@
 
     .ia-card__badge--sponsored {
       right: auto;
-      left: 20px;
+      left: 10px;
+
+      @media (min-width: @screen-xs) and (max-width: @screen-md) {
+        left: 25px;
+      }
     }
   }
   
   &__badge {
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 10px;
+    bottom: 10px;
     padding: 0 8px;
     line-height: 20px;
     height: 20px;
@@ -145,8 +153,8 @@
     border-radius: @border-radius-base;
 
     @media (min-width: @screen-xs) and (max-width: @screen-md) {
-      right: 20px;
-      bottom: 20px;
+      right: 25px;
+      bottom: 25px;
     }
 
     &--featured {

@@ -59,6 +59,7 @@
     <changeset>
         <menu position="account" status="active">account</menu>
         <menu position="left" status="active" order="2">autos</menu>
+        <menu status="inactive"">bottom</menu>
 
         <block status="active" classname="" position="left" title="Filters" order="0">filters</block>
         <block status="active" classname="box--bodytypes" header="1" title="Search cars by bodytype" sticky="0" pages="index" position="bodytypes">auto_body_list</block>

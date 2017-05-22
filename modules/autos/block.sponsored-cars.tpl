@@ -8,29 +8,31 @@
         {ia_add_js}
             $(function() {
                 var owlOptions = {
-                    center: true,
                     dots: false,
+                    margin: 10,
                     nav: true,
                     loop: true,
                     autoplay: true,
                     autoplayTimeout: 3000,
-                    autoplayHoverPause: true,
                     navText: ['<span class="fa fa-angle-left"></span>','<span class="fa fa-angle-right"></span>'],
                     responsive: {
                         0: {
                             items: 1
                         },
-                        880: {
+                        480: {
                             items: 2
                         },
-                        993: {
+                        640: {
+                            items: 2
+                        },
+                        768: {
+                            items: 3
+                        },
+                        960: {
                             items: 4
                         },
                         1200: {
                             items: 5
-                        },
-                        1400: {
-                            items: 6
                         }
                     }
                 }
