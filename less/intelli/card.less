@@ -36,22 +36,22 @@
       .ia-card {
         border: 1px solid @border-color;
 
-        &__action {
-          top: 25px !important;
-          left: 25px !important;
-        }
-
         &--sponsored {
           border-color: @brand-accent;
         }
 
         &--featured {
           border-color: @brand-primary;
+
+          .ia-card__badge--sponsored {
+            right: auto;
+            left: 30px;
+          }
         }
 
         &__badge {
-          right: 25px;
-          bottom: 25px;
+          right: 30px;
+          bottom: 30px;
         }
 
         &__image {
@@ -75,6 +75,21 @@
         }
       }
     }
+
+    .ia-card__action,
+    .ia-item__action {
+      margin-right: 0;
+      margin-left: 30px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      @media (min-width: @screen-xs) {
+        top: 30px;
+        left: 30px;
+      }
+    }
   }
 }
 
@@ -87,14 +102,6 @@
 
   @media (min-width: @screen-xs) and (max-width: @screen-md) {
     border: 1px solid @border-color;
-  }
-
-  &__action {
-
-    @media (min-width: @screen-xs) and (max-width: @screen-md) {
-      top: 25px !important;
-      left: 25px !important;
-    }
   }
 
   &--sponsored {
@@ -122,13 +129,13 @@
 
     .ia-card__badge--sponsored {
       right: auto;
-      left: 15px;
+      left: 20px;
     }
   }
   
   &__badge {
     position: absolute;
-    right: 15px;
+    right: 20px;
     bottom: 20px;
     padding: 0 8px;
     line-height: 20px;
@@ -138,8 +145,8 @@
     border-radius: @border-radius-base;
 
     @media (min-width: @screen-xs) and (max-width: @screen-md) {
-      right: 25px;
-      bottom: 25px;
+      right: 20px;
+      bottom: 20px;
     }
 
     &--featured {

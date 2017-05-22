@@ -34,6 +34,18 @@
   + .box {
     margin-top: @vertical-rhythm;
   }
+
+  .ia-card__action,
+  .ia-item__action {
+    top: 30px;
+    left: 30px;
+    margin-right: 0;
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 .ia-items--cards {
@@ -51,7 +63,6 @@
   position: relative;
   border: 1px solid @border-color;
   border-radius: @border-radius-large;
-  overflow: hidden;
 
   + .ia-item {
     margin-top: @gap+@gap;
@@ -64,11 +75,6 @@
     &:hover {
       color: @item-link-color-hover;
     }
-  }
-
-  &--border {
-    //border: 1px solid @border-color;
-    //padding: @gap;
   }
 
   &--border-bottom {
@@ -86,13 +92,11 @@
 
   &--featured {
     border: 1px solid @brand-info;
-    padding: @gap;
     background: fade(@brand-info, 10%);
   }
 
   &--sponsored {
     border: 1px solid @brand-warning;
-    padding: @gap;
     background: fade(@brand-warning, 10%);
   }
 
@@ -122,11 +126,12 @@
     @media (min-width: @screen-phone) {
       text-align: left;
       float: left;
-      max-width: 100px;  
+      max-width: 200px;
+      padding-right: 0;
     }
 
     @media (min-width: @grid-float-breakpoint) {
-      max-width: 150px;
+      max-width: 230px;
     }
 
     &__badge {
@@ -195,6 +200,8 @@
 
   &__additional {
     .clearfix();
+    font-size: 14px;
+    line-height: 16px;
 
     p {
       float: left;
@@ -301,32 +308,6 @@
   }
 }
 
-// as card
-
-.ia-item--card {
-  .ia-item__image {
-    float: none;
-    display: block;
-
-    @media (min-width: @screen-phone) {
-      max-width: 100%;
-      margin: 0 0 @gap;
-
-      img {
-        margin: 0;
-      }
-    }
-
-    @media (min-width: @grid-float-breakpoint) {
-      max-width: 100%;
-    }
-  }
-
-  .ia-item__content {
-
-  }
-}
-
 
 
 //
@@ -335,9 +316,15 @@
 
 .ia-item__labels {
   position: absolute;
-  left: 15px;
+  right: 15px;
   bottom: 100%;
-  margin-bottom: -6px;
+  margin-bottom: 1px;
+
+  .label {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 0;
+  }
 }
 
 .label-available {
