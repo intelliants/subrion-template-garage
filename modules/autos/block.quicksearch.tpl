@@ -23,7 +23,7 @@
         </div>
         <div class="q-search__col q-search__col--price">
             {if $max_auto_price}
-                <input class="hidden js-range-slider" type="hidden">
+                <input class="hidden js-q-search-range-slider" type="hidden">
 
                 <input type="hidden" name="price[f]" value="0">
                 <input type="hidden" name="price[t]" value="{$max_auto_price}">
@@ -49,7 +49,7 @@
 
 {ia_add_js}
     $(function() {
-        $('.js-range-slider').ionRangeSlider(
+        $('.js-q-search-range-slider').ionRangeSlider(
         {
             type: 'double',
             force_edges: true,

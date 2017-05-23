@@ -13,7 +13,9 @@
                 {$selected = null}
             {/if}
             <div class="form-group">
-                <label>{lang key="field_{$field.item}_{$field.name}"}</label>
+                {if $field.type !== iaField::STORAGE && $field.type !== iaField::IMAGE && $field.type !== iaField::PICTURES}
+                    <label>{lang key="field_{$field.item}_{$field.name}"}</label>
+                {/if}
                 {switch $field.type}
                     {case iaField::CHECKBOX break}
                         <div class="radios-list">
@@ -39,18 +41,63 @@
                     {case iaField::STORAGE}
                     {case iaField::IMAGE}
                     {case iaField::PICTURES break}
-                        <input type="checkbox" name="{$field.name}" value="1"{if $selected} checked{/if}>
+                            <div class="checkbox checkbox-awesome checkbox-dark">
+                                <input type="checkbox" name="{$field.name}" id="{$field.name}" value="1"{if $selected} checked{/if}>
+                                <label for="{$field.name}">
+                                    <strong>{lang key="field_{$field.item}_{$field.name}"}</strong>
+                                </label>
+                            </div>
 
                     {case iaField::NUMBER break}
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="ia-form__label-mini">{lang key='from'}</label>
-                                <input class="form-control" type="text" name="{$field.name}[f]" maxlength="{$field.length}" placeholder="{$field.range[0]}"{if $selected} value="{$selected.f|escape}"{/if}>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="ia-form__label-mini">{lang key='to'}</label>
-                                <input class="form-control" type="text" name="{$field.name}[t]" maxlength="{$field.length}" placeholder="{$field.range[1]}"{if $selected} value="{$selected.t|escape}"{/if}>
-                            </div>
+                        <div class="range-slider">
+                            <input class="hidden no-js js-range-slider" id="range_{$field.name}" type="text" name="">
+
+                            <input id="range_{$field.name}_from" type="hidden" name="{$field.name}[f]" maxlength="{$field.length}" {if $selected} value="{$selected.f|escape}"{/if}>
+                            <input id="range_{$field.name}_to" type="hidden" name="{$field.name}[t]" maxlength="{$field.length}" {if $selected} value="{$selected.t|escape}"{/if}>
+
+                            {ia_add_js}
+$(function()
+{
+    $('#range_{$field.name}').ionRangeSlider(
+    {
+        type: 'double',
+        force_edges: true,
+        min: '{$field.range[0]}',
+        max: '{$field.range[1]}',
+        from: $('#range_{$field.name}_from').val(),
+        to: $('#range_{$field.name}_to').val(),
+        {if 'release_year' == $field.name}
+            prettify_enabled: false,
+            step: 1,
+        {else}
+            step: 1000,
+        {/if}
+        onFinish: function(obj)
+        {
+            $('#range_{$field.name}_from').val(obj.from).trigger('change');
+            $('#range_{$field.name}_to').val(obj.to).trigger('change');
+        }
+    });
+
+    var ionSlider_{$field.name} = $('#range_{$field.name}').data('ionRangeSlider');
+
+    $('#range_{$field.name}_from').on('change', function() {
+        var thisval = $(this).val();
+
+        ionSlider_{$field.name}.update({
+            from: thisval
+        });
+    });
+
+    $('#range_{$field.name}_to').on('change', function() {
+        var thisval = $(this).val();
+
+        ionSlider_{$field.name}.update({
+            to: thisval
+        });
+    });
+});
+                            {/ia_add_js}
                         </div>
 
                     {case iaField::TEXT}
@@ -88,5 +135,5 @@
             </div>
         {/if}
     </form>
-    {ia_add_media files='select2, js:intelli/intelli.search, js:frontend/search'}
+    {ia_add_media files='select2, js:intelli/intelli.search, js:frontend/search, js:_IA_TPL_ion.rangeSlider.min, css:ion.rangeSlider'}
 {/if}
