@@ -150,7 +150,7 @@
                 {*<a href="#" class="icon-scroll-to-content js-scroll-to-content hidden-xs"></a>*}
             </header>
         {elseif 'autos_view' == $core.page.name}
-            <header class="header-view-page">
+            <header class="header-view-page header-view-page--offset">
                 <div class="container">
                     <div class="pull-left">
                         <h1 class="page-title">{$core.page.title}</h1>
@@ -174,6 +174,11 @@
                     </div>
                 </div>
             </header>
+            <div class="separator">
+                <div class="container">
+                    {include 'extra:autos/test'}
+                </div>
+            </div>
         {else}
             <header class="header-inner-page{if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)} header-inner-page--offset{/if}">
                 <div class="container">
@@ -183,9 +188,11 @@
                 </div>
             </header>
             {if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)}
-                <div class="header-inner-page__q-search">
+                <div class="separator">
                     <div class="container">
-                        {ia_blocks block='quicksearch'}
+                        {if isset($iaBlocks.quicksearch)}
+                            {ia_blocks block='quicksearch'}
+                        {/if}
                     </div>
                 </div>
             {/if}
@@ -318,7 +325,7 @@
                     </div>
                 {/if}
             {else}
-                <div class="content{if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)} content--offset{/if}">
+                <div class="content{if (in_array($core.page.name, ['autos_index', 'search_autos', 'autos_view']) && isset($iaBlocks.quicksearch)) || 'autos_view' == $core.page.name} content--offset{/if}">
                     <div class="container">
                         {if in_array($core.page.name, array('login', 'member_registration'))}
                             <div class="page-system">

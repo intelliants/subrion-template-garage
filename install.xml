@@ -484,6 +484,7 @@
         <phrase category="frontend" key="add_part">Add part</phrase>
         <phrase category="frontend" key="banner_title">Sell or buy a car  easily on our portal!</phrase>
         <phrase category="frontend" key="banner_content">Add your car for sale and be ready to receive many calls from potential buyers!</phrase>
+        <phrase category="frontend" key="total_cars_found">Total cars found</phrase>
     </phrases>
 
     <install>

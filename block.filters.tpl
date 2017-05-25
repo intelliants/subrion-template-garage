@@ -128,7 +128,7 @@ $(function()
                 </div>
                 {if isset($regular)}
                     <a href="#" class="" id="js-cmd-save-search">
-                        <span class="fa fa-floppy-o"></span>
+                        <span class="fa fa-search-plus"></span>
                         {lang key='save_this_search'}
                     </a>
                 {/if}

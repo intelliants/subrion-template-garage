@@ -18,36 +18,41 @@
     <div class="ia-cards">
         {if !isset($no_sorting)}
             <div class="ia-sorting">
-                {lang key='sort_by'}:
-                <div class="btn-group">
-                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                        {if 'release_year' != $sorting.field}
-                            {lang key=$sorting.field}
-                        {else}
-                            {lang key='field_autos_release_year'}
-                        {/if}
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{$smarty.const.IA_SELF}?sort=title" rel="nofollow"><span class="fa fa-font"></span> {lang key='title'}</a></li>
-                        <li><a href="{$smarty.const.IA_SELF}?sort=price" rel="nofollow"><span class="fa fa-dollar"></span> {lang key='price'}</a></li>
-                        <li><a href="{$smarty.const.IA_SELF}?sort=year" rel="nofollow"><span class="fa fa-calendar"></span> {lang key='field_autos_release_year'}</a></li>
-                        <li><a href="{$smarty.const.IA_SELF}?sort=date" rel="nofollow"><span class="fa fa-clock-o"></span> {lang key='date'}</a></li>
-                    </ul>
+                <div class="pull-left hidden-xs">
+                    {lang key='total_cars_found'}: <strong>{$pagination.total}</strong>
                 </div>
+                <div class="pull-right">
+                    <div class="ia-sorting__field">
+                        {lang key='sort_by'}:
+                        <div class="btn-group">
+                            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+                                {if 'release_year' != $sorting.field}
+                                    {lang key=$sorting.field}
+                                {else}
+                                    {lang key='field_autos_release_year'}
+                                {/if}
+                                <span class="fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{$smarty.const.IA_SELF}?sort=title" rel="nofollow"><span class="fa fa-font"></span> {lang key='title'}</a></li>
+                                <li><a href="{$smarty.const.IA_SELF}?sort=price" rel="nofollow"><span class="fa fa-dollar"></span> {lang key='price'}</a></li>
+                                <li><a href="{$smarty.const.IA_SELF}?sort=year" rel="nofollow"><span class="fa fa-calendar"></span> {lang key='field_autos_release_year'}</a></li>
+                                <li><a href="{$smarty.const.IA_SELF}?sort=date" rel="nofollow"><span class="fa fa-clock-o"></span> {lang key='date'}</a></li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="btn-group">
-                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                        {if $sorting.direction == 'ASC'}
-                            {lang key='asc'}
-                        {else}
-                            {lang key='desc'}
-                        {/if}
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{$smarty.const.IA_SELF}?order=asc" rel="nofollow"><span class="fa fa-long-arrow-down"></span> {lang key='asc'}</a></li>
-                        <li><a href="{$smarty.const.IA_SELF}?order=desc" rel="nofollow"><span class="fa fa-long-arrow-up"></span> {lang key='desc'}</a></li>
+                    <ul class="ia-sorting__direction">
+                        <li>
+                            <a href="{$smarty.const.IA_SELF}?order=asc" rel="nofollow"{if $sorting.direction == 'ASC'} class="active"{/if}>
+                                <span class="fa fa-sort-amount-asc"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{$smarty.const.IA_SELF}?order=desc" rel="nofollow"{if $sorting.direction == 'DESC'} class="active"{/if}>
+                                <span class="fa fa-sort-amount-desc"></span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
