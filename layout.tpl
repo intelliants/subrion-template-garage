@@ -153,7 +153,7 @@
             <header class="header-view-page header-view-page--offset">
                 <div class="container">
                     <div class="pull-left">
-                        <h1 class="page-title">{$core.page.title}</h1>
+                        <h1 class="page-title">{lang key='car_details'}</h1>
                         {ia_hooker name='smartyFrontBeforeBreadcrumb'}
                         {include 'breadcrumb.tpl'}
                     </div>
@@ -176,7 +176,7 @@
             </header>
             <div class="separator">
                 <div class="container">
-                    {include 'extra:autos/test'}
+                    {include 'extra:autos/view.main-info'}
                 </div>
             </div>
         {else}

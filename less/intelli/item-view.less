@@ -7,13 +7,6 @@
 
   .ia-item__image {
 
-    @media (min-width: @screen-phone) {
-      margin-right: @gap+@gap;
-    }
-
-    @media (min-width: @grid-float-breakpoint) {
-      max-width: 200px;
-    }
   }
 
   + .tabbable {
@@ -31,10 +24,20 @@
   .clearfix();
 
   &__price {
-    color: @brand-success;
+    color: @brand-info;
     font-weight: bold;
-    float: right;
-    font-size: 20px;
+    text-align: right;
+    .font-normalize(24px, 0 0 @gap);
+
+    @media (max-width: @screen-md) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    color: @brand-dark;
+    font-weight: bold;
+    .font-normalize(24px, 0 0 @gap);
   }
 
   &__sub-header {
@@ -44,12 +47,12 @@
   }
 
   &__info {
-    margin-bottom: 15px;
 
     &__item {
       color: fade(@text-color, 70%);
       display: inline-block;
       margin-right: 15px;
+      margin-bottom: @gap;
     }
   }
 
@@ -59,35 +62,38 @@
 
   &__section {
     margin-bottom: @gap+@gap;
+    color: fade(@text-color, 60%);
+    font-size: 16px;
 
     > h3 {
-      text-transform: uppercase;
-      font-size: 18px;
-      line-height: 18px;
-      border-bottom: 2px solid #ddd;
-      margin: 0 0 @gap;
-      padding: 0 0 6px;
+      .font-normalize(16px, 0 0 @gap);
+      color: @brand-dark;
       font-weight: bold;
-      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
   }
 
   &__table {
-    width: 100%;
+    position: relative;
 
-    td {
-      padding: 10px 0;
-      vertical-align: top;
-      border-bottom: 1px solid #eee;
+    table {
+      width: 100%;
+      color: fade(@brand-dark, 60%);
+      font-size: 16px;
 
-      &:first-child {
-        width: 40%;
-        font-weight: bold;
+      td {
+        vertical-align: top;
+
+        &:last-child {
+          width: 40%;
+          font-weight: bold;
+
+          @media (max-width: @screen-md) {
+            width: auto;
+          }
+        }
       }
-    }
-
-    tr:last-child td {
-      border-bottom: 0 none;
     }
   }
 
@@ -95,9 +101,100 @@
     .clearfix();
 
     &__item {
-      float: left;
-      width: 200px;
-      margin: 0 20px 10px 0;
+      margin-bottom: @gap/2;
+      color: fade(@brand-dark, 80%);
+      line-height: 16px;
+
+      .fa {
+        margin-right: 3px;
+        font-size: 14px;
+        line-height: 16px;
+        color: @brand-primary;
+      }
+    }
+  }
+
+  &--main-info {
+    padding: 20px;
+    border-radius: @border-radius-large;
+    background-color: #fff;
+    box-shadow: 0 0 27px fade(#000, 13%);
+    .clearfix;
+
+    &__footer {
+      .clearfix;
+    }
+  }
+
+  &__get-enquiry-form {
+    position: absolute;
+    padding: 0 40px 0 60px;
+    min-width: 160px;
+    height: 42px;
+    top: 50%;
+    right: -60px;
+    color: #fff;
+    line-height: 42px;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 21px;
+    transform: translateY(-50%);
+    background-color: @link-color;
+    
+    @media (max-width: @screen-md) {
+      position: relative;
+      display: block;
+      margin-top: @gap;
+      top: auto;
+      right: auto;
+      transform: none;
+      border-radius: @border-radius-base;
+      .clearfix;
+    }
+
+    &,
+    &:hover,
+    &:focus {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: @link-hover-color;
+    }
+
+    .fa {
+      position: absolute;
+      width: 60px;
+      height: 42px;
+      top: 0;
+      left: 0;
+      font-size: 31px;
+      line-height: 42px;
+    }
+  }
+
+  &__social {
+    margin-top: @gap;
+  }
+
+  &__report {
+    margin-top: @gap;
+    color: @brand-danger;
+    line-height: 30px;
+
+    > a {
+      color: @brand-danger;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: darken(@brand-danger, 15%);
+        text-decoration: none;
+      }
     }
   }
 }
@@ -159,18 +256,4 @@
   + .box {
     margin-top: @vertical-rhythm;
   }
-}
-
-
-
-//
-// Main info
-// --------------------------------------------------
-
-.main-info {
-  padding: 20px;
-  border-radius: @border-radius-large;
-  background-color: #fff;
-  box-shadow: 0 0 27px fade(#000, 13%);
-  .clearfix;
 }

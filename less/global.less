@@ -9,12 +9,15 @@
   margin: @margin;
 }
 
-* {
-  outline: none !important;
-}
-
 body {
   background: @body-bg;
+}
+
+a,
+button,
+[type="submit"],
+[class*="col-"] {
+  transition: .2s;
 }
 
 // improvements for cols in mobile version
@@ -238,13 +241,6 @@ body {
           text-decoration: none;
         }
       }
-    }
-  }
-
-  &__body {
-
-    + .box {
-      margin-top: @vertical-rhythm*2;
     }
   }
 

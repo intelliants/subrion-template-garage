@@ -67,14 +67,17 @@
         <block status="active" classname="box--services" header="1" title="Services" sticky="0" pages="index" position="services">autos_services_categories</block>
         <block status="active" classname="box--parts" header="1" title="Parts" sticky="0" pages="index" position="parts">autos_parts_categories</block>
         <block status="active" classname="box--sponsored" title="Sponsored cars for sale" position="verytop" header="1" sticky="0" pages="index">auto_sponsored</block>
-        <block status="active" title="Latest news" position="footer4">latest_news</block>
         <block status="active" header="0" position="quicksearch" sticky="0" pages="index,autos_index">autos_search</block>
         <block status="active" header="0" position="verybottom">newsletters_subscription</block>
         <block status="active" header="0" position="landing_tab1" sticky="0" pages="index" title="Featured cars">auto_featured</block>
         <block status="active" header="0" position="landing_tab3" sticky="0" pages="index" title="Recently added">auto_recent</block>
+        <block status="active" header="0" position="bottom" title="Seller">autos_author</block>
+        <block status="active" title="Latest news" position="footer4">latest_news</block>
+        <block status="active" collapsed="1" position="bottom" >autos_calculator</block>
         <block status="inactive">common_statistics</block>
         <block status="inactive">auto_random</block>
         <block status="inactive">autos_tools</block>
+        <block status="inactive">autos_enquiry_form</block>
         <block status="inactive">auto_year_list</block>
         <block status="inactive">new_blog_posts</block>
         <block status="inactive">blogs_archive</block>
@@ -485,6 +488,10 @@
         <phrase category="frontend" key="banner_title">Sell or buy a car  easily on our portal!</phrase>
         <phrase category="frontend" key="banner_content">Add your car for sale and be ready to receive many calls from potential buyers!</phrase>
         <phrase category="frontend" key="total_cars_found">Total cars found</phrase>
+        <phrase category="frontend" key="car_details">Car details</phrase>
+        <phrase category="frontend" key="enquire">Enquire</phrase>
+        <phrase category="frontend" key="report_listing">Report this listing</phrase>
+        <phrase category="frontend" key="options_and_features">Options and features</phrase>
     </phrases>
 
     <install>
