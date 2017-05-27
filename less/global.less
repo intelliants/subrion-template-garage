@@ -9,6 +9,10 @@
   margin: @margin;
 }
 
+* {
+  outline: none !important;
+}
+
 body {
   background: @body-bg;
 }
@@ -201,6 +205,10 @@ button,
   }
 }
 
+.verybottom {
+  background-color: #f5f5f5;
+}
+
 .content {
   padding: @vertical-rhythm*2 0;
   background: #fff;
@@ -214,10 +222,14 @@ button,
     // border-bottom: 1px solid #ddd;
     margin-bottom: @vertical-rhythm/2;
     padding-bottom: @vertical-rhythm/2;
+    border-bottom: 1px solid @border-color;
 
     h1 {
-      float: left;
-      .font-normalize(28px, 0);
+      .font-normalize(26px, 0);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      float: none;
     }
   }
 

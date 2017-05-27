@@ -71,9 +71,10 @@
         <block status="active" header="0" position="verybottom">newsletters_subscription</block>
         <block status="active" header="0" position="landing_tab1" sticky="0" pages="index" title="Featured cars">auto_featured</block>
         <block status="active" header="0" position="landing_tab3" sticky="0" pages="index" title="Recently added">auto_recent</block>
-        <block status="active" header="0" position="bottom" title="Seller">autos_author</block>
+        <block status="active" header="0" position="bottom" title="Seller" order="0">autos_author</block>
         <block status="active" title="Latest news" position="footer4">latest_news</block>
-        <block status="active" collapsed="1" position="bottom" >autos_calculator</block>
+        <block status="active" collapsed="1" position="bottom">autos_calculator</block>
+        <block status="active" collapsible="0" classname="">comments_form</block>
         <block status="inactive">common_statistics</block>
         <block status="inactive">auto_random</block>
         <block status="inactive">autos_tools</block>
@@ -82,6 +83,7 @@
         <block status="inactive">new_blog_posts</block>
         <block status="inactive">blogs_archive</block>
         <block status="inactive">blogroll</block>
+        <block status="inactive">latest_comments</block>
     </changeset>
 
     <configgroup name="template_garage">Template</configgroup>
@@ -101,11 +103,6 @@
             order="3002"
             values="1,0"
             description="Enable custom colors and backgrounds">0</config>
-    <config group="template_garage"
-            name="custom_color_body_bg"
-            type="colorpicker"
-            order="3003"
-            description="Body background">#fff</config>
     <config group="template_garage"
             name="custom_color_text"
             type="colorpicker"
@@ -492,6 +489,9 @@
         <phrase category="frontend" key="enquire">Enquire</phrase>
         <phrase category="frontend" key="report_listing">Report this listing</phrase>
         <phrase category="frontend" key="options_and_features">Options and features</phrase>
+        <phrase category="frontend" key="seller">Seller</phrase>
+        <phrase category="frontend" key="cars_in_garage">Cars in garage</phrase>
+        <phrase category="frontend" key="leave_your_comment">Leave your comment</phrase>
     </phrases>
 
     <install>

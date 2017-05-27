@@ -79,10 +79,6 @@
     z-index: 1;
     cursor: pointer;
 
-    &:focus + label::before {
-      .tab-focus();
-    }
-
     &:checked + label::after {
       font-family: @font-family-icon;
       content: @check-icon;

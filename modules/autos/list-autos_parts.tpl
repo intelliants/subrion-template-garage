@@ -7,7 +7,7 @@
         {if !empty($listing.pictures)}
             {ia_image file=$listing.pictures[0] title=$listing.title class='img-responsive'}
         {else}
-            <img class="img-responsive" title="{$listing.title}" src="{$smarty.const.IA_CLEAR_URL}templates/garage/img/no-preview.png">
+            <img class="img-responsive" title="{$listing.title}" src="{$img}no-preview.png">
         {/if}
     </a>
 

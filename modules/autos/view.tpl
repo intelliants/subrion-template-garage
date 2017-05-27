@@ -13,7 +13,7 @@
                 <div class="row">
                     {foreach explode(',', $item.options_features) as $opt}
                         <div class="col-md-4">
-                            <div class="ia-item-view__features__item"><span class="fa fa-check-square"></span> {lang key="field_autos_options_features+{$opt}"}</div>
+                            <div class="ia-item-view__features__item"><span class="fa fa-check-circle-o"></span> {lang key="field_autos_options_features+{$opt}"}</div>
                         </div>
                     {/foreach}
                 </div>

@@ -1,0 +1,64 @@
+
+//
+// Fotorama
+// --------------------------------------------------
+
+.fotorama {
+
+  &__fullscreen-icon,
+  &__arr {
+    width: 36px !important;
+    height: 36px !important;
+    line-height: 36px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    font: normal normal normal 18px/36px FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+
+    &,
+    &:focus {
+      background: fade(@brand-dark, 50%) !important;
+    }
+
+    &:hover {
+      background: fade(@brand-dark, 80%) !important;
+    }
+  }
+
+  &__fullscreen-icon {
+    top: 10px !important;
+    right: 10px !important;
+
+    &:before {
+      content: '\f065';
+    }
+  }
+
+  &__arr {
+
+    &--prev {
+      left: 10px !important;
+
+      &:before {
+        content: '\f104';
+      }
+    }
+
+    &--next {
+      right: 10px !important;
+
+      &:before {
+        content: '\f105';
+      }
+    }
+  }
+
+  &__nav {
+    margin-top: 10px !important;
+  }
+}

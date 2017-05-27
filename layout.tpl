@@ -40,7 +40,7 @@
 
         {if $core.config.custom_colors}
             <style type="text/css">
-                body { background-color: {$core.config.custom_color_body_bg}; color: {$core.config.custom_color_text}; }
+                body { color: {$core.config.custom_color_text}; }
                 h1, h2, h3, h4, h5, h6,
                 .box__caption { color: {$core.config.custom_color_headings}; }
                 a,
@@ -67,13 +67,22 @@
                     .page-index .navbar-default { background-color: {$core.config.custom_color_navbar_bg_home_page}; }
                 }
 
-                .header {
+                .header-front-page {
                     {if $core.config.bg_header_use_color}
                         background: {$core.config.bg_header_color};
                     {elseif $core.config.bg_header}
                         background-image: url('{$core.page.nonProtocolUrl}uploads/{$core.config.bg_header}');
                     {/if}
                 }
+
+                {if $core.config.bg_header_use_color}
+                    .header-inner-page { background: {$core.config.bg_header_color}; }
+                    .header-view-page { background: {$core.config.bg_header_color}; }
+                {/if}
+
+                {if !empty($core.config.bg_call_to_action)}
+                    .call-to-action { background-image: url('{$core.page.nonProtocolUrl}uploads/{$core.config.bg_call_to_action}'); }
+                {/if}
 
                 .footer { background: {$core.config.footer_bg}; }
                 .footer ul > li > a,
@@ -349,6 +358,12 @@
                                     <div class="content__wrap">
 
                                         {ia_blocks block='top'}
+
+                                        {if 'index' == $core.page.name}
+                                            <div class="content__header">
+                                                <h1>{$core.page.title}</h1>
+                                            </div>
+                                        {/if}
 
                                         {ia_hooker name='smartyFrontBeforeNotifications'}
                                         {include 'notification.tpl'}

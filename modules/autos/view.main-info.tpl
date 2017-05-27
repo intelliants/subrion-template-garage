@@ -19,7 +19,7 @@
 			</div>
 		{else}
 			<div class="col-md-6">
-				<img class="img-responsive" title="{$item.title}" src="{$smarty.const.IA_CLEAR_URL}templates/garage/img/no-preview.png">
+				<img class="img-responsive" title="{$item.title}" src="{$img}no-preview.png">
 			</div>
 		{/if}
 		<div class="col-md-6">
@@ -47,7 +47,19 @@
 					<div class="ia-item-view__title">{$core.page.title}</div>
 				</div>
 				<div class="col-sm-3">
-					<div class="ia-item-view__price">{$item.price_formatted}</div>
+					<div class="ia-item-view__price">
+						{$item.price_formatted}
+
+						{if isset($item.average_price) && $item.price !== $item.average_price && $core.config.autos_display_average_price}
+							<div class="ia-item-view__price__average_price">
+								{if $item.price > $item.average_price}
+									<span class="fa fa-caret-up"></span> {lang key='above_average'}
+								{else}
+									<span class="fa fa-caret-down"></span> {lang key='below_average'}
+								{/if}
+							</div>
+						{/if}
+					</div>
 				</div>
 			</div>
 			<div class="ia-item-view__table">
@@ -145,7 +157,24 @@
 						</table>
 					</div>
 				</div>
-				<a href="#" class="ia-item-view__get-enquiry-form"><span class="fa fa-comments-o"></span>{lang key='enquire'}</a>
+				<a href="#" class="ia-item-view__get-enquiry-form" data-toggle="modal" data-target="#enquireModal">
+					<span class="fa fa-comments-o"></span>{lang key='enquire'}
+				</a>
+				<div class="modal fade" id="enquireModal">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="{lang key='close'}"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title">{lang key='enquire'}</h4>
+							</div>
+							<div class="modal-body">
+								<div class="container-fluid">
+									{include 'extra:autos/block.enquiry-form'}
+								</div>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
 			</div>
 			<div class="ia-item-view--main-info__footer">
 				<div class="pull-left">
@@ -156,12 +185,12 @@
 						<a href="mailto:?subject={$item.model},{$item.release_year}&body={$item.model}, {$item.release_year}:{$smarty.const.IA_SELF|escape:'url'}" target="_blank" title="Email" class="btn-social-icon btn btn-sm btn-email"><i class="fa fa-envelope"></i></a>
 					</div>
 				</div>
-				<div class="pull-right">
-					<div class="ia-item-view__report">
-						<span class="fa fa-exclamation-triangle"></span>
-						<a href="#">{lang key='report_listing'}</a>
-					</div>
-				</div>
+				{*<div class="pull-right">*}
+					{*<div class="ia-item-view__report">*}
+						{*<span class="fa fa-exclamation-triangle"></span>*}
+						{*<a href="#">{lang key='report_listing'}</a>*}
+					{*</div>*}
+				{*</div>*}
 			</div>
 		</div>
 	</div>

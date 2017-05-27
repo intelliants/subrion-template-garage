@@ -24,9 +24,15 @@
 // Cursor pointer for some elems
 // --------------------------------------------------
 
-.field-captcha input {
-  margin-top: @gap;
-  .form-control();
+.field-captcha {
+  img {
+    margin-bottom: @gap;
+  }
+
+  input {
+    margin-top: @gap;
+    .form-control();
+  }
 }
 
 
@@ -59,4 +65,8 @@
       color: fade(#fff, 40%) !important;
     }
   }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: @brand-dark !important;
 }
