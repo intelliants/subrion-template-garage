@@ -1,39 +1,39 @@
 {if !isset($smarty.get.edit)}
     <div class="row">
         <div class="col-md-3">
-            <div class="ia-item-author">
-                <a href="{$smarty.const.IA_URL}profile/?edit" class="btn btn-default btn-sm ia-item-author__edit" title="{lang key='edit'}"><span class="fa fa-pencil"></span></a>
-                <a class="ia-item-author__image" href="{ia_url type='url' item='members' data=$member}">
-                    {printImage imgfile=$member.avatar.path width=120 title=$member.fullname|default:$member.username gravatar=true email=$member.email}
-                </a>
-                <div class="ia-item-author__content">
-                    <h4 class="ia-item__title"><a href="{ia_url type='url' item='members' data=$member}">{$member.fullname|escape:'html'}</a></h4>
-                    {if $member.biography}
-                        <p class="text-center text-fade-50">{$member.biography|strip_tags|truncate:100:'...':true}</p>
-                    {/if}
-                    {if $member.phone}
-                    <div class="ia-item__additional">
-                        <p><span class="fa fa-phone"></span> {lang key='field_members_phone'}: {$member.phone|escape:'html'}</p>
-                    </div>
-                    {/if}
-                </div>
-                {if $member.facebook || $member.twitter || $member.gplus || $member.linkedin}
-                    <p class="text-center">
-                        {if !empty($member.facebook)}
-                            <a href="{$member.facebook|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>
-                        {/if}
-                        {if !empty($member.twitter)}
-                            <a href="{$member.twitter|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>
-                        {/if}
-                        {if !empty($member.gplus)}
-                            <a href="{$member.gplus|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-google-plus fa-stack-1x fa-inverse"></i></a>
-                        {/if}
-                        {if !empty($member.linkedin)}
-                            <a href="{$member.linkedin|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>
-                        {/if}
-                    </p>
-                {/if}
-            </div>
+            {*<div class="ia-item-author">*}
+                {*<a href="{$smarty.const.IA_URL}profile/?edit" class="btn btn-default btn-sm ia-item-author__edit" title="{lang key='edit'}"><span class="fa fa-pencil"></span></a>*}
+                {*<a class="ia-item-author__image" href="{ia_url type='url' item='members' data=$member}">*}
+                    {*{ia_image file=$member.avatar width=120 title=$member.fullname|default:$member.username gravatar=true email=$member.email}*}
+                {*</a>*}
+                {*<div class="ia-item-author__content">*}
+                    {*<h4 class="ia-item__title"><a href="{ia_url type='url' item='members' data=$member}">{$member.fullname|escape:'html'}</a></h4>*}
+                    {*{if $member.biography}*}
+                        {*<p class="text-center text-fade-50">{$member.biography|strip_tags|truncate:100:'...':true}</p>*}
+                    {*{/if}*}
+                    {*{if $member.phone}*}
+                    {*<div class="ia-item__additional">*}
+                        {*<p><span class="fa fa-phone"></span> {lang key='field_members_phone'}: {$member.phone|escape:'html'}</p>*}
+                    {*</div>*}
+                    {*{/if}*}
+                {*</div>*}
+                {*{if $member.facebook || $member.twitter || $member.gplus || $member.linkedin}*}
+                    {*<p class="text-center">*}
+                        {*{if !empty($member.facebook)}*}
+                            {*<a href="{$member.facebook|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></a>*}
+                        {*{/if}*}
+                        {*{if !empty($member.twitter)}*}
+                            {*<a href="{$member.twitter|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></a>*}
+                        {*{/if}*}
+                        {*{if !empty($member.gplus)}*}
+                            {*<a href="{$member.gplus|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-google-plus fa-stack-1x fa-inverse"></i></a>*}
+                        {*{/if}*}
+                        {*{if !empty($member.linkedin)}*}
+                            {*<a href="{$member.linkedin|escape:'html'}" class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-linkedin fa-stack-1x fa-inverse"></i></a>*}
+                        {*{/if}*}
+                    {*</p>*}
+                {*{/if}*}
+            {*</div>*}
 
             <div class="box box--border">
                 <h4 class="box__caption">{lang key='funds'}</h4>
@@ -57,6 +57,72 @@
             </div>
         </div>
         <div class="col-md-9">
+            <div class="ia-item-author m-b">
+                <div class="row">
+                    <div class="col-md-{if !empty($member.longitude) && !empty($member.latitude)}6{else}12{/if}">
+                        <div class="ia-item-author__content">
+                            <div class="ia-item-author__caption">{lang key='seller'}</div>
+                            <a class="ia-item-author__image" href="{$member.link}">
+                                {ia_image file=$member.avatar type='thumbnail' width=120 title=$member.fullname|default:$member.username gravatar=true email=$member.email}
+                            </a>
+                            <h4 class="ia-item__title"><a href="{$member.link}">{$member.fullname|escape}</a></h4>
+                            <div class="ia-item__additional">
+                                {if !empty($member.phone) || $core.config.autos_callback_request}
+                                    <p>
+                                        {if !empty($member.phone)}
+                                            {lang key='field_members_phone'}: <strong>{$member.phone|escape}</strong>
+                                        {/if}
+                                    </p>
+                                {/if}
+                                {if $member.facebook || $member.twitter || $member.gplus || $member.linkedin}
+                                    <div class="ia-item-author__social">
+                                        {if !empty($member.facebook)}
+                                            <a href="{$member.facebook}" target="_blank"><i class="fa fa-facebook"></i></a>
+                                        {/if}
+                                        {if !empty($member.twitter)}
+                                            <a href="{$member.twitter}" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        {/if}
+                                        {if !empty($member.gplus)}
+                                            <a href="{$member.gplus}" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                        {/if}
+                                        {if !empty($member.linkedin)}
+                                            <a href="{$member.linkedin}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                        {/if}
+                                    </div>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                    {if !empty($member.longitude) && !empty($member.latitude)}
+                        <div class="col-md-6">
+                            <div class="ia-item-author__map">
+                                <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+                                <div id="gmap"></div>
+                                {ia_add_js}
+function init_map() {
+    var myOptions = {
+        zoom: 10,
+        center: new google.maps.LatLng({$member.latitude},{$member.longitude}),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById('gmap'), myOptions);
+
+    marker = new google.maps.Marker({
+        map: map,
+        position: new google.maps.LatLng({$member.latitude},{$member.longitude})
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', init_map);
+                                {/ia_add_js}
+                            </div>
+                        </div>
+                    {/if}
+                </div>
+                {ia_hooker name='smartyViewListingAuthorBlock'}
+            </div>
+
             <div class="alert alert-info">No activities at the moment</div>
         </div>
     </div>

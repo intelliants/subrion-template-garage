@@ -1,30 +1,28 @@
-<div class="container">
-    <div class="newsletters">
-        <div class="alert alert-warning" id="newsletters-msg" style="display:none">
-            <button type="button" class="close">×</button>
-            <span class="msg"></span>
+<div class="newsletters">
+    <div class="alert alert-warning" id="newsletters-msg" style="display:none">
+        <button type="button" class="close">×</button>
+        <span class="msg"></span>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>{lang key='newsletters_caption'}</h4>
+            <p>{lang key='newsletters_content'}</p>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <h4>{lang key='newsletters_caption'}</h4>
-                <p>{lang key='newsletters_content'}</p>
-            </div>
 
-            <div class="col-md-6">
-                <div class="row newsletters__form">
-                    {$column = 8}
-                    {if $core.config.newsletters_block_fullname}
-                        {$column = 4}
-                        <div class="col-md-{$column}">
-                            <input type="text" id="newsletters-name" placeholder="{lang key='name'}" class="form-control">
-                        </div>
-                    {/if}
+        <div class="col-md-6">
+            <div class="row newsletters__form">
+                {$column = 8}
+                {if $core.config.newsletters_block_fullname}
+                    {$column = 4}
                     <div class="col-md-{$column}">
-                        <input type="text" id="newsletters-email" placeholder="{if $core.config.newsletters_block_fullname}{lang key='email'}{else}{lang key='type_your_email'}{/if}" class="form-control">
+                        <input type="text" id="newsletters-name" placeholder="{lang key='name'}" class="form-control">
                     </div>
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-accent btn-block btn-rounded" id="newsletters-subscribe">{lang key="subscribe"}</button>
-                    </div>
+                {/if}
+                <div class="col-md-{$column}">
+                    <input type="text" id="newsletters-email" placeholder="{if $core.config.newsletters_block_fullname}{lang key='email'}{else}{lang key='type_your_email'}{/if}" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <button type="button" class="btn btn-accent btn-block btn-rounded" id="newsletters-subscribe">{lang key="subscribe"}</button>
                 </div>
             </div>
         </div>

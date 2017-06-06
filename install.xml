@@ -84,6 +84,7 @@
         <block status="inactive">blogs_archive</block>
         <block status="inactive">blogroll</block>
         <block status="inactive">latest_comments</block>
+        <block status="inactive">newsline</block>
     </changeset>
 
     <configgroup name="template_garage">Template</configgroup>
@@ -463,6 +464,7 @@
     </blocks>
 
     <phrases>
+        <phrase category="frontend" key="login_sign_up">Login / Sign up</phrase>
         <phrase category="frontend" key="teaser_title"><![CDATA[One stop solution for <strong>buying</strong> & <strong>selling</strong>]]></phrase>
         <phrase category="frontend" key="add_listing">Add listing</phrase>
         <phrase category="frontend" key="sell_a_car">Sell a car</phrase>

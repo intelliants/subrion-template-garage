@@ -131,8 +131,6 @@ google.maps.event.addDomListener(window, 'load', init_map);
                 </div>
             {/if}
         </div>
-
         {ia_hooker name='smartyViewListingAuthorBlock'}
-
     </div>
 {/if}

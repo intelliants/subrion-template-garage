@@ -118,6 +118,10 @@
     .ia-card__content {
       border-color: @brand-accent;
     }
+
+    .ia-card__image {
+      border-color: @brand-accent;
+    }
   }
 
   &--featured {
@@ -131,9 +135,17 @@
       border-color: @brand-primary;
     }
 
+    .ia-card__image {
+      border-color: @brand-primary;
+    }
+
     .ia-card__badge--sponsored {
       right: auto;
       left: 10px;
+
+      .ia-card__image {
+        border-color: @brand-primary;
+      }
 
       @media (min-width: @screen-xs) and (max-width: @screen-md) {
         left: 25px;
