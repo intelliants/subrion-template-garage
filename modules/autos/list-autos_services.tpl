@@ -5,7 +5,7 @@
 
     <a class="ia-item__image" href="{ia_url item='autos_services' data=$listing type='url'}">
         {if !empty($listing.logo)}
-            {ia_image file=$listing.logo title=$listing.title class='img-responsive'}
+            {ia_image file=$listing.logo type='thumbnail' title=$listing.title class='img-responsive'}
         {else}
             <img class="img-responsive" title="{$listing.title}" src="{$img}no-preview.png">
         {/if}

@@ -72,7 +72,7 @@
         <block status="active" header="0" position="landing_tab1" sticky="0" pages="index" title="Featured cars">auto_featured</block>
         <block status="active" header="0" position="landing_tab3" sticky="0" pages="index" title="Recently added">auto_recent</block>
         <block status="active" header="0" position="bottom" title="Seller" order="0">autos_author</block>
-        <block status="active" title="Latest news" position="footer4">latest_news</block>
+        <block status="active" title="Latest news" position="footer4" collapsible="0">latest_news</block>
         <block status="active" collapsed="1" position="bottom">autos_calculator</block>
         <block status="active" collapsible="0" classname="">comments_form</block>
         <block status="inactive">common_statistics</block>
@@ -408,7 +408,6 @@
                header="1"
                collapsible="0"
                sticky="1"
-               status="active"
                type="smarty">
             <![CDATA[
 <div class="ia-items latest-news">
