@@ -35,7 +35,7 @@
             <div class="ia-card__content__right">
                 {if $listing.price}
                     <div class="ia-card__price">
-                        {$core.config.currency} {$listing.price}
+                        {$listing.price_formatted}
                     </div>
                     <div class="ia-card__average-price">
                         {if isset($listing.average_price) && $listing.price !== $listing.average_price && $core.config.autos_display_average_price}
@@ -60,7 +60,7 @@
             </div>
             <div class="ia-card__content__right">
                 {if $listing.exterior_color}
-                    <div class="ia-card__color" style="background-color:{$listing.exterior_color};"></div>
+                    <div class="ia-card__color" style="background-color:{$listing.exterior_color};" title="{lang key="field_autos_exterior_color+{$listing.exterior_color}"}"></div>
                 {/if}
             </div>
         </div>
