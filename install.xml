@@ -156,7 +156,7 @@
             name="max_top_menu_items"
             type="text"
             description="Max number of items in Main Menu"
-            order="3201">6</config>
+            order="3201">9</config>
     <config group="template_garage"
             name="enable_text_logo"
             type="radio"

@@ -2,14 +2,14 @@
     <div class="ia-categories">
         <div class="row ia-cats">
             {foreach $categories as $category}
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="ia-cat">
                         <span class="fa fa-folder-open"></span>
                         <a href="{$core.packages.autos.url}services/{$category.alias}">{$category.title|escape}</a>
                     </div>
                 </div>
 
-                {if $category@iteration % 4 == 0 && !$category@last}
+                {if $category@iteration % 3 == 0 && !$category@last}
                     </div>
                     <div class="row ia-cats">
                 {/if}

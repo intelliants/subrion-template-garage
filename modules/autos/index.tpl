@@ -1,5 +1,5 @@
-{if isset($category)}
-    <div class="page-description">{$category.description}</div>
+{if !empty($model)}
+    <div class="page-description">{$model.description}</div>
 {/if}
 
 {if 'autos_index_member' == $core.page.name}
@@ -9,7 +9,28 @@
 {if !empty($models)}
     {ia_block title={lang key='autos_models'} style='fixed' id='auto_categories'}
         <div class="ia-categories">
-            {include 'ia-categories.tpl' categories=$models item='autos_models' show_amount=true num_columns=$core.config.autos_model_columns}
+
+            {$num_columns = ((isset($core.config.autos_model_columns)) ? $core.config.autos_model_columns : 2)}
+            {$class_names = ['col-md-12', 'col-md-6', 'col-md-4', 'col-md-3']}
+
+            <div class="row ia-cats">
+                {foreach $models as $model}
+                <div class="{$class_names[$num_columns - 1]}">
+                    <div class="ia-cat">
+                        {if !empty($model.icon)}
+                            <img src="{$core.page.nonProtocolUrl}uploads/{$model.icon.path}" alt="{$model.title|escape}">
+                        {/if}
+
+                        <a href="{$model.link}">{$model.title|escape}</a> &mdash; {$model.num|default:0}
+                    </div>
+                </div>
+
+                {if $model@iteration % $num_columns == 0 && !$model@last}
+            </div>
+            <div class="row ia-cats">
+                {/if}
+                {/foreach}
+            </div>
         </div>
     {/ia_block}
 {/if}
@@ -77,7 +98,7 @@
     {ia_print_js files='_IA_URL_modules/autos/js/front/index, _IA_URL_modules/autos/js/front/comparison'}
 
     {navigation aTotal=$pagination.total aTemplate=$pagination.url aItemsPerPage=$pagination.limit aIgnore=true}
-{elseif isset($category.id) && $category.level}
+{elseif isset($model.id) && $model.level}
     <div class="alert alert-info">
         {if 'autos_search' == $core.page.name}
             {lang key='nothing_found'}
@@ -85,8 +106,6 @@
             {lang key='no_listings_to_show'}
         {/if}
     </div>
-{elseif !isset($category.id)}
-    <div class="alert alert-info">
-        {lang key='no_listings_to_show'}
-    </div>
+{elseif !isset($model.id)}
+    <div class="alert alert-info">{lang key='no_listings_to_show'}</div>
 {/if}
