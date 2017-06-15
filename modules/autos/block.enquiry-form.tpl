@@ -1,4 +1,4 @@
-{if isset($author)}
+{if !empty($author)}
 <div class="enquire">
     <div class="enquire__header">
         {lang key='enquire_on_this_car'}
@@ -36,11 +36,10 @@
         </form>
     </div>
 </div>
+
 {ia_add_js}
-$(function()
-{
-    $('#js-enq-car-form').on('submit', function(e)
-    {
+$(function() {
+    $('#js-enq-car-form').on('submit', function(e) {
         e.preventDefault();
 
         var $form = $(this), data = { };
@@ -48,8 +47,7 @@ $(function()
         $form.serializeArray().map(function(x){ data[x.name] = x.value; })
         {*if ('' != data.email_body && '' != data.from_phone) data.email_body+= '\n\nPhone: ' + data.from_phone;*}
 
-    $.post($form.attr('action'), data, function(response)
-        {
+    $.post($form.attr('action'), data, function(response) {
             if (!response.error) $('[type="submit"], input, textarea', $form).prop('disabled', true);
             intelli.notifFloatBox({ msg: response.message, type: response.error ? 'error' : 'success', autohide: true });
         });

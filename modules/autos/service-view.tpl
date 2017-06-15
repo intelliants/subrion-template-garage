@@ -9,7 +9,7 @@
                  data-allowfullscreen="true"
                  data-fit="cover">
                 {foreach $item.pictures as $entry}
-                    <a class="ia-item-view__gallery__item" href="{ia_image file=$entry type='large' url=true}">{ia_image file=$entry type='thumbnail' title=$entry.title}</a>
+                    <a class="ia-item-view__gallery__item" href="{ia_image file=$entry type='large' url=true}">{ia_image file=$entry type='thumbnail'}</a>
                 {/foreach}
             </div>
         </div>

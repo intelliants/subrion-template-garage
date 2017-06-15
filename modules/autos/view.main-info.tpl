@@ -1,28 +1,25 @@
 <div class="ia-item-view ia-item-view--main-info">
     <div class="row">
-        {if !empty($item.pictures)}
-            {ia_add_media files='fotorama'}
-            <div class="col-md-6">
+        <div class="col-md-7">
+            {if !empty($item.pictures)}
+                {ia_add_media files='fotorama'}
                 <div class="ia-item-view__gallery">
                     <div class="fotorama"
                          data-nav="thumbs"
                          data-width="100%"
-                         data-width="100%"
-                         data-ratio="1600/900"
+                         data-ratio="16/9"
                          data-allowfullscreen="true"
                          data-fit="cover">
                         {foreach $item.pictures as $entry}
-                            <a class="ia-item-view__gallery__item" href="{ia_image file=$entry url=true}">{ia_image file=$entry type='large' class='img-responsive'}</a>
+                            <a class="ia-item-view__gallery__item" href="{ia_image file=$entry type='large' url=true}">{ia_image file=$entry type='large' class='img-responsive'}</a>
                         {/foreach}
                     </div>
                 </div>
-            </div>
-        {else}
-            <div class="col-md-6">
+            {else}
                 <img class="img-responsive" title="{$item.title}" src="{$img}no-preview.png">
-            </div>
-        {/if}
-        <div class="col-md-6">
+            {/if}
+        </div>
+        <div class="col-md-5">
             <div class="ia-item-view__info">
                 {if $item.sponsored}<span class="ia-item-view__info__item"><span class="label label-warning">{lang key='sponsored'}</span></span>{/if}
                 {if $item.featured}<span class="ia-item-view__info__item"><span class="label label-info">{lang key='featured'}</span></span>{/if}

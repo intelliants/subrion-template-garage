@@ -4,7 +4,7 @@
             {if $make@iteration <= 10}
                 <a href="{$make.url}" class="make-list__item">
                     <span class="make-list__item__image">
-                        <img src="{$core.page.nonProtocolUrl}uploads/{$make.icon.path}" alt="{$make.title|escape}">
+                        {ia_image file=$make.icon type='large' title=$make.title|escape}
                     </span>
 
                     <span class="make-list__item__title">
