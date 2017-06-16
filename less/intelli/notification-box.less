@@ -4,6 +4,26 @@
 // intelli.js - notifFloatBox
 // --------------------------------------------------
 
+@keyframes notification-slide-up {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: -100px;
+  }
+}
+
+@keyframes notification-slide-down {
+  from {
+    top: -100px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
 .notifFloatBox {
   position: fixed;
   left: 0;
@@ -14,6 +34,13 @@
   display: none;
   background: @brand-info;
   color: #fff;
+  width: 100%;
+  padding: 20px;
+
+  &.animated {
+    animation-name: notification-slide-down;
+    animation-duration: .3s;
+  }
   
   ul {
     list-style-type: none;
@@ -39,14 +66,5 @@
 
   &--error {
     background: @brand-danger;
-  }
-
-  @media (min-width: @grid-float-breakpoint) {
-    left: auto;
-    right: 20px;
-    top: 20px;
-    max-width: 300px;
-    padding: 20px;
-    border-radius: 4px;
   }
 }
