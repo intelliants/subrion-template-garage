@@ -62,16 +62,13 @@
                                                     <input type="hidden" name="title" value="{$core.page.title|escape}">
                                                 </form>
                                                 {ia_add_js}
-$(function()
-{
-    $('#js-enq-callback-form').on('submit', function(e)
-    {
+$(function() {
+    $('#js-enq-callback-form').on('submit', function(e) {
         e.preventDefault();
 
         var $form = $(this);
 
-        $.post($form.attr('action'), $form.serialize(), function(response)
-        {
+        $.post($form.attr('action'), $form.serialize(), function(response) {
             if (!response.error) $('button, input, textarea, select', $form).prop('disabled', true);
             intelli.notifFloatBox({ msg: response.message, type: response.error ? 'error' : 'success', autohide: true });
         });

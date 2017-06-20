@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <module type="template" name="garage">
     <title>Garage</title>
-    <summary>Template for Subrion Autos Script</summary>
+    <summary>Template for Subrion Autos Classifieds Script</summary>
     <author>Gleb Surinov</author>
     <contributor>Intelliants LLC</contributor>
     <version>1.0.0</version>
-    <date>2017-03-01</date>
+    <date>2017-06-20</date>
     <compatibility>4.1</compatibility>
 
     <dependency type="package" exist="1">autos</dependency>

@@ -49,16 +49,14 @@
 
 {ia_add_js}
     $(function() {
-        $('.js-q-search-range-slider').ionRangeSlider(
-        {
+        $('.js-q-search-range-slider').ionRangeSlider({
             type: 'double',
             force_edges: true,
             min: 0,
             max: {if $max_auto_price}{$max_auto_price}{else}0{/if},
             from: 0,
             to: {if $max_auto_price}{$max_auto_price}{else}0{/if},
-            onFinish: function(data)
-            {
+            onFinish: function(data) {
                 $('input[name="price[f]"]').val(data.from);
                 $('input[name="price[t]"]').val(data.to);
             }
@@ -67,16 +65,13 @@
         var $form = $('.q-search'),
         buttonText = $form.find('button').html();
 
-        $form.change(function()
-        {
+        $form.change(function() {
             var $this = $(this);
 
-            $.post(intelli.config.ia_url + 'autos.json', { data: $form.serialize(), action: 'quicksearch_total' }).done(function(response)
-            {
+            $.post(intelli.config.ia_url + 'autos.json', { data: $form.serialize(), action: 'quicksearch_total' }).done(function(response) {
                 var count = 0;
 
-                if (typeof response.count !== 'boolean' || typeof response.count !== 'undefined')
-                {
+                if (typeof response.count !== 'boolean' || typeof response.count !== 'undefined') {
                     count = response.count;
                 }
 
