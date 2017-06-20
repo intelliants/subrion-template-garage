@@ -139,7 +139,14 @@
 
                 <div class="collapse navbar-collapse" id="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right nav-action">
-                        <li><a href="{$core.packages.autos.url}add/">{lang key='add_listing'}</a></li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" href="{$core.packages.autos.url}add/">{lang key='add'} <span class="fa fa-plus"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{$core.packages.autos.url}add/">{lang key='add_listing'}</a></li>
+                                <li><a href="{$core.packages.autos.url}service/add/">{lang key='add_service'}</a></li>
+                                <li><a href="{$core.packages.autos.url}part/add/">{lang key='add_part'}</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     {ia_blocks block='mainmenu'}
                 </div>
