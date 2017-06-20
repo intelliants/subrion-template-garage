@@ -96,7 +96,7 @@
     </head>
 
     <body class="page-{$core.page.name}">
-        <div class="inventory">
+        <div class="inventory {if 'index' != $core.page.name}inventory--inner{/if}">
             <div class="container">
                 {if $core.config.website_social}
                     <ul class="nav-inventory nav-inventory-social pull-left hidden-xs">
