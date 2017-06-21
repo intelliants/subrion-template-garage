@@ -201,6 +201,14 @@
                     <h1 class="page-title">{$core.page.title}</h1>
                     {ia_hooker name='smartyFrontBeforeBreadcrumb'}
                     {include 'breadcrumb.tpl'}
+
+                    {if isset($core.page.info.actions)}
+                        <div class="action-buttons">
+                            {section action $core.page.info.actions max=2}
+                                <a href="{$core.page.info.actions[action].url}"><span class="fa fa-{$core.page.info.actions[action].icon}"></span> {$core.page.info.actions[action].title}</a> 
+                            {/section}
+                        </div>
+                    {/if}
                 </div>
             </header>
             {if in_array($core.page.name, ['autos_index', 'search_autos']) && isset($iaBlocks.quicksearch)}
@@ -368,7 +376,7 @@
 
                                         {if 'index' == $core.page.name}
                                             <div class="content__header">
-                                                <h1>{$core.page.title}</h1>
+                                                <h1>{$core.page.title|escape}</h1>
                                             </div>
                                         {/if}
 
