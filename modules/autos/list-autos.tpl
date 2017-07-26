@@ -66,4 +66,4 @@
         </div>
     </div>
 </div>
-
+{ia_print_js files='_IA_URL_modules/autos/js/front/comparison'}
