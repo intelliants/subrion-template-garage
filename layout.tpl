@@ -108,7 +108,7 @@
                 {/if}
                 {ia_blocks block='account'}
                 <ul class="nav-inventory pull-right hidden-xs">
-                    <li><a href="{$smarty.const.IA_URL}comparison/"><i class="nav-inventory__icon material-icons">compare_arrows</i> {lang key='compare'}</a></li>
+                    <li><a href="{$core.packages.autos.url}comparison/"><i class="nav-inventory__icon material-icons">compare_arrows</i> {lang key='compare'}</a></li>
                     <li><a href="{$smarty.const.IA_URL}favorites/"><i class="nav-inventory__icon material-icons">star</i> {lang key='wishlist'}</a></li>
                 </ul>
                 {include 'language-selector.tpl'}
