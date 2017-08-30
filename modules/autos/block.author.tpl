@@ -33,6 +33,7 @@
                                         <div class="modal-body">
                                             <div class="container-fluid">
                                                 <form action="{$core.packages.autos.url}system.json" method="post" id="js-enq-callback-form">
+                                                    {preventCsrf}
                                                     <div class="form-group">
                                                         <label for="request_time">{lang key='best_time'}</label>
                                                         <select class="form-control" name="best_time" id="request_time">

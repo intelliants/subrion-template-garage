@@ -48,35 +48,35 @@
 {ia_add_media files='js:_IA_URL_modules/autos/js/front/search, js:_IA_TPL_ion.rangeSlider.min, css:ion.rangeSlider'}
 
 {ia_add_js}
-    $(function() {
-        $('.js-q-search-range-slider').ionRangeSlider({
-            type: 'double',
-            force_edges: true,
-            min: 0,
-            max: {if $max_auto_price}{$max_auto_price}{else}0{/if},
-            from: 0,
-            to: {if $max_auto_price}{$max_auto_price}{else}0{/if},
-            onFinish: function(data) {
-                $('input[name="price[f]"]').val(data.from);
-                $('input[name="price[t]"]').val(data.to);
+$(function() {
+    $('.js-q-search-range-slider').ionRangeSlider({
+        type: 'double',
+        force_edges: true,
+        min: 0,
+        max: {if $max_auto_price}{$max_auto_price}{else}0{/if},
+        from: 0,
+        to: {if $max_auto_price}{$max_auto_price}{else}0{/if},
+        onFinish: function(data) {
+            $('input[name="price[f]"]').val(data.from);
+            $('input[name="price[t]"]').val(data.to);
+        }
+    });
+
+    var $form = $('.q-search'),
+    buttonText = $form.find('button').html();
+
+    $form.change(function() {
+        var $this = $(this);
+
+        intelli.post(intelli.config.ia_url + 'autos.json', { data: $form.serialize(), action: 'quicksearch_total' }).done(function(response) {
+            var count = 0;
+
+            if (typeof response.count !== 'boolean' || typeof response.count !== 'undefined') {
+                count = response.count;
             }
-        });
 
-        var $form = $('.q-search'),
-        buttonText = $form.find('button').html();
-
-        $form.change(function() {
-            var $this = $(this);
-
-            $.post(intelli.config.ia_url + 'autos.json', { data: $form.serialize(), action: 'quicksearch_total' }).done(function(response) {
-                var count = 0;
-
-                if (typeof response.count !== 'boolean' || typeof response.count !== 'undefined') {
-                    count = response.count;
-                }
-
-                $this.find('button').html(buttonText + ' (' + count + ')');
-            });
+            $this.find('button').html(buttonText + ' (' + count + ')');
         });
     });
+});
 {/ia_add_js}

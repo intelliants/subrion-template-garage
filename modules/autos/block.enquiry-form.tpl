@@ -5,6 +5,7 @@
     </div>
     <div class="enquire__content">
         <form action="{$core.packages.autos.url}system.json" method="post" id="js-enq-car-form">
+            {preventCsrf}
             <p class="enquire__info">{lang key='enquire_top_text'}</p>
             <div class="form-group">
                 <input type="text" id="from-name" name="from_name" class="form-control" placeholder="{lang key='your_name'}">
@@ -47,7 +48,7 @@ $(function() {
         $form.serializeArray().map(function(x){ data[x.name] = x.value; })
         {*if ('' != data.email_body && '' != data.from_phone) data.email_body+= '\n\nPhone: ' + data.from_phone;*}
 
-    $.post($form.attr('action'), data, function(response) {
+        $.post($form.attr('action'), data, function(response) {
             if (!response.error) $('[type="submit"], input, textarea', $form).prop('disabled', true);
             intelli.notifFloatBox({ msg: response.message, type: response.error ? 'error' : 'success', autohide: true });
         });
