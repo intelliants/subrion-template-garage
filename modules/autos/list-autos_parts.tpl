@@ -1,13 +1,13 @@
 <div class="ia-item ia-item--border ia-item--{$listing.status} {if $listing.featured}ia-item--featured{/if} {if $listing.sponsored}ia-item--sponsored{/if}">
     <div class="ia-item__actions">
-        {printFavorites item=$listing itemtype='autos_parts' guests=true}
+        {printFavorites item=$listing guests=true}
     </div>
 
-    <a class="ia-item__image" href="{ia_url item='autos_parts' data=$listing type='url'}">
+    <a class="ia-item__image" href="{$listing.link}">
         {if !empty($listing.pictures)}
             {ia_image file=$listing.pictures[0] type='thumbnail' title=$listing.title class='img-responsive'}
         {else}
-            <img class="img-responsive" title="{$listing.title}" src="{$img}no-preview.png">
+            <img class="img-responsive" title="{$listing.titl|escape}" src="{$img}no-preview.png">
         {/if}
     </a>
 
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="ia-item__price">{$core.config.currency} {$listing.price}</div>
+                <div class="ia-item__price">{$listing.price_formatted}</div>
             </div>
         </div>
 

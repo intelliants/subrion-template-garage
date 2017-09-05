@@ -14,7 +14,7 @@
                 <ul class="dropdown-menu js-autos-sorting-options">
                     <li><a href="#" data-field="title"><span class="fa fa-font"></span> {lang key='title'}</a></li>
                     <li><a href="#" data-field="price"><span class="fa fa-dollar"></span> {lang key='price'}</a></li>
-                    <li><a href="#" data-field="year"><span class="fa fa-calendar"></span> {lang key='field_autos_release_year'}</a></li>
+                    <li><a href="#" data-field="year"><span class="fa fa-calendar"></span> {lang key='field_auto_release_year'}</a></li>
                     <li><a href="#" data-field="date"><span class="fa fa-clock-o"></span> {lang key='date'}</a></li>
                 </ul>
             </div>
@@ -36,8 +36,7 @@
 </div>
 
 {ia_add_js}
-$(function()
-{
+$(function() {
     $('.js-autos-sorting-options a').on('click', function(e) {
         e.preventDefault();
 

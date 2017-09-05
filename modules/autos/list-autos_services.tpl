@@ -1,9 +1,9 @@
 <div class="ia-item ia-item--border ia-item--{$listing.status} {if $listing.featured}ia-item--featured{/if} {if $listing.sponsored}ia-item--sponsored{/if}">
     <div class="ia-item__actions">
-        {printFavorites item=$listing itemtype='autos_services' guests=true}
+        {printFavorites item=$listing guests=true}
     </div>
 
-    <a class="ia-item__image" href="{ia_url item='autos_services' data=$listing type='url'}">
+    <a class="ia-item__image" href="{$listing.link}">
         {if !empty($listing.logo)}
             {ia_image file=$listing.logo type='thumbnail' title=$listing.title class='img-responsive'}
         {else}
@@ -29,7 +29,7 @@
             <p><span class="fa fa-briefcase"></span>
                 {$services = explode(',', $listing.categories)}
                 {foreach $services as $service}
-                    {lang key="field_autos_services_categories+{$service}"}{if !$service@last}, {/if}
+                    {lang key="field_autos_service_categories+{$service}"}{if !$service@last}, {/if}
                 {/foreach}
             </p>
             {if isset($listing.company_phone) && $listing.company_phone}

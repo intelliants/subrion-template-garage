@@ -127,7 +127,7 @@ $(function()
                     <div class="modal-dialog" role="document"><div class="modal-content"></div></div>
                 </div>
                 {if isset($regular)}
-                    <a href="#" class="" id="js-cmd-save-search">
+                    <a href="#" id="js-cmd-save-search">
                         <span class="fa fa-search-plus"></span>
                         {lang key='save_this_search'}
                     </a>

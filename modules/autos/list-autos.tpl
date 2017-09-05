@@ -1,5 +1,5 @@
 <div class="ia-card {if 'hidden' == $listing.status}ia-card--hidden{/if} {if $listing.featured}ia-card--featured{/if} {if $listing.sponsored}ia-card--sponsored{/if}">
-    {printFavorites item=$listing itemtype='autos' guests=true}
+    {printFavorites item=$listing guests=true}
 
     {if 'favorites' != $core.page.name}
         <a href="#" title="{lang key='add_to_compare'}" data-id="{$listing.id}" class="ia-card__action ia-card__action--compare btn-compare{if ($listing.compare)} active btn-compare--added{/if}">
@@ -60,7 +60,7 @@
             </div>
             <div class="ia-card__content__right">
                 {if $listing.exterior_color}
-                    <div class="ia-card__color" style="background-color:{$listing.exterior_color};" title="{lang key="field_autos_exterior_color+{$listing.exterior_color}"}"></div>
+                    <div class="ia-card__color" style="background-color:{$listing.exterior_color};" title="{lang key="field_auto_exterior_color+{$listing.exterior_color}"}"></div>
                 {/if}
             </div>
         </div>

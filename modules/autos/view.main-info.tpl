@@ -16,7 +16,7 @@
                     </div>
                 </div>
             {else}
-                <img class="img-responsive" title="{$item.title}" src="{$img}no-preview.png">
+                <img class="img-responsive" title="{$item.title|escape}" src="{$img}no-preview.png">
             {/if}
         </div>
         <div class="col-md-5">
@@ -41,7 +41,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <div class="ia-item-view__title">{$core.page.title}</div>
+                    <div class="ia-item-view__title">{$core.page.title|escape}</div>
                 </div>
                 <div class="col-sm-3">
                     <div class="ia-item-view__price">
@@ -65,87 +65,87 @@
                         <table>
                             <tbody>
                             <tr>
-                                <td>{lang key='field_autos_condition'}</td>
-                                <td><a href="{$searchPageUrl}condition:{$item.condition}/">{lang key="field_autos_condition+{$item.condition}"}</a></td>
+                                <td>{lang key='field_auto_condition'}</td>
+                                <td><a href="{$searchPageUrl}condition:{$item.condition}/">{lang key="field_auto_condition+{$item.condition}"}</a></td>
                             </tr>
                             {if !empty($item.mileage)}
                                 <tr>
-                                    <td>{lang key='field_autos_mileage'}</td>
+                                    <td>{lang key='field_auto_mileage'}</td>
                                     <td>{$item.mileage}</td>
                                 </tr>
                             {/if}
                             <tr>
-                                <td>{lang key='field_autos_engine'}</td>
+                                <td>{lang key='field_auto_engine'}</td>
                                 <td>
-                                    {if !empty($item.engine_type)}{lang key="field_autos_engine_type+{$item.engine_type}"}{/if}{if !empty($item.engine_size)}{$item.engine_size|escape} / {/if}
-                                    {if !empty($item.engine)}{lang key="field_autos_engine+{$item.engine}"}{/if}
+                                    {if !empty($item.engine_type)}{lang key="field_auto_engine_type+{$item.engine_type}"}{/if}{if !empty($item.engine_size)}{$item.engine_size|escape} / {/if}
+                                    {if !empty($item.engine)}{lang key="field_auto_engine+{$item.engine}"}{/if}
                                 </td>
                             </tr>
                             {if !empty($item.horse_power)}
                                 <tr>
-                                    <td>{lang key='field_autos_horse_power'}</td>
+                                    <td>{lang key='field_auto_horse_power'}</td>
                                     <td>{$item.horse_power|escape}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.transmission)}
                                 <tr>
-                                    <td>{lang key='field_autos_transmission'}</td>
-                                    <td>{lang key="field_autos_transmission+{$item.transmission}"}</td>
+                                    <td>{lang key='field_auto_transmission'}</td>
+                                    <td>{lang key="field_auto_transmission+{$item.transmission}"}</td>
                                 </tr>
                             {/if}
                             <tr>
-                                <td>{lang key='field_autos_body_type'}</td>
-                                <td><a href="{$searchPageUrl}body:{$item.body_type}/">{lang key="field_autos_body_type+{$item.body_type}"}</a></td>
+                                <td>{lang key='field_auto_body_type'}</td>
+                                <td><a href="{$searchPageUrl}body:{$item.body_type}/">{lang key="field_auto_body_type+{$item.body_type}"}</a></td>
                             </tr>
                             {if !empty($item.exterior_color)}
                                 <tr>
-                                    <td>{lang key='field_autos_exterior_color'}</td>
-                                    <td>{lang key="field_autos_exterior_color+{$item.exterior_color}"}</td>
+                                    <td>{lang key='field_auto_exterior_color'}</td>
+                                    <td>{lang key="field_auto_exterior_color+{$item.exterior_color}"}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.door_count)}
                                 <tr>
-                                    <td>{lang key='field_autos_door_count'}</td>
-                                    <td>{lang key="field_autos_door_count+{$item.door_count}"}</td>
+                                    <td>{lang key='field_auto_door_count'}</td>
+                                    <td>{lang key="field_auto_door_count+{$item.door_count}"}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.metallic)}
                                 <tr>
-                                    <td>{lang key='field_autos_metallic'}</td>
-                                    <td>{lang key="field_autos_metallic+{$item.metallic}"}</td>
+                                    <td>{lang key='field_auto_metallic'}</td>
+                                    <td>{lang key="field_auto_metallic+{$item.metallic}"}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.interior_color)}
                                 <tr>
-                                    <td>{lang key='field_autos_interior_color'}</td>
-                                    <td>{lang key="field_autos_interior_color+{$item.interior_color}"}</td>
+                                    <td>{lang key='field_auto_interior_color'}</td>
+                                    <td>{lang key="field_auto_interior_color+{$item.interior_color}"}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.interior_leather)}
                                 <tr>
-                                    <td>{lang key='field_autos_interior_leather'}</td>
-                                    <td>{lang key="field_autos_interior_leather+{$item.interior_leather}"}</td>
+                                    <td>{lang key='field_auto_interior_leather'}</td>
+                                    <td>{lang key="field_auto_interior_leather+{$item.interior_leather}"}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.drive_type)}
                                 <tr>
-                                    <td>{lang key='field_autos_drive_type'}</td>
-                                    <td>{lang key="field_autos_drive_type+{$item.drive_type}"}</td>
+                                    <td>{lang key='field_auto_drive_type'}</td>
+                                    <td>{lang key="field_auto_drive_type+{$item.drive_type}"}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.vin_code)}
                                 <tr>
-                                    <td>{lang key='field_autos_vin_code'}</td>
+                                    <td>{lang key='field_auto_vin_code'}</td>
                                     <td>{$item.vin_code|escape}</td>
                                 </tr>
                             {/if}
                             {if !empty($item.fuel_type)}
                                 <tr>
-                                    <td>{lang key='field_autos_fuel_type'}</td>
+                                    <td>{lang key='field_auto_fuel_type'}</td>
                                     <td>
                                         {assign fuel explode(',', $item.fuel_type)}
                                         {foreach $fuel as $one}
-                                            {lang key="field_autos_fuel_type+{$one}"}{if !$one@last}, {/if}
+                                            {lang key="field_auto_fuel_type+{$one}"}{if !$one@last}, {/if}
                                         {/foreach}
                                     </td>
                                 </tr>

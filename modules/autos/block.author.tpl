@@ -11,58 +11,55 @@
                     <div class="ia-item__additional">
                         <p>{lang key='cars_in_garage'}: <strong>{$author.autos_num|string_format:'%d'}</strong></p>
 
-                        {if !empty($author.phone) || $core.config.autos_callback_request}
+                        {if !empty($author.phone)}
                             <p>
                                 {if !empty($author.phone)}
-                                    {lang key='field_members_phone'}: <strong>{$author.phone|escape}</strong>
+                                    {lang key='field_member_phone'}: <strong>{$author.phone|escape}</strong>
                                 {/if}
-                                {if $core.config.autos_callback_request}
-                                    <a class="request-toggle js-request-toggle" href="#" data-toggle="modal" data-target="#callbackModal">{lang key='request_callback'}</a>
-                                {/if}
+                                <a class="request-toggle js-request-toggle" href="#" data-toggle="modal" data-target="#callbackModal">{lang key='request_callback'}</a>
                             </p>
                         {/if}
 
-                        {if $core.config.autos_callback_request}
-                            <div class="modal fade" id="callbackModal">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="{lang key='close'}"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">{lang key='request_callback'}</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container-fluid">
-                                                <form action="{$core.packages.autos.url}system.json" method="post" id="js-enq-callback-form">
-                                                    {preventCsrf}
-                                                    <div class="form-group">
-                                                        <label for="request_time">{lang key='best_time'}</label>
-                                                        <select class="form-control" name="best_time" id="request_time">
-                                                            <option>{lang key='morning'}</option>
-                                                            <option>{lang key='evening'}</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" name="phone" class="form-control" maxlength="20" placeholder="{lang key='your_phone'}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea name="comment" class="form-control" rows="4" placeholder="{lang key='your_comments'}"></textarea>
-                                                    </div>
+                        <div class="modal fade" id="callbackModal">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="{lang key='close'}"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">{lang key='request_callback'}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <form action="{$core.packages.autos.url}system.json" method="post" id="js-enq-callback-form">
+                                                {preventCsrf}
+                                                <div class="form-group">
+                                                    <label for="request_time">{lang key='best_time'}</label>
+                                                    <select class="form-control" name="best_time" id="request_time">
+                                                        <option>{lang key='morning'}</option>
+                                                        <option>{lang key='evening'}</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="phone" class="form-control" maxlength="20" placeholder="{lang key='your_phone'}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea name="comment" class="form-control" rows="4" placeholder="{lang key='your_comments'}"></textarea>
+                                                </div>
 
-                                                    {if !$member}
-                                                        <div class="form-group m-t">
-                                                            <div class="captcha">
-                                                                {captcha}
-                                                            </div>
+                                                {if !$member}
+                                                    <div class="form-group m-t">
+                                                        <div class="captcha">
+                                                            {captcha}
                                                         </div>
-                                                    {/if}
+                                                    </div>
+                                                {/if}
 
-                                                    <button class="btn btn-primary btn-block" type="submit">{lang key='send_request'}</button>
+                                                <button class="btn btn-primary btn-block" type="submit">{lang key='send_request'}</button>
 
-                                                    <input type="hidden" name="action" value="callback-request">
-                                                    <input type="hidden" name="author" value="{$author.id}">
-                                                    <input type="hidden" name="title" value="{$core.page.title|escape}">
-                                                </form>
-                                                {ia_add_js}
+                                                <input type="hidden" name="action" value="callback-request">
+                                                <input type="hidden" name="author" value="{$author.id}">
+                                                <input type="hidden" name="title" value="{$core.page.title|escape}">
+                                            </form>
+                                            {ia_add_js}
 $(function() {
     $('#js-enq-callback-form').on('submit', function(e) {
         e.preventDefault();
@@ -75,13 +72,12 @@ $(function() {
         });
     });
 });
-                                                {/ia_add_js}
-                                            </div>
+                                            {/ia_add_js}
                                         </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
-                        {/if}
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
 
                         {if $author.facebook || $author.twitter || $author.gplus || $author.linkedin}
                             <div class="ia-item-author__social">

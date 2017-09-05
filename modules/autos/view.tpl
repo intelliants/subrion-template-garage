@@ -1,7 +1,7 @@
 <div class="ia-item-view">
     {if !empty($item.additional_info)}
         <div class="ia-item-view__section">
-            <h3>{lang key='field_autos_additional_info'}</h3>
+            <h3>{lang key='field_auto_additional_info'}</h3>
             {$item.additional_info|escape|nl2br}
         </div>
     {/if}
@@ -13,7 +13,7 @@
                 <div class="row">
                     {foreach explode(',', $item.options_features) as $opt}
                         <div class="col-md-6">
-                            <div class="ia-item-view__features__item"><span class="fa fa-check-circle-o"></span> {lang key="field_autos_options_features+{$opt}"}</div>
+                            <div class="ia-item-view__features__item"><span class="fa fa-check-circle-o"></span> {lang key="field_auto_options_features+{$opt}"}</div>
                         </div>
                     {/foreach}
                 </div>

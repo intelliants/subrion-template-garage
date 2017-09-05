@@ -15,7 +15,7 @@
         </div>
         <div class="q-search__col q-search__col--body-type">
             <select class="form-control" name="body">
-                <option value="">{lang key='field_autos_body_type'}</option>
+                <option value="">{lang key='field_auto_body_type'}</option>
                 {foreach $car_blocks_data.search.body_types as $key => $value}
                     <option value="{$key}"{if isset($smarty.get.body) && $smarty.get.body == $key} selected{/if}>{$value}</option>
                 {/foreach}
